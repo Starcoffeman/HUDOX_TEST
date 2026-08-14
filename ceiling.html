@@ -1,0 +1,2348 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      Потолочные акустические решения Hubox — баффлы и дизайн-система
+    </title>
+    <meta
+      name="description"
+      content="Потолочные акустические решения Hubox: вертикальные и горизонтальные баффлы, парящие стены, система Армстронг. Собственное производство от 3 дней, более 30 цветов, гибкая персонализация."
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="any"
+      href="assets/misc-home/123.svg"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- CSS главной страницы: база, шапка, мобильное меню -->
+    <link rel="stylesheet" href="css/home/base.css" />
+    <link rel="stylesheet" href="css/home/01-header.css" />
+    <link rel="stylesheet" href="css/home/02-mobile-menu.css" />
+    <link rel="stylesheet" href="css/home/24-sticky-header-hide.css" />
+    <!-- Общие стили других страниц -->
+    <link rel="stylesheet" href="css/styles.css?v=2" />
+    <link rel="stylesheet" href="css/ceiling.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/styles.css?v=2" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/fetr.css?v=2" />
+    <link rel="stylesheet" href="css/designers.css" />
+    <link rel="stylesheet" href="css/seiling.css" />
+
+    <!-- Хедер и мобильное меню: ПЕРЕД main.js, чтобы HB.init* были зарегистрированы до boot() -->
+    <script src="js/home/01-header.js"></script>
+    <script src="js/home/02-mobile-menu.js"></script>
+    <script src="js/home/24-sticky-header-hide.js"></script>
+    <!-- без defer: масштаб макета должен примениться до первой отрисовки -->
+    <script src="js/home/main.js"></script>
+      <style>
+      /* ===== MAIN WRAPPER ===== */
+      .ceil-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap, 10px);
+        padding-top: 6px !important;
+        padding-bottom: var(--gap, 10px);
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* ===== HERO 2 BLOCKS GRID ===== */
+      .hero-two-blocks-wrapper {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        align-items: stretch !important;
+        gap: 6px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Both cards strictly locked to equal height, NO rounded corners */
+      .hero-two-blocks-wrapper .hero-block-card,
+      .hero-two-blocks-wrapper .living-slider-wrapper,
+      .hero-two-blocks-wrapper .card-showroom-blue {
+        height: clamp(360px, 34vw, 600px) !important;
+        min-height: clamp(360px, 34vw, 600px) !important;
+        max-height: clamp(360px, 34vw, 600px) !important;
+        border-radius: 0 !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Left Card (Slider) */
+      .hero-two-blocks-wrapper .living-slider-wrapper {
+        position: relative !important;
+        background: #1a1a1a !important;
+        border-radius: 0 !important;
+      }
+
+      .living-slider-wrapper .living-slider-container,
+      .living-slider-wrapper .slider-container {
+        position: absolute !important;
+        inset: 0 !important;
+        z-index: 1 !important;
+      }
+
+      .living-slider-wrapper .slide {
+        position: absolute !important;
+        inset: 0 !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;  
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .living-slider-wrapper .slide.active {
+        opacity: 1;
+      }
+
+      /* "Сделано в России" badge bottom-left - smaller size */
+      .living-slider-wrapper .made-in-russia {
+        position: absolute !important;
+        left: clamp(12px, 1.5vw, 22px) !important;
+        bottom: clamp(12px, 1.5vw, 22px) !important;
+        z-index: 20 !important;
+        display: flex !important;
+        align-items: center !important;
+        pointer-events: none !important;
+      }
+
+      .living-slider-wrapper .img-made-in {
+        width: clamp(60px, 5vw, 95px) !important;
+        height: auto !important;
+        display: block !important;
+      }
+
+      /* Progress bar top edge */
+      .living-slider-wrapper .slider-progress-container,
+      .living-slider-wrapper .slider-progress-mini {
+        position: absolute !important;
+        top: clamp(10px, 1.2vw, 18px) !important;
+        bottom: auto !important;
+        left: clamp(12px, 1.5vw, 22px) !important;
+        right: clamp(12px, 1.5vw, 22px) !important;
+        display: flex !important;
+        gap: 6px !important;
+        z-index: 20 !important;
+        width: auto !important;
+        box-sizing: border-box !important;
+      }
+
+      .living-slider-wrapper .progress-segment {
+        flex: 1 1 0% !important;
+        min-width: 0 !important;
+        height: 2px !important;
+        background: rgba(255, 255, 255, 0.35) !important;
+        border-radius: 2px !important;
+        overflow: hidden !important;
+        cursor: pointer !important;
+        display: block !important;
+      }
+
+      .living-slider-wrapper .progress-fill {
+        display: block !important;
+        height: 100% !important;
+        width: 0% !important;
+        background: #ffffff !important;
+        border-radius: 2px !important;
+        transform-origin: left center !important;
+      }
+
+      /* Right Card (Blue Card) */
+      .hero-two-blocks-wrapper .card-showroom-blue {
+        background-color: #cae0f1 !important;
+        border-radius: 0 !important;
+        padding: clamp(16px, 2vw, 28px) clamp(24px, 3.2vw, 48px) clamp(20px, 2.5vw, 36px) clamp(16px, 2vw, 28px) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+      }
+
+      .card-showroom-blue .showroom-card-top {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card-showroom-blue .showroom-card-title {
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        font-size: clamp(26px, 3.8vw, 58px) !important;
+        line-height: 0.92 !important;
+        font-weight: 500 !important;
+        color: #4c5262 !important;
+        letter-spacing: -0.02em !important;
+        margin: 0 0 clamp(8px, 1vw, 14px) 0 !important;
+        text-transform: lowercase !important;
+      }
+
+      .card-showroom-blue .showroom-card-sub {
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: clamp(11px, 0.85vw, 15px) !important;
+        color: #4c5262 !important;
+        text-transform: lowercase !important;
+        opacity: 0.8 !important;
+        margin: 0 !important;
+        letter-spacing: -0.01em !important;
+      }
+
+      .card-showroom-blue .showroom-card-bottom {
+        margin-top: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+      }
+
+      .card-showroom-blue .showroom-card-text {
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: clamp(11px, 0.8vw, 14.5px) !important;
+        line-height: 1.55 !important;
+        color: #4c5262 !important;
+        text-transform: lowercase !important;
+        max-width: 440px !important;
+        opacity: 0.85 !important;
+        margin: 0 0 clamp(16px, 1.8vw, 26px) 0 !important;
+        letter-spacing: -0.01em !important;
+      }
+
+      .card-showroom-blue .btn-calculate-dark {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: clamp(38px, 2.8vw, 48px) !important;
+        padding: 0 clamp(22px, 2vw, 36px) !important;
+        background: #4c5262 !important;
+        color: #ffffff !important;
+        border-radius: 52px !important;
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: clamp(11px, 0.8vw, 14.5px) !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        transition: background 0.2s ease, transform 0.2s ease !important;
+        cursor: pointer !important;
+        white-space: nowrap !important;
+      }
+
+      .card-showroom-blue .btn-calculate-dark:hover {
+        background: var(--orange, #fa4616) !important;
+        transform: translateY(-2px) !important;
+      }
+
+      @media (max-width: 768px) {
+        .hero-two-blocks-wrapper {
+          grid-template-columns: 1fr;
+        }
+        .hero-two-blocks-wrapper .living-slider-wrapper,
+        .hero-two-blocks-wrapper .card-showroom-blue {
+          height: auto;
+          min-height: 360px;
+        }
+      }
+
+      /* ===== СОБСТВЕННОЕ ПРОИЗВОДСТВО ===== */
+      .ceil-production {
+        display: flex !important;
+        align-items: stretch !important;
+        justify-content: space-between !important;
+        background: #ffffff !important;
+        border-radius: 0 !important;
+        padding: clamp(18px, 2.2vw, 32px) clamp(20px, 2.5vw, 36px) !important;
+        min-height: clamp(500px, 30vw, 700px) !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        width: 100% !important;
+        position: relative !important;
+      }
+
+      .ceil-production-text {
+        flex: 0 0 58% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        max-width: 460px !important;
+        z-index: 2 !important;
+        position: relative !important;
+      }
+
+      .ceil-production-text h2,
+      .ceil-production-title {
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        color: #4c5262 !important;
+        font-size: clamp(18px, 2vw, 32px) !important;
+        font-weight: 500 !important;
+        line-height: 1.1 !important;
+        letter-spacing: -0.02em !important;
+        margin: 0 0 clamp(20px, 0.4vw, 40px) 0 !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-production-desc {
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: clamp(10px, 0.7vw, 12.5px) !important;
+        line-height: 1.5 !important;
+        color: #6b7280 !important;
+        max-width: 380px !important;
+        margin: 0 !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-production-text .ceil-production-formula,
+      .ceil-production-formula {
+        margin-top: auto !important;
+        padding-top: clamp(12px, 1.5vw, 24px) !important;
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        color: #fa4616 !important;
+        font-size: clamp(13px, 1.3vw, 22px) !important;
+        font-weight: 500 !important;
+        letter-spacing: -0.01em !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-production-photo {
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        height: 100% !important;
+        min-height: 100% !important;
+        max-height: 100% !important;
+        width: 48% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+        overflow: hidden !important;
+        z-index: 1 !important;
+      }
+
+      .ceil-production-photo img {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 100% !important;
+        max-height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      @media (max-width: 768px) {
+        .ceil-production {
+          flex-direction: column !important;
+          padding: 16px 14px !important;
+          min-height: auto !important;
+        }
+        .ceil-production-text {
+          flex: 1 1 auto !important;
+          max-width: 100% !important;
+        }
+        .ceil-production-photo {
+          position: relative !important;
+          width: 100% !important;
+          height: 220px !important;
+          margin-top: 16px !important;
+        }
+      }
+
+      /* ===== ПРОДУКТОВЫЙ БОЛЬШОЙ БАННЕР ===== */
+      .ceil-product {
+        background: #ffffff !important;
+        border-radius: 0 !important;
+        overflow: hidden !important;
+        width: 100% !important;
+      }
+
+      .ceil-product-hero {
+        position: relative !important;
+        width: 100% !important;
+        height: clamp(420px, 38vw, 680px) !important;
+        min-height: 400px !important;
+        overflow: hidden !important;
+        border-radius: 0 !important;
+      }
+
+      .ceil-product-hero img {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        z-index: 1 !important;
+      }
+
+      .ceil-product-hero::after {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.35) 100%) !important;
+        z-index: 2 !important;
+      }
+
+      .ceil-product-hero-overlay {
+        position: absolute !important;
+        inset: 0 !important;
+        z-index: 3 !important;
+        padding: clamp(14px, 1.8vw, 24px) clamp(16px, 2.2vw, 28px) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        box-sizing: border-box !important;
+      }
+
+      .ceil-product-hero-top {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .ceil-product-hero-title {
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        font-size: clamp(36px, 5.2vw, 84px) !important;
+        font-weight: 500 !important;
+        color: #ffffff !important;
+        line-height: 0.9 !important;
+        letter-spacing: -0.02em !important;
+        margin: 0 0 clamp(12px, 1.4vw, 22px) 0 !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-product-hero-desc {
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: clamp(11px, 0.85vw, 15px) !important;
+        line-height: 1.55 !important;
+        color: #ffffff !important;
+        opacity: 0.88 !important;
+        max-width: 440px !important;
+        margin: 0 0 clamp(20px, 2.2vw, 32px) 0 !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-tags {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: clamp(10px, 1vw, 16px) !important;
+        margin: 0 !important;
+      }
+
+      .ceil-tag {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: clamp(34px, 2.6vw, 44px) !important;
+        padding: 0 clamp(22px, 2.2vw, 36px) !important;
+        border: 1px solid rgba(255,255,255,0.65) !important;
+        border-radius: 52px !important;
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: clamp(12px, 0.88vw, 15px) !important;
+        color: #ffffff !important;
+        background: transparent !important;
+      }
+
+      .ceil-toggle-centered {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-top: auto !important;
+      }
+
+      .ceil-toggle-bar {
+        display: inline-flex !important;
+        align-items: center !important;
+        padding: 4px !important;
+        background: rgba(235, 237, 240, 0.85) !important;
+        backdrop-filter: blur(10px) !important;
+        border-radius: 52px !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+      }
+
+      .ceil-toggle-item {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        height: clamp(36px, 2.8vw, 46px) !important;
+        padding: 0 clamp(16px, 1.8vw, 26px) !important;
+        border-radius: 52px !important;
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: clamp(11px, 0.8vw, 14.5px) !important;
+        font-weight: 500 !important;
+        border: none !important;
+        background: transparent !important;
+        color: #4c5262 !important;
+        cursor: pointer !important;
+        transition: all 0.25s ease !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+      }
+
+      .ceil-toggle-item.is-active {
+        background: #4c5262 !important;
+        color: #ffffff !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+      }
+
+      .ceil-toggle-item svg { flex-shrink: 0 !important; }
+
+      /* ===== 2-COLUMN DETAILS WRAPPER ===== */
+      .ceil-product-details-wrapper {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        align-items: stretch !important;
+        gap: 6px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .ceil-details-gallery {
+        position: relative !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 520px !important;
+        background: #2a2a2a !important;
+        border-radius: 0 !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+      }
+
+      .ceil-gallery-slides {
+        position: absolute !important;
+        inset: 0 !important;
+      }
+
+      .ceil-gallery-slide {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        opacity: 0 !important;
+        transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1) !important;
+      }
+
+      .ceil-gallery-slide.active { opacity: 1 !important; }
+
+      .ceil-gallery-badge-topleft {
+        position: absolute !important;
+        top: clamp(12px, 1.5vw, 24px) !important;
+        left: clamp(12px, 1.5vw, 24px) !important;
+        z-index: 20 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        max-width: clamp(260px, 45vw, 420px) !important;
+      }
+
+      .ceil-gallery-badge-topleft .ceil-star-icon {
+        flex-shrink: 0 !important;
+        width: clamp(20px, 1.8vw, 28px) !important;
+        height: clamp(20px, 1.8vw, 28px) !important;
+      }
+
+      .ceil-gallery-badge-topleft span {
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: clamp(10px, 0.72vw, 13px) !important;
+        line-height: 1.35 !important;
+        color: rgba(255,255,255,0.92) !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-gallery-light-btn {
+        position: absolute !important;
+        top: clamp(54px, 6.2vw, 70px) !important;
+        left: clamp(12px, 1.5vw, 24px) !important;
+        right: auto !important;
+        z-index: 20 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        height: clamp(28px, 2vw, 36px) !important;
+        padding: 0 clamp(12px, 1.2vw, 18px) !important;
+        background: rgba(240, 242, 245, 0.92) !important;
+        backdrop-filter: blur(8px) !important;
+        border-radius: 52px !important;
+        border: none !important;
+        color: #4c5262 !important;
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: clamp(11px, 0.75vw, 13px) !important;
+        font-weight: 500 !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.15) !important;
+      }
+
+      .ceil-gallery-light-btn.is-active {
+        background: linear-gradient(135deg, #F6EBDC 0%, #DAC8B4 100%) !important;
+      }
+
+      .ceil-gallery-arrow {
+        position: absolute !important;
+        /* css/ceiling.css задаёт для этого же класса .ceil-gallery-arrow
+           старую версию (top:50%; transform:translateY(-50%); фикс.
+           width/height; border-radius:50%) от круглой центрированной кнопки
+           из более раннего варианта галереи. Тут другая, "плоская" кнопка,
+           поэтому явно сбрасываем всё унаследованное, иначе стрелки
+           одновременно тянет и по top:50%, и по нашему bottom — отсюда
+           и "смещение". */
+        top: auto !important;
+        transform: none !important;
+        width: auto !important;
+        height: auto !important;
+        border-radius: 0 !important;
+        /* На уровне текста подписи снизу (.ceil-gallery-caption-bottom
+           использует тот же bottom) — заказчик попросил выровнять стрелки
+           по вертикали с текстом слайда. */
+        bottom: clamp(16px, 2vw, 30px) !important;
+        z-index: 20 !important;
+        background: transparent !important;
+        border: none !important;
+        color: rgba(255,255,255,0.85) !important;
+        cursor: pointer !important;
+        padding: 4px 8px !important;
+        transition: color 0.2s !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      .ceil-gallery-arrow svg {
+        width: 16px !important;
+        height: 28px !important;
+        stroke-width: 2.5px !important;
+        filter: drop-shadow(0px 1px 5px rgba(0,0,0,0.75)) !important;
+      }
+
+      /* Заказчик попросил убрать смещение/масштабирование стрелок при
+         наведении и нажатии — оставляем только смену цвета. */
+      .ceil-gallery-arrow:hover,
+      .ceil-gallery-arrow:active,
+      .ceil-gallery-arrow:focus {
+        color: #ffffff !important;
+        transform: none !important;
+      }
+
+      .ceil-gallery-prev { left: clamp(10px, 1.5vw, 24px) !important; }
+      .ceil-gallery-next { right: clamp(10px, 1.5vw, 24px) !important; }
+
+      .ceil-gallery-caption-bottom {
+        position: absolute !important;
+        bottom: clamp(16px, 2vw, 30px) !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 20 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        pointer-events: none !important;
+      }
+
+      .ceil-caption-title {
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        font-size: clamp(16px, 1.6vw, 26px) !important;
+        font-weight: 500 !important;
+        color: #ffffff !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-caption-sub {
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: clamp(11px, 0.8vw, 14px) !important;
+        color: rgba(255,255,255,0.8) !important;
+        text-transform: lowercase !important;
+        margin-top: 2px !important;
+      }
+
+      .ceil-details-specs {
+        background: #ffffff !important;
+        border-radius: 0 !important;
+        padding: clamp(20px, 2.8vw, 40px) clamp(24px, 3.8vw, 52px) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        box-sizing: border-box !important;
+      }
+
+      .ceil-specs-title {
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        font-size: clamp(22px, 2.3vw, 38px) !important;
+        font-weight: 500 !important;
+        color: #4c5262 !important;
+        margin: 0 0 clamp(12px, 1.5vw, 22px) 0 !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-specs-table {
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 1 !important;
+        justify-content: space-around !important;
+      }
+
+      .ceil-specs-row {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 12px !important;
+        padding: 12px 0 !important;
+        border-bottom: 1px solid #eef0f4 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+      }
+
+      .ceil-specs-row--last { border-bottom: none !important; }
+
+      .ceil-specs-label {
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: clamp(13px, 0.95vw, 15px) !important;
+        color: #6b7280 !important;
+        flex: 1 1 38% !important;
+        min-width: 90px !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-specs-value {
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        font-size: clamp(15px, 1.15vw, 18px) !important;
+        font-weight: 500 !important;
+        color: #fa4616 !important;
+        text-align: right !important;
+        flex: 1 1 auto !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-spot-badge {
+        position: relative !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 44px !important;
+        height: 44px !important;
+        flex-shrink: 0 !important;
+        cursor: pointer !important;
+        margin-left: 8px !important;
+        z-index: 5 !important;
+        overflow: visible !important;
+      }
+
+      .ceil-spot-thumb {
+        width: 42px !important;
+        height: 42px !important;
+        border-radius: 50% !important;
+        overflow: hidden !important;
+        display: block !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
+      }
+
+      .ceil-spot-thumb img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 50% !important;
+        display: block !important;
+      }
+
+      .ceil-plus-badge {
+        position: absolute !important;
+        top: -3px !important;
+        right: -3px !important;
+        width: 18px !important;
+        height: 18px !important;
+        border-radius: 50% !important;
+        background: #fa4616 !important;
+        color: #ffffff !important;
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        line-height: 1 !important;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.25) !important;
+        z-index: 10 !important;
+      }
+
+      .ceil-btn-orange {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        height: clamp(50px, 4vw, 64px) !important;
+        background: #fa4616 !important;
+        color: #ffffff !important;
+        border-radius: 52px !important;
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        font-size: clamp(12px, 0.9vw, 16px) !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        transition: background 0.2s ease, transform 0.2s ease !important;
+        cursor: pointer !important;
+        text-transform: lowercase !important;
+        margin-top: clamp(12px, 1.5vw, 22px) !important;
+        box-sizing: border-box !important;
+      }
+
+      .ceil-btn-orange:hover { background: #e03b0d !important; transform: translateY(-2px) !important; }
+
+      /* ===== ГИБКАЯ ПЕРСОНАЛИЗАЦИЯ ===== */
+      .ceil-personal {
+        background: #ffffff !important;
+        border-radius: 0 !important;
+        padding: clamp(18px, 2.2vw, 36px) clamp(20px, 2.5vw, 42px) !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+      }
+
+      .ceil-personal-head h2 {
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        color: #fa4616 !important;
+        font-size: clamp(32px, 4.2vw, 68px) !important;
+        font-weight: 500 !important;
+        line-height: 1.0 !important;
+        letter-spacing: -0.02em !important;
+        margin: 0 0 clamp(6px, 0.6vw, 10px) 0 !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-personal-sub {
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        color: #4c5262 !important;
+        font-size: clamp(16px, 1.5vw, 24px) !important;
+        font-weight: 500 !important;
+        line-height: 1.15 !important;
+        text-transform: lowercase !important;
+        margin: 0 !important;
+      }
+
+      .ceil-personal-right {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-end !important;
+        margin-top: clamp(14px, 1.8vw, 28px) !important;
+      }
+
+      .ceil-personal-text {
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: clamp(11px, 0.82vw, 14px) !important;
+        line-height: 1.5 !important;
+        color: #6b7280 !important;
+        max-width: 520px !important;
+        width: 100% !important;
+        margin: 0 0 clamp(12px, 1.2vw, 18px) 0 !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-personal-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        max-width: 520px !important;
+        height: clamp(46px, 3.5vw, 58px) !important;
+        background: #fa4616 !important;
+        color: #ffffff !important;
+        border-radius: 52px !important;
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        font-size: clamp(12px, 0.88vw, 15px) !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        text-transform: lowercase !important;
+        transition: background 0.2s ease, transform 0.2s ease !important;
+      }
+
+      .ceil-personal-btn:hover { background: #e03b0d !important; transform: translateY(-2px) !important; }
+
+      /* ===== СРАВНЕНИЕ ПЕРСОНАЛИЗАЦИИ ===== */
+      .ceil-compare-section {
+        position: relative !important;
+        width: 100% !important;
+        margin-top: 6px !important;
+        box-sizing: border-box !important;
+      }
+
+      .ceil-compare-container {
+        position: relative !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 6px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .ceil-compare-card {
+        position: relative !important;
+        width: 100% !important;
+        height: clamp(380px, 35vw, 620px) !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        overflow: hidden !important;
+        background: #181818 !important;
+      }
+
+      .ceil-compare-card img,
+      .ceil-compare-img-layer {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block !important;
+        transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1) !important;
+        will-change: opacity !important;
+      }
+
+      .ceil-compare-badge {
+        display: block !important;
+        position: absolute !important;
+        top: clamp(14px, 1.8vw, 24px) !important;
+        left: clamp(14px, 1.8vw, 24px) !important;
+        z-index: 10 !important;
+        padding: clamp(8px, 1vw, 12px) clamp(16px, 1.6vw, 24px) !important;
+        background: rgba(240, 242, 245, 0.88) !important;
+        backdrop-filter: blur(8px) !important;
+        border-radius: 52px !important;
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: clamp(11px, 0.78vw, 14px) !important;
+        font-weight: 500 !important;
+        color: #4c5262 !important;
+        pointer-events: none !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-compare-toggle-wrapper {
+        position: absolute !important;
+        bottom: clamp(16px, 2vw, 30px) !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 30 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+      }
+
+      .ceil-compare-toggle-bar {
+        display: inline-flex !important;
+        align-items: center !important;
+        padding: 4px 6px !important;
+        background: rgba(255,255,255,0.92) !important;
+        backdrop-filter: blur(14px) !important;
+        border-radius: 50px !important;
+        box-shadow: 0 6px 28px rgba(0,0,0,0.22) !important;
+        gap: 4px !important;
+      }
+
+      .ceil-compare-toggle-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        height: clamp(36px, 2.8vw, 46px) !important;
+        padding: 0 clamp(16px, 1.8vw, 24px) !important;
+        border-radius: 40px !important;
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        font-size: clamp(12px, 0.9vw, 15px) !important;
+        font-weight: 500 !important;
+        border: none !important;
+        background: transparent !important;
+        color: #6b7280 !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+        white-space: nowrap !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-compare-toggle-btn.is-active {
+        background: #4c5262 !important;
+        color: #ffffff !important;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.25) !important;
+      }
+
+      /* ===== ФУРНИТУРА ===== */
+      .ceil-hardware {
+        /* css/ceiling.css задаёt для этого же класса .ceil-hardware старую
+           версию блока (display:flex, padding, border-radius:8px, белый
+           фон на всю секцию) от более раннего варианта. Явно сбрасываем —
+           карточка и фото должны стоять вплотную к краям блока, без рамки
+           и скруглений вокруг всего грида. */
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 6px !important;
+        width: 100% !important;
+        margin-top: 6px !important;
+        box-sizing: border-box !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+      }
+
+      .ceil-hardware-card {
+        background: #ffffff !important;
+        border-radius: 0 !important;
+        padding: clamp(18px, 2.2vw, 36px) clamp(20px, 2.5vw, 42px) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        height: clamp(380px, 36vw, 620px) !important;
+        box-sizing: border-box !important;
+      }
+
+      .ceil-hardware-card h2 {
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        color: #4c5262 !important;
+        font-size: clamp(24px, 2.5vw, 42px) !important;
+        font-weight: 500 !important;
+        line-height: 1.15 !important;
+        margin: 0 0 clamp(20px, 2.2vw, 36px) 0 !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-hardware-card p {
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: clamp(11px, 0.88vw, 15px) !important;
+        line-height: 1.55 !important;
+        color: #6b7280 !important;
+        margin: 0 !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-hardware-photo {
+        background: #ffffff !important;
+        border-radius: 0 !important;
+        height: clamp(380px, 36vw, 620px) !important;
+        /* css/ceiling.css задаёт для этого же класса старый
+           max-height: clamp(260px, 26vw, 460px) и flex: 1 1 340px (от
+           старого flex-варианта блока) — max-height обрезал высоту фото
+           ниже высоты текстовой карточки, из-за чего колонки были разной
+           высоты. Сбрасываем оба. */
+        max-height: none !important;
+        flex: none !important;
+        overflow: hidden !important;
+      }
+
+      .ceil-hardware-photo img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+      }
+
+      /* ===== ПОЖАРНАЯ БЕЗОПАСНОСТЬ ===== */
+      .ceil-fire {
+        background: #ffffff !important;
+        border-radius: 0 !important;
+        padding: clamp(28px, 3.5vw, 56px) clamp(32px, 4vw, 64px) !important;
+        margin-top: 6px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        position: relative !important;
+      }
+
+      .ceil-fire-head {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        gap: 24px !important;
+        width: 100% !important;
+      }
+
+      .ceil-fire-head h2 {
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        color: #4c5262 !important;
+        font-size: clamp(22px, 2.2vw, 36px) !important;
+        font-weight: 500 !important;
+        line-height: 1.15 !important;
+        margin: 0 !important;
+        text-transform: lowercase !important;
+      }
+
+      @media (min-width: 769px) {
+        .ceil-fire-btns {
+          position: absolute !important;
+          top: clamp(28px, 3.5vw, 56px) !important;
+          right: clamp(32px, 4vw, 64px) !important;
+          display: flex !important;
+          gap: 16px !important;
+          margin: 0 !important;
+        }
+      }
+
+      .ceil-fire-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: clamp(42px, 3.2vw, 52px) !important;
+        padding: 0 clamp(20px, 2vw, 32px) !important;
+        background: #fa4616 !important;
+        color: #ffffff !important;
+        border-radius: 52px !important;
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        font-size: clamp(11px, 0.82vw, 14px) !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        text-transform: lowercase !important;
+        transition: background 0.2s ease !important;
+        white-space: nowrap !important;
+      }
+
+      .ceil-fire-btn:hover { background: #e03b0d !important; }
+
+      .ceil-fire-grid {
+        display: grid !important;
+        grid-template-columns: repeat(6, 1fr) !important;
+        gap: clamp(12px, 1.5vw, 24px) !important;
+        margin-top: clamp(36px, 4vw, 64px) !important;
+        width: 100% !important;
+      }
+
+      .ceil-fire-grid > div {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+      }
+
+      .ceil-fire-value {
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        font-size: clamp(42px, 4.8vw, 76px) !important;
+        font-weight: 400 !important;
+        color: #fa4616 !important;
+        line-height: 1.0 !important;
+        margin-bottom: 8px !important;
+        display: block !important;
+      }
+
+      .ceil-fire-label {
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: clamp(10px, 0.78vw, 13px) !important;
+        font-weight: 500 !important;
+        line-height: 1.25 !important;
+        color: #fa4616 !important;
+        text-transform: lowercase !important;
+      }
+
+      /* ===== КОНТАКТЫ ===== */
+      .ceil-exact-contact {
+        width: 100% !important;
+        margin-top: 6px !important;
+        background: #ffffff !important;
+        box-sizing: border-box !important;
+      }
+
+      .ceil-contact-dark-card {
+        background: #484e5c !important;
+        border-radius: 0 !important;
+        padding: clamp(36px, 4vw, 64px) clamp(40px, 4.5vw, 72px) !important;
+        color: #ffffff !important;
+        box-sizing: border-box !important;
+      }
+
+      .ceil-contact-top-grid {
+        display: grid !important;
+        grid-template-columns: 1.2fr 1fr !important;
+        gap: clamp(32px, 5vw, 80px) !important;
+        align-items: flex-start !important;
+        margin-bottom: clamp(40px, 4.5vw, 72px) !important;
+      }
+
+      .ceil-contact-exact-title {
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        font-size: clamp(34px, 3.8vw, 62px) !important;
+        font-weight: 500 !important;
+        line-height: 1.08 !important;
+        color: #ffffff !important;
+        margin: 0 0 clamp(24px, 3vw, 42px) 0 !important;
+        text-transform: lowercase !important;
+      }
+
+      .ceil-contact-exact-bullets {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 0 clamp(28px, 3.5vw, 48px) 0 !important;
+      }
+
+      .ceil-contact-exact-bullets li {
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: clamp(14px, 1.2vw, 18px) !important;
+        color: #ffffff !important;
+        line-height: 1.4 !important;
+        margin-bottom: 12px !important;
+        position: relative !important;
+        padding-left: 20px !important;
+      }
+
+      .ceil-contact-exact-bullets li::before {
+        content: "•" !important;
+        position: absolute !important;
+        left: 0 !important;
+        color: #ffffff !important;
+      }
+
+      .ceil-contact-orange-circles {
+        display: flex !important;
+        gap: 14px !important;
+        align-items: center !important;
+        margin-top: 20px !important;
+      }
+
+      .ceil-orange-circle {
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 50% !important;
+        background: #fa4616 !important;
+        color: #ffffff !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-decoration: none !important;
+        transition: transform 0.2s ease !important;
+      }
+
+      .ceil-orange-circle:hover { transform: scale(1.08) !important; }
+
+      .ceil-orange-circle svg { width: 22px !important; height: 22px !important; display: block !important; }
+
+      .ceil-contact-form-col { padding-top: 10px !important; }
+
+      .ceil-field-group { display: flex !important; flex-direction: column !important; margin-bottom: 20px !important; }
+
+      .ceil-field-label {
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: 13px !important;
+        color: #a0a6b4 !important;
+        margin-bottom: 6px !important;
+      }
+
+      .ceil-line-input {
+        width: 100% !important;
+        background: transparent !important;
+        border: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.35) !important;
+        color: #ffffff !important;
+        font-size: 16px !important;
+        padding: 6px 0 !important;
+        outline: none !important;
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+      }
+
+      .ceil-form-checkbox-row {
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+        margin-bottom: 24px !important;
+      }
+
+      .ceil-form-checkbox-row input[type="checkbox"] {
+        accent-color: #fa4616 !important;
+        margin-top: 3px !important;
+        cursor: pointer !important;
+      }
+
+      .ceil-form-checkbox-row label {
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: 11px !important;
+        color: #9aa0b0 !important;
+        line-height: 1.35 !important;
+      }
+
+      .ceil-form-checkbox-row label a { color: #9aa0b0 !important; text-decoration: underline !important; }
+
+      .ceil-exact-submit-btn {
+        width: 100% !important;
+        height: 48px !important;
+        border-radius: 48px !important;
+        background: rgba(255,255,255,0.28) !important;
+        color: #ffffff !important;
+        border: none !important;
+        font-family: var(--t-headline-font, "TTFirsNeue", sans-serif) !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        cursor: pointer !important;
+        transition: background 0.25s ease !important;
+      }
+
+      .ceil-exact-submit-btn:hover { background: rgba(255,255,255,0.38) !important; }
+
+      .ceil-contact-dark-bottom {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr !important;
+        gap: 24px !important;
+        padding-top: clamp(20px, 2.5vw, 36px) !important;
+        border-top: 1px solid rgba(255,255,255,0.1) !important;
+      }
+
+      .ceil-mini-socials { display: flex !important; gap: 12px !important; margin-bottom: 12px !important; }
+      .ceil-mini-socials a { color: #ffffff !important; font-size: 14px !important; opacity: 0.85 !important; }
+      .ceil-mini-socials a:hover { opacity: 1 !important; }
+
+      .ceil-dark-col { font-family: var(--t-text-font, "TTNorms", sans-serif) !important; font-size: 13.5px !important; color: #d0d4e0 !important; line-height: 1.5 !important; }
+      .ceil-dark-col p { margin: 0 !important; }
+      .ceil-dark-link { color: #ffffff !important; margin-bottom: 4px !important; }
+      .ceil-dark-col--links { display: flex !important; flex-direction: column !important; gap: 6px !important; }
+      .ceil-dark-col--links a { color: #ffffff !important; text-decoration: none !important; font-size: 13.5px !important; }
+
+      .ceil-exact-light-footer {
+        background: #ffffff !important;
+        padding: clamp(24px, 3vw, 42px) clamp(40px, 4.5vw, 72px) !important;
+        color: #787e8c !important;
+        font-family: var(--t-text-font, "TTNorms", sans-serif) !important;
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+      }
+
+      .ceil-light-footer-top { display: flex !important; justify-content: space-between !important; margin-bottom: 24px !important; }
+      .ceil-light-col-left p, .ceil-light-col-right p { margin: 0 !important; color: #787e8c !important; }
+      .ceil-light-col-right { text-align: right !important; }
+
+      .ceil-light-footer-legal {
+        display: flex !important;
+        gap: 20px !important;
+        flex-wrap: wrap !important;
+        border-top: 1px solid #eef0f4 !important;
+        padding-top: 18px !important;
+      }
+
+      .ceil-light-footer-legal a { color: #787e8c !important; text-decoration: underline !important; font-size: 11.5px !important; }
+
+      /* ===== MOBILE RESPONSIVE ===== */
+      @media (max-width: 900px) {
+        .hero-two-blocks-wrapper { grid-template-columns: 1fr !important; }
+        .hero-two-blocks-wrapper .living-slider-wrapper,
+        .hero-two-blocks-wrapper .card-showroom-blue { height: auto !important; min-height: 280px !important; max-height: none !important; }
+        .ceil-product-details-wrapper { grid-template-columns: 1fr !important; }
+        .ceil-compare-container { grid-template-columns: 1fr !important; }
+        .ceil-hardware { grid-template-columns: 1fr !important; }
+        .ceil-fire-grid { grid-template-columns: repeat(3, 1fr) !important; }
+        .ceil-contact-top-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+        .ceil-contact-dark-card { padding: 28px 18px !important; }
+      }
+
+      @media (max-width: 768px) {
+        .ceil-details-gallery { height: clamp(340px, 82vw, 540px) !important; min-height: 320px !important; }
+        .ceil-product-hero { height: clamp(560px, 95vw, 760px) !important; min-height: 540px !important; }
+        .ceil-fire { display: flex !important; flex-direction: column !important; padding: 28px 20px !important; }
+        .ceil-fire-head { flex-direction: column !important; }
+        .ceil-fire-grid { display: flex !important; flex-direction: column !important; gap: 0 !important; margin-bottom: 32px !important; }
+        .ceil-fire-grid > div { padding: 16px 0 16px 32px !important; border-bottom: 1px solid #eef0f4 !important; flex-direction: column !important; }
+        .ceil-fire-value { font-size: 48px !important; }
+        .ceil-fire-label { font-size: 12px !important; }
+        .ceil-fire-btns { position: static !important; display: flex !important; flex-direction: column !important; width: 100% !important; gap: 12px !important; margin-top: 24px !important; }
+        .ceil-fire-btn { width: 100% !important; justify-content: center !important; }
+        .ceil-contact-dark-bottom { grid-template-columns: 1fr !important; }
+        .ceil-light-footer-top { flex-direction: column !important; gap: 20px !important; }
+        .ceil-light-col-right { text-align: left !important; }
+        .ceil-compare-container { display: flex !important; flex-direction: column !important; gap: 0 !important; }
+        .ceil-compare-card { height: clamp(260px, 60vw, 420px) !important; }
+        .ceil-compare-badge { display: none !important; }
+        .ceil-compare-toggle-wrapper { position: absolute !important; top: 50% !important; left: 50% !important; bottom: auto !important; transform: translate(-50%, -50%) !important; }
+        .ceil-hardware-card, .ceil-hardware-photo { height: auto !important; min-height: 320px !important; }
+      }
+
+      @media (max-width: 576px) {
+        .ceil-fire-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        .footer-grid-row { flex-direction: column !important; gap: 8px !important; }
+      }
+
+      /* ===== CROSSFADE TRANSITIONS ===== */
+      .ceil-hero-base, .ceil-hero-light,
+      .ceil-gallery-slide, .ceil-slide-base, .ceil-slide-light,
+      .ceil-comp-left-office, .ceil-comp-left-horeca,
+      .ceil-details-gallery img {
+        transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1) !important;
+        will-change: opacity !important;
+        backface-visibility: hidden !important;
+      }
+
+      .ceil-hero-base { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 1; }
+      .ceil-hero-light { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; }
+
+      .ceil-slide-base { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; z-index: 1 !important; opacity: 1 !important; }
+      .ceil-slide-light { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; z-index: 2 !important; }
+
+      .ceil-gallery-slide:not(.is-light) .ceil-slide-light { opacity: 0 !important; pointer-events: none !important; }
+      .ceil-gallery-slide.is-light .ceil-slide-light { opacity: 1 !important; }
+
+      /* ===== COMPACT SUB-MENU FOR CEILING PAGE ===== */
+      .header-menu {
+        gap: clamp(8px, 0.9vw, 13px) !important;
+        left: 201px !important;
+        max-width: 800px !important;
+        flex-wrap: nowrap !important;
+      }
+
+      .header-menu-link {
+        font-size: clamp(10px, 0.72vw, 11.5px) !important;
+        letter-spacing: -0.2px !important;
+        white-space: nowrap !important;
+      }
+
+      /* ===== MOBILE TOGGLE FIT ===== */
+      @media (max-width: 768px) {
+        .ceil-toggle-bar {
+          width: 100% !important;
+          border-radius: 52px !important;
+          padding: 4px !important;
+          gap: 4px !important;
+        }
+        .ceil-toggle-item {
+          flex: 1 1 0% !important;
+          min-height: 44px !important;
+          padding: 6px 4px !important;
+          font-size: clamp(10px, 2.8vw, 12px) !important;
+          white-space: normal !important;
+          text-align: center !important;
+          justify-content: center !important;
+        }
+        .ceil-gallery-arrow svg { width: 18px !important; height: 30px !important; }
+        .ceil-compare-toggle-btn { height: 36px !important; padding: 0 14px !important; font-size: 12px !important; }
+        .ceil-compare-toggle-btn svg { width: 14px !important; height: 14px !important; }
+      }
+
+    </style>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="css/home/06-contact-form.css" />
+    <link rel="stylesheet" href="css/home/22-contact-widget.css" />
+    <link rel="stylesheet" href="css/home/22-footer.css" />
+    <style>
+      /* ===== EXACT MOBILE HEADER MATCH TO INDEX.HTML ===== */
+      @media (max-width: 1199px) {
+        .header-bar {
+          height: 60px !important;
+          position: relative !important;
+          margin: 0 !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: space-between !important;
+          padding: 0 20px !important;
+          background: #ffffff !important;
+        }
+        .header-logo {
+          position: relative !important;
+          top: auto !important;
+          left: auto !important;
+          width: 80px !important;
+          height: 46px !important;
+          display: block !important;
+          margin: 0 !important;
+        }
+        .header-burger {
+          position: relative !important;
+          top: auto !important;
+          left: auto !important;
+          right: auto !important;
+          display: block !important;
+          width: 42px !important;
+          height: 42px !important;
+          margin: 0 !important;
+        }
+        .header-line,
+        .header-top,
+        .header-menu,
+        .header-callback,
+        .header-phone {
+          display: none !important;
+          visibility: hidden !important;
+          opacity: 0 !important;
+          height: 0 !important;
+          width: 0 !important;
+          pointer-events: none !important;
+        }
+      }
+      @media (max-width: 639px) {
+        .header-bar { height: 52px !important; padding: 0 16px !important; }
+        .header-logo { width: 66px !important; height: 38px !important; }
+        .header-burger { width: 38px !important; height: 38px !important; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <header class="header header--autohide">
+      <div class="header-bar">
+        <a class="header-logo" href="index.html" aria-label="Hubox — на главную">
+          <img src="img/logo.svg" alt="Hubox acoustic decor" width="80" height="46" />
+        </a>
+
+        <span class="header-line header-line--left" aria-hidden="true"></span>
+        <span class="header-line header-line--right" aria-hidden="true"></span>
+        <span class="header-line header-line--mid" aria-hidden="true"></span>
+
+        <nav class="header-top" aria-label="Разделы сайта">
+          <a class="header-top-link" href="index.html">главная</a>
+          <a class="header-top-link" href="walls.html">стеновые панели</a>
+          <a class="header-top-link" href="designers.html">дизайнерам и строителям</a>
+          <a class="header-top-link" href="fetr.html">о фетре</a>
+          <a class="header-top-link header-top-link--last is-current" href="ceiling.html">потолочные решения</a>
+        </nav>
+
+        <nav class="header-menu" aria-label="Разделы страницы">
+          <a class="header-menu-link is-active" href="#panels">панели</a>
+          <a class="header-menu-link" href="#proizvod">производство</a>
+          <a class="header-menu-link" href="#material">материал</a>
+          <a class="header-menu-link" href="#walls">стены</a>
+          <a class="header-menu-link" href="#ceiling">потолок</a>
+          <a class="header-menu-link" href="#doors">двери</a>
+          <a class="header-menu-link" href="#zone">зонирование</a>
+          <a class="header-menu-link" href="#application">применение</a>
+          <a class="header-menu-link" href="#designers">дизайнерам</a>
+          <a class="header-menu-link" href="#contacts">контакты</a>
+        </nav>
+
+        <a class="header-callback btn btn--outline" href="#form">обратный звонок</a>
+        <a class="header-phone" href="tel:+79819200133">+7(981) 920-01-33</a>
+
+        <button class="header-burger" type="button" aria-label="Открыть меню" aria-expanded="false">
+          <svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path fill="transparent" stroke="#c9cbd0" d="M22.5 1C34.3741 1 44 10.6259 44 22.5C44 34.3741 34.3741 44 22.5 44C10.6259 44 1 34.3741 1 22.5C1 10.6259 10.6259 1 22.5 1Z"/>
+            <line stroke="#4c5262" stroke-linecap="round" x1="13" y1="18.5" x2="32" y2="18.5"/>
+            <line stroke="#4c5262" stroke-linecap="round" x1="13" y1="23.5" x2="32" y2="23.5"/>
+            <line stroke="#4c5262" stroke-linecap="round" x1="13" y1="28.5" x2="32" y2="28.5"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <span class="mobile-menu-bg" aria-hidden="true"></span>
+        <span class="mobile-menu-head" aria-hidden="true"></span>
+
+        <a class="mobile-menu-logo" href="index.html" aria-label="Hubox — на главную">
+          <img src="img/logo-white.svg" alt="Hubox acoustic decor" width="62" height="36" />
+        </a>
+
+        <button class="mobile-menu-close" type="button" aria-label="Закрыть меню">
+          <svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path fill="transparent" stroke="#fff" d="M22.5 1C34.374 1 44 10.626 44 22.5C44 34.374 34.374 44 22.5 44C10.626 44 1 34.374 1 22.5C1 10.626 10.626 1 22.5 1Z"/>
+            <line stroke="#fff" stroke-linecap="round" x1="15.87" y1="15.87" x2="29.13" y2="29.13"/>
+            <line stroke="#fff" stroke-linecap="round" x1="15.87" y1="29.13" x2="29.13" y2="15.87"/>
+          </svg>
+        </button>
+
+        <nav class="mobile-menu-nav" aria-label="Основное меню">
+          <a class="mobile-menu-link" href="index.html">главная</a>
+          <span class="mobile-menu-line" aria-hidden="true"></span>
+          <a class="mobile-menu-link" href="walls.html">стеновые панели</a>
+          <span class="mobile-menu-line" aria-hidden="true"></span>
+          <a class="mobile-menu-link" href="designers.html">дизайнерам и строителям</a>
+          <span class="mobile-menu-line" aria-hidden="true"></span>
+          <a class="mobile-menu-link" href="fetr.html">о фетре</a>
+          <span class="mobile-menu-line" aria-hidden="true"></span>
+          <a class="mobile-menu-link is-current" href="ceiling.html">потолочные решения</a>
+        </nav>
+
+        <a class="mobile-menu-banner" href="#form">
+          <img src="assets/misc-home/Group_3585.png.webp" alt="Получите персональную консультацию быстро" width="330" height="109" loading="lazy" />
+        </a>
+
+        <div class="mobile-menu-footer">
+          <a class="mobile-menu-social" href="https://wa.me/79819200133" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <img class="icon-wa" src="img/icon-whatsapp.svg" alt="WhatsApp" width="20" height="20" />
+          </a>
+          <a class="mobile-menu-social" href="https://max.ru/u/f9LHodD0cOK3WJPM7sQIj9P2X8cJuJuxbxF_1fQLAGK2vIsiZWf4V0CMH4w" aria-label="MAX" target="_blank" rel="noopener">
+            <img class="icon-max" src="assets/misc-home/-removebg-preview.png" alt="MAX" width="27" height="27" />
+          </a>
+          <a class="mobile-menu-social" href="https://t.me/+79819200133" aria-label="Telegram" target="_blank" rel="noopener">
+            <img class="icon-tg" src="img/icon-telegram.svg" alt="Telegram" width="21" height="18" />
+          </a>
+          <a class="mobile-menu-social" href="tel:+79819200133" aria-label="Позвонить">
+            <img class="icon-tel" src="assets/misc-home/icons8--100.png" alt="Телефон" width="19" height="19" />
+          </a>
+          <a class="mobile-menu-callback btn btn--outline" href="#form">обратный звонок</a>
+        </div>
+      </div>
+    </div>
+
+    <main class="ceil-wrapper">
+      <!-- ===== ВТОРОЙ БЛОК: СЛАЙДЕР + ЦИФРОВОЙ ШОУРУМ ===== -->
+      <section class="hero-two-blocks-wrapper" id="hero">
+        <div class="hero-block-card living-slider-wrapper hero-slider reveal active">
+          <div class="living-slider-container slider-container">
+            <div class="slide active" style="background-image: url('assets/image/ceiling/Img-frame.png');"></div>
+            <div class="slide" style="background-image: url('assets/image/ceiling/7f8760cae9570dcd5615.jpg');"></div>
+          </div>
+          <div class="slider-progress-mini slider-progress-container">
+            <div class="progress-segment"><div class="progress-fill"></div></div>
+            <div class="progress-segment"><div class="progress-fill"></div></div>
+          </div>
+          <div class="made-in-russia">
+            <img src="assets/svg/made-in-russia.svg" alt="Сделано в России" class="img-made-in" />
+          </div>
+        </div>
+
+        <div class="hero-block-card card-showroom-blue reveal active delay-1" id="showroom">
+          <div class="showroom-card-top">
+            <h1 class="showroom-card-title">потолочные<br />акустические<br />решения</h1>
+            <p class="showroom-card-sub">с бесконечными возможностями персонализации</p>
+          </div>
+          <div class="showroom-card-bottom">
+            <p class="showroom-card-text">
+              преобразите любое пространство с помощью наших акустических баффлов,
+              созданных для уникальных пространств и комфорта. наши баффлы не только
+              акустически эффективны, но и идеально подходят для современных зданий
+              благодаря своей открытой конструкции
+            </p>
+            <a href="#" class="btn-calculate-dark">рассчитать проект</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. СОБСТВЕННОЕ ПРОИЗВОДСТВО -->
+      <section class="ceil-production reveal" id="production">
+        <div class="ceil-production-text">
+          <h2 class="ceil-production-title">собственное производство<br />баффлов от 3х дней</h2>
+          <p class="ceil-production-desc">
+            наше производство находится в россии. все продукты выполнены из
+            высококачественного эко-фетра. фетр это экологичный взгляд на
+            повторное использование и переработку пластиковых частиц.
+            искусственный эко-фетр hubox на 100% состоит из полиэфирного
+            волокна и обладает превосходными акустическими свойствами
+          </p>
+          <p class="ceil-production-formula">расчёт + производство + монтаж</p>
+        </div>
+        <div class="ceil-production-photo">
+          <img src="assets/image/ceiling/4e73d350dce2d00bff9a0ee2f32a8b1e5c2230b6.png" alt="Собственное производство баффлов Hubox" loading="lazy" />
+        </div>
+      </section>
+
+      <!-- 3.1 ВЕРТИКАЛЬНЫЕ БАФФЛЫ: баннер -->
+      <section class="ceil-product reveal" id="products">
+        <div class="ceil-product-hero">
+          <img class="ceil-hero-base" src="assets/image/ceiling/white.jpg" alt="Вертикальные баффлы без освещения" style="opacity: 1;" loading="lazy" />
+          <img class="ceil-hero-light" src="assets/image/ceiling/black.png" alt="Вертикальные баффлы с освещением" style="opacity: 1;" loading="lazy" />
+          <div class="ceil-product-hero-overlay">
+            <div class="ceil-product-hero-top">
+              <h2 class="ceil-product-hero-title">вертикальные баффлы</h2>
+              <p class="ceil-product-hero-desc">
+                оцените наше высокоэффективное потолочное решение для любых помещений.
+                прямые баффлы создают исключительный акустический комфорт в офисах, ресторанах и производственных пространствах
+              </p>
+              <div class="ceil-tags">
+                <span class="ceil-tag">HORECA</span>
+                <span class="ceil-tag">офисы</span>
+              </div>
+            </div>
+            <div class="ceil-toggle-centered">
+              <div class="ceil-toggle-bar">
+                <button class="ceil-toggle-item is-active" type="button" data-img="assets/image/ceiling/black.png">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                  <span>шумоподавление<br />+ освещение</span>
+                </button>
+                <button class="ceil-toggle-item" type="button" data-img="assets/image/ceiling/white.jpg">
+                  <span>шумоподавление</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="4" y2="15"></line><line x1="8" y1="6" x2="8" y2="18"></line><line x1="12" y1="3" x2="12" y2="21"></line><line x1="16" y1="6" x2="16" y2="18"></line><line x1="20" y1="9" x2="20" y2="15"></line></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3.1 ВЕРТИКАЛЬНЫЕ БАФФЛЫ: галерея + характеристики -->
+      <section class="ceil-product-details-wrapper reveal">
+        <div class="ceil-details-gallery" id="verticalBafflesGallery">
+          <div class="ceil-gallery-badge-topleft">
+            <svg class="ceil-star-icon" width="28" height="28" viewBox="0 0 24 24" fill="#fa4616"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+            <span>доступна индивидуальная кастомизация — любой размер, цвет и уникальный узор.</span>
+          </div>
+          <button class="ceil-gallery-light-btn is-active" type="button">
+            <span>включенное освещение</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </button>
+          <div class="ceil-gallery-slides">
+            <div class="ceil-gallery-slide active is-light" data-caption="модуль-сетка" data-subcaption="(модули стыкуются бесшовно)">
+              <img class="ceil-slide-base" src="assets/image/ceiling/1-base.png" alt="Без освещения" />
+              <img class="ceil-slide-light" src="assets/image/ceiling/1-light.png" alt="С освещением" />
+            </div>
+            <div class="ceil-gallery-slide" data-caption="прямые линии" data-subcaption="(стандартное исполнение)">
+              <img class="ceil-slide-base" src="assets/image/ceiling/2-base.png" alt="Без освещения" />
+              <img class="ceil-slide-light" src="assets/image/ceiling/2-light.png" alt="С освещением" />
+            </div>
+            <div class="ceil-gallery-slide" data-caption="армсофт" data-subcaption="(встраиваемый спот)">
+              <img class="ceil-slide-base" src="assets/image/ceiling/3-base.png" alt="Без освещения" />
+              <img class="ceil-slide-light" src="assets/image/ceiling/3-light.png" alt="С освещением" />
+            </div>
+            <div class="ceil-gallery-slide" data-caption="парящие баффлы" data-subcaption="(бесшовное соединение)">
+              <img class="ceil-slide-base" src="assets/image/ceiling/4-base.png" alt="Без освещения" />
+              <img class="ceil-slide-light" src="assets/image/ceiling/4-light.png" alt="С освещением" />
+            </div>
+            <div class="ceil-gallery-slide" data-caption="модульная система" data-subcaption="(индивидуальный узор)">
+              <img class="ceil-slide-base" src="assets/image/ceiling/5-base.png" alt="Без освещения" />
+              <img class="ceil-slide-light" src="assets/image/ceiling/5-light.png" alt="С освещением" />
+            </div>
+          </div>
+          <button class="ceil-gallery-arrow ceil-gallery-prev" type="button" aria-label="Предыдущий слайд">
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,4 4,20 20,36"></polyline></svg>
+          </button>
+          <button class="ceil-gallery-arrow ceil-gallery-next" type="button" aria-label="Следующий слайд">
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,4 20,20 4,36"></polyline></svg>
+          </button>
+          <div class="ceil-gallery-caption-bottom">
+            <div class="ceil-caption-title">модуль-сетка</div>
+            <div class="ceil-caption-sub">(модули стыкуются бесшовно)</div>
+          </div>
+        </div>
+        <div class="ceil-details-specs">
+          <h3 class="ceil-specs-title">вертикальные баффлы</h3>
+          <div class="ceil-specs-table">
+            <div class="ceil-specs-row"><span class="ceil-specs-label">вариативный размер баффла (мм)</span><span class="ceil-specs-value">от 200 x 1200 x 24</span></div>
+            <div class="ceil-specs-row"><span class="ceil-specs-label">цвета</span><span class="ceil-specs-value">более 30</span></div>
+            <div class="ceil-specs-row"><span class="ceil-specs-label">плотность</span><span class="ceil-specs-value">4700 г/м²</span></div>
+            <div class="ceil-specs-row"><span class="ceil-specs-label">коэффициент NRC</span><span class="ceil-specs-value">0,9</span></div>
+            <div class="ceil-specs-row"><span class="ceil-specs-label">тип крепления</span><span class="ceil-specs-value">регулируемый тросиковый подвес</span></div>
+            <div class="ceil-specs-row ceil-specs-row--last">
+              <span class="ceil-specs-label">световой источник</span>
+              <span class="ceil-specs-value">встраиваемый спот</span>
+              <div class="ceil-spot-badge" role="button" tabindex="0" aria-label="Открыть подробнее">
+                <div class="ceil-spot-thumb"><img src="assets/image/ceiling/fon1.jpg" alt="Спот" /></div>
+                <span class="ceil-plus-badge">+</span>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="ceil-btn-orange">перейти в каталог</a>
+        </div>
+      </section>
+
+      <!-- 3.2 ГОРИЗОНТАЛЬНЫЕ ДИЗАЙН-БАФФЛЫ: баннер -->
+      <section class="ceil-product reveal" id="horizontal-baffles">
+        <div class="ceil-product-hero">
+          <img class="ceil-hero-base" src="assets/image/ceiling/hor-bafl-2.png" alt="Горизонтальные дизайн-баффлы без освещения" style="opacity: 1;" loading="lazy" />
+          <img class="ceil-hero-light" src="assets/image/ceiling/hor-bafl-1.png" alt="Горизонтальные дизайн-баффлы с освещением" style="opacity: 1;" loading="lazy" />
+          <div class="ceil-product-hero-overlay">
+            <div class="ceil-product-hero-top">
+              <h2 class="ceil-product-hero-title">горизонтальные дизайн-баффлы</h2>
+              <p class="ceil-product-hero-desc">лаконичные акустические баффлы, которые сочетают высокую эффективность и широкие возможности дизайна благодаря разнообразию размеров, узоров и цветов.</p>
+              <div class="ceil-tags">
+                <span class="ceil-tag">HORECA</span>
+                <span class="ceil-tag">офисы</span>
+                <span class="ceil-tag">open space</span>
+              </div>
+            </div>
+            <div class="ceil-toggle-centered">
+              <div class="ceil-toggle-bar">
+                <button class="ceil-toggle-item is-active" type="button" data-img="assets/image/ceiling/hor-bafl-1.png">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                  <span>шумоподавление<br />+ освещение</span>
+                </button>
+                <button class="ceil-toggle-item" type="button" data-img="assets/image/ceiling/hor-bafl-2.png">
+                  <span>шумоподавление</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="4" y2="15"></line><line x1="8" y1="6" x2="8" y2="18"></line><line x1="12" y1="3" x2="12" y2="21"></line><line x1="16" y1="6" x2="16" y2="18"></line><line x1="20" y1="9" x2="20" y2="15"></line></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3.2 ГОРИЗОНТАЛЬНЫЕ БАФФЛЫ: галерея + характеристики -->
+      <section class="ceil-product-details-wrapper reveal">
+        <div class="ceil-details-gallery" id="horDesignBafflesGallery">
+          <div class="ceil-gallery-badge-topleft">
+            <svg class="ceil-star-icon" width="28" height="28" viewBox="0 0 24 24" fill="#fa4616"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+            <span>доступна индивидуальная кастомизация — любой размер, цвет и уникальный узор.</span>
+          </div>
+          <button class="ceil-gallery-light-btn is-active" type="button">
+            <span class="ceil-light-btn-text">включенное освещение</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </button>
+          <div class="ceil-gallery-slides">
+            <div class="ceil-gallery-slide active is-light" data-caption="линии">
+              <img class="ceil-slide-base" src="assets/image/ceiling/hor-design-bafl-1-base.png" alt="Без освещения" />
+              <img class="ceil-slide-light" src="assets/image/ceiling/hor-design-bafl-1-light.png" alt="С освещением" />
+            </div>
+            <div class="ceil-gallery-slide is-light" data-caption="волна">
+              <img class="ceil-slide-base" src="assets/image/ceiling/hor-design-bafl-2-base.png" alt="Без освещения" />
+              <img class="ceil-slide-light" src="assets/image/ceiling/hor-design-bafl-2-light.png" alt="С освещением" />
+            </div>
+            <div class="ceil-gallery-slide is-light" data-caption="волна 3D">
+              <img class="ceil-slide-base" src="assets/image/ceiling/hor-design-bafl-3-base.png" alt="Без освещения" />
+              <img class="ceil-slide-light" src="assets/image/ceiling/hor-design-bafl-3-light.png" alt="С освещением" />
+            </div>
+          </div>
+          <button class="ceil-gallery-arrow ceil-gallery-prev" type="button" aria-label="Предыдущий слайд">
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,4 4,20 20,36"></polyline></svg>
+          </button>
+          <button class="ceil-gallery-arrow ceil-gallery-next" type="button" aria-label="Следующий слайд">
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,4 20,20 4,36"></polyline></svg>
+          </button>
+          <div class="ceil-gallery-caption-bottom">
+            <div class="ceil-caption-title">линии</div>
+          </div>
+        </div>
+        <div class="ceil-details-specs">
+          <h3 class="ceil-specs-title">горизонтальные дизайн-баффлы</h3>
+          <div class="ceil-specs-table">
+            <div class="ceil-specs-row"><span class="ceil-specs-label">диаметр/толщина (мм)</span><span class="ceil-specs-value">до 1200 / 24</span></div>
+            <div class="ceil-specs-row"><span class="ceil-specs-label">цвета</span><span class="ceil-specs-value">более 30</span></div>
+            <div class="ceil-specs-row"><span class="ceil-specs-label">плотность</span><span class="ceil-specs-value">4700 г/м²</span></div>
+            <div class="ceil-specs-row"><span class="ceil-specs-label">коэффициент NRC</span><span class="ceil-specs-value">0,9</span></div>
+            <div class="ceil-specs-row"><span class="ceil-specs-label">тип крепления</span><span class="ceil-specs-value">регулируемый тросиковый подвес</span></div>
+            <div class="ceil-specs-row ceil-specs-row--last">
+              <span class="ceil-specs-label">световой источник</span>
+              <span class="ceil-specs-value">встраиваемый световой профиль</span>
+              <div class="ceil-spot-badge" role="button" tabindex="0" aria-label="Открыть подробнее">
+                <div class="ceil-spot-thumb"><img src="assets/image/ceiling/fon1.jpg" alt="Профиль" /></div>
+                <span class="ceil-plus-badge">+</span>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="ceil-btn-orange">перейти в каталог</a>
+        </div>
+      </section>
+
+      <!-- 3.3 ПАРЯЩИЕ СТЕНЫ: баннер -->
+      <section class="ceil-product reveal" id="floating-walls">
+        <div class="ceil-product-hero">
+          <img class="ceil-hero-base" src="assets/image/ceiling/wall-new.png" alt="Парящие стены без освещения" style="opacity: 1;" loading="lazy" />
+          <img class="ceil-hero-light" src="assets/image/ceiling/wall-base.png" alt="Парящие стены с освещением" style="opacity: 1;" loading="lazy" />
+          <div class="ceil-product-hero-overlay">
+            <div class="ceil-product-hero-top">
+              <h2 class="ceil-product-hero-title">парящие стены<br />для открытых<br />пространств</h2>
+              <p class="ceil-product-hero-desc">hubox превращает акустические панели в выразительные архитектурные элементы. потолочные баффлы, панели и перегородки создают комфортную акустическую среду и расширяют возможности интерьерного дизайна.</p>
+              <div class="ceil-tags">
+                <span class="ceil-tag">офисы</span>
+                <span class="ceil-tag">open space</span>
+              </div>
+            </div>
+            <div class="ceil-toggle-centered">
+              <div class="ceil-toggle-bar">
+                <button class="ceil-toggle-item is-active" type="button" data-img="assets/image/ceiling/wall-base.png">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                  <span>шумоподавление<br />+ освещение</span>
+                </button>
+                <button class="ceil-toggle-item" type="button" data-img="assets/image/ceiling/wall-new.png">
+                  <span>шумоподавление</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="4" y2="15"></line><line x1="8" y1="6" x2="8" y2="18"></line><line x1="12" y1="3" x2="12" y2="21"></line><line x1="16" y1="6" x2="16" y2="18"></line><line x1="20" y1="9" x2="20" y2="15"></line></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3.3 ПАРЯЩИЕ СТЕНЫ: галерея + характеристики -->
+      <section class="ceil-product-details-wrapper reveal">
+        <div class="ceil-details-gallery" id="hoveringWallsGallery">
+          <div class="ceil-gallery-badge-topleft">
+            <svg class="ceil-star-icon" width="28" height="28" viewBox="0 0 24 24" fill="#fa4616"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+            <span>доступна индивидуальная кастомизация — любой размер, цвет и уникальный узор.</span>
+          </div>
+          <button class="ceil-gallery-light-btn is-active" type="button">
+            <span class="ceil-light-btn-text">с освещением</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </button>
+          <div class="ceil-gallery-slides">
+            <div class="ceil-gallery-slide active is-light" data-caption="линии">
+              <img class="ceil-slide-base" src="assets/image/ceiling/hovering-base.png" alt="Без освещения" />
+              <img class="ceil-slide-light" src="assets/image/ceiling/hovering-light.png" alt="С освещением" />
+            </div>
+            <div class="ceil-gallery-slide" data-caption="перфоманс">
+              <img class="ceil-slide-base" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%23d0d4dc'/></svg>" alt="Без освещения" />
+              <img class="ceil-slide-light" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%23e0e4ec'/></svg>" alt="С освещением" />
+            </div>
+            <div class="ceil-gallery-slide" data-caption="сегмент">
+              <img class="ceil-slide-base" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%23c8cbd4'/></svg>" alt="Без освещения" />
+              <img class="ceil-slide-light" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%23d8dbe4'/></svg>" alt="С освещением" />
+            </div>
+          </div>
+          <button class="ceil-gallery-arrow ceil-gallery-prev" type="button" aria-label="Предыдущий слайд">
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,4 4,20 20,36"></polyline></svg>
+          </button>
+          <button class="ceil-gallery-arrow ceil-gallery-next" type="button" aria-label="Следующий слайд">
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,4 20,20 4,36"></polyline></svg>
+          </button>
+          <div class="ceil-gallery-caption-bottom">
+            <div class="ceil-caption-title">линии</div>
+          </div>
+        </div>
+        <div class="ceil-details-specs">
+          <h3 class="ceil-specs-title">парящие стены</h3>
+          <div class="ceil-specs-table">
+            <div class="ceil-specs-row"><span class="ceil-specs-label">вариативный размер баффла (мм)</span><span class="ceil-specs-value">до 1200 x 2400 x 24</span></div>
+            <div class="ceil-specs-row"><span class="ceil-specs-label">цвета</span><span class="ceil-specs-value">более 30</span></div>
+            <div class="ceil-specs-row"><span class="ceil-specs-label">плотность</span><span class="ceil-specs-value">4700 г/м²</span></div>
+            <div class="ceil-specs-row"><span class="ceil-specs-label">коэффициент NRC</span><span class="ceil-specs-value">0,9</span></div>
+            <div class="ceil-specs-row"><span class="ceil-specs-label">тип крепления</span><span class="ceil-specs-value">регулируемый тросиковый подвес</span></div>
+            <div class="ceil-specs-row ceil-specs-row--last">
+              <span class="ceil-specs-label">световой источник</span>
+              <span class="ceil-specs-value">встраиваемый световой профиль</span>
+              <div class="ceil-spot-badge" role="button" tabindex="0" aria-label="Открыть подробнее">
+                <div class="ceil-spot-thumb"><img src="assets/image/ceiling/fon1.jpg" alt="Профиль" /></div>
+                <span class="ceil-plus-badge">+</span>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="ceil-btn-orange">перейти в каталог</a>
+        </div>
+      </section>
+
+      <!-- 3.4 СИСТЕМА АРМСТРОНГ: баннер -->
+      <section class="ceil-product reveal" id="armstrong-banner">
+        <div class="ceil-product-hero">
+          <img src="assets/image/ceiling/office.png" alt="Потолочная система армстронг Hubox" loading="lazy" />
+          <div class="ceil-product-hero-overlay">
+            <div class="ceil-product-hero-top">
+              <h2 class="ceil-product-hero-title">потолочная система армстронг</h2>
+              <div class="ceil-tags">
+                <span class="ceil-tag">офисы</span>
+                <span class="ceil-tag">open space</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3.4 СИСТЕМА АРМСТРОНГ: галерея + характеристики -->
+      <section class="ceil-product-details-wrapper reveal">
+        <div class="ceil-details-gallery" id="armstrongGallery">
+          <div class="ceil-gallery-badge-topleft">
+            <svg class="ceil-star-icon" width="28" height="28" viewBox="0 0 24 24" fill="#fa4616"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+            <span>доступна индивидуальная кастомизация — любой размер, цвет и уникальный узор.</span>
+          </div>
+          <div class="ceil-gallery-slides">
+            <img class="ceil-gallery-slide active" src="assets/image/ceiling/arm1.png" data-caption="армсофт" data-subcaption="" alt="Армсофт 1" />
+            <img class="ceil-gallery-slide" src="assets/image/ceiling/arm2.png" data-caption="армсофт радиус" data-subcaption="(однослойная)" alt="Армсофт 2" />
+            <img class="ceil-gallery-slide" src="assets/image/ceiling/arm3.png" data-caption="армсофт радиус" data-subcaption="(двуслойная)" alt="Армсофт 3" />
+            <img class="ceil-gallery-slide" src="assets/image/ceiling/arm4.png" data-caption="армсофт линии" data-subcaption="(однослойная)" alt="Армсофт 4" />
+            <img class="ceil-gallery-slide" src="assets/image/ceiling/arm5.png" data-caption="армсофт линии" data-subcaption="(двуслойная)" alt="Армсофт 5" />
+            <img class="ceil-gallery-slide" src="assets/image/ceiling/arm6.png" data-caption="армсофт 3D" data-subcaption="" alt="Армсофт 6" />
+          </div>
+          <button class="ceil-gallery-arrow ceil-gallery-prev" type="button" aria-label="Предыдущий слайд">
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,4 4,20 20,36"></polyline></svg>
+          </button>
+          <button class="ceil-gallery-arrow ceil-gallery-next" type="button" aria-label="Следующий слайд">
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,4 20,20 4,36"></polyline></svg>
+          </button>
+          <div class="ceil-gallery-caption-bottom">
+            <div class="ceil-caption-title">армсофт</div>
+            <div class="ceil-caption-sub"></div>
+          </div>
+        </div>
+        <div class="ceil-details-specs">
+          <h3 class="ceil-specs-title">потолочная система армстронг</h3>
+          <div class="ceil-specs-table">
+            <div class="ceil-specs-row"><span class="ceil-specs-label">размер баффла (мм)</span><span class="ceil-specs-value">600 x 600 x 9/12</span></div>
+            <div class="ceil-specs-row"><span class="ceil-specs-label">цвета</span><span class="ceil-specs-value">более 30</span></div>
+            <div class="ceil-specs-row"><span class="ceil-specs-label">плотность</span><span class="ceil-specs-value">4700 г/м²</span></div>
+            <div class="ceil-specs-row"><span class="ceil-specs-label">коэффициент NRC</span><span class="ceil-specs-value">0,9</span></div>
+            <div class="ceil-specs-row ceil-specs-row--last"><span class="ceil-specs-label">тип крепления</span><span class="ceil-specs-value">устанавливаются в стандартную систему армстронг</span></div>
+          </div>
+          <a href="#" class="ceil-btn-orange">перейти в каталог</a>
+        </div>
+      </section>
+
+      <!-- 4. ГИБКАЯ ПЕРСОНАЛИЗАЦИЯ -->
+      <section class="ceil-personal reveal" id="personal">
+        <div class="ceil-personal-head">
+          <h2>гибкая персонализация</h2>
+          <p class="ceil-personal-sub">узор. цвет. форма.<br />брендирование пространства</p>
+        </div>
+        <div class="ceil-personal-right">
+          <p class="ceil-personal-text">
+            на потолочные баффлы могут быть нанесены узоры различной глубины и типов узоров - угловые, прямые, п-образные.
+            наши дизайнеры и инженеры помогут подобрать готовый узор для вашего дизайн проекта или создать
+            уникальное персонализированное решение, отражающие графический язык коммуникации вашего бренда
+          </p>
+          <a href="#" class="ceil-personal-btn">получить образцы и карту цветов</a>
+        </div>
+      </section>
+
+      <!-- СРАВНЕНИЕ ПЕРСОНАЛИЗАЦИИ: ОФИСЫ / HORECA -->
+      <section class="ceil-compare-section reveal" id="compare-personalization">
+        <div class="ceil-compare-container">
+          <div class="ceil-compare-card">
+            <img class="ceil-compare-img-layer ceil-comp-left-office" src="assets/image/ceiling/office-without-per-1.png" alt="Без персонализации офисы" style="opacity: 1;" />
+            <img class="ceil-compare-img-layer ceil-comp-left-horeca" src="assets/image/ceiling/horeca-without-1.png" alt="Без персонализации HORECA" style="opacity: 0;" />
+            <div class="ceil-compare-badge">без персонализации</div>
+          </div>
+          <div class="ceil-compare-card">
+            <img class="ceil-compare-img-layer ceil-comp-right-office" src="assets/image/ceiling/office-per-1.png" alt="Персонализация пространства офисы" style="opacity: 1;" />
+            <img class="ceil-compare-img-layer ceil-comp-right-horeca" src="assets/image/ceiling/horeca-1.jpg" alt="Персонализация пространства HORECA" style="opacity: 0;" />
+            <div class="ceil-compare-badge ceil-compare-badge--wide">персонализация пространства с помощью продуктов hubox с бесконечной возможностью дизайна</div>
+          </div>
+          <div class="ceil-compare-toggle-wrapper">
+            <div class="ceil-compare-toggle-bar">
+              <button class="ceil-compare-toggle-btn is-active" type="button" data-left="assets/image/ceiling/office-without-per-1.png" data-right="assets/image/ceiling/office-per-1.png">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                <span>офисы</span>
+              </button>
+              <button class="ceil-compare-toggle-btn" type="button" data-left="assets/image/ceiling/horeca-without-1.png" data-right="assets/image/ceiling/horeca-1.jpg">
+                <span>HORECA</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. ФУРНИТУРА -->
+      <section class="ceil-hardware reveal" id="hardware">
+        <div class="ceil-hardware-card">
+          <h2>современная фурнитура<br />и гибкая дизайн-архитектура</h2>
+          <p>
+            мы в Hubox применяем современную фурнитуру, используя точность инженерного подхода для воплощения ваших самых амбициозных
+            дизайнерских концепций в осязаемую акустическую реальность с высокими эксплуатационными характеристиками наших материалов.
+            позвольте нам стать опытным партнером в реализации вашего проекта, от первоначальной концепции до окончательного монтажа
+          </p>
+        </div>
+        <div class="ceil-hardware-photo">
+          <img src="assets/image/ceiling/furnt.png" alt="Современная фурнитура Hubox" loading="lazy" />
+        </div>
+      </section>
+
+      <!-- 6. ПОЖАРНАЯ БЕЗОПАСНОСТЬ -->
+      <section class="ceil-fire reveal" id="fire">
+        <div class="ceil-fire-head">
+          <h2>потолочные решения hubox<br />трудно-воспламеняемы<br />и нетоксичны</h2>
+        </div>
+        <div class="ceil-fire-grid">
+          <div><span class="ceil-fire-value">А</span><span class="ceil-fire-label">класс<br />звукопоглощения</span></div>
+          <div><span class="ceil-fire-value">0,9</span><span class="ceil-fire-label">коэффициент<br />шумопоглощения NRC</span></div>
+          <div><span class="ceil-fire-value">Г1</span><span class="ceil-fire-label">слабогорючие</span></div>
+          <div><span class="ceil-fire-value">В1</span><span class="ceil-fire-label">трудновоспламеняемые</span></div>
+          <div><span class="ceil-fire-value">Т1</span><span class="ceil-fire-label">показатель<br />токсичности (малоопасные)</span></div>
+          <div><span class="ceil-fire-value">Д1</span><span class="ceil-fire-label">с малой<br />дымообразующей<br />способностью</span></div>
+        </div>
+        <div class="ceil-fire-btns">
+          <a href="fetr.html" class="ceil-fire-btn">подробно об эко-фетре</a>
+          <a href="#" class="ceil-fire-btn">акустические испытания</a>
+        </div>
+      </section>
+
+      <!-- 7. КОНТАКТЫ / ФОРМА -->
+      <section class="ceil-exact-contact" id="contact-form">
+        <div class="ceil-contact-dark-card">
+          <div class="ceil-contact-top-grid">
+            <div class="ceil-contact-info-col">
+              <h2 class="ceil-contact-exact-title">поможем<br />устранить<br />шум и эхо</h2>
+              <ul class="ceil-contact-exact-bullets">
+                <li>поможем определить источник<br />и тип шума</li>
+                <li>подберём решение<br />под вашу задачу</li>
+              </ul>
+              <div class="ceil-contact-orange-circles">
+                <a href="https://wa.me/79819200133" target="_blank" rel="noopener" class="ceil-orange-circle" aria-label="WhatsApp">
+                  <svg viewBox="0 0 50 50" width="22" height="22" aria-hidden="true">
+                    <path fill="#ffffff" d="M25 50a25 25 0 100-50 25 25 0 000 50z"/>
+                    <path fill="#fa4616" d="M25 0a25 25 0 100 50 25 25 0 000-50zm1.03 38.37c-2.42 0-4.8-.6-6.9-1.76l-7.67 2 2.05-7.45a14.3 14.3 0 01-1.93-7.2c0-7.92 6.49-14.38 14.45-14.38a14.4 14.4 0 110 28.79z"/>
+                  </svg>
+                </a>
+                <a href="https://max.ru/u/f9LHodD0cOK3WJPM7sQIj9P2X8cJuJuxbxF_1fQLAGK2vIsiZWf4V0CMH4w" target="_blank" rel="noopener" class="ceil-orange-circle" aria-label="Max">
+                  <svg viewBox="0 0 48 48" width="22" height="22" aria-hidden="true">
+                    <path fill="#ffffff" fill-rule="evenodd" d="M24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24C0 10.7452 10.7452 0 24 0ZM24.2314 12.5C17.8663 12.5 12.4942 17.4255 12.4941 23.9727C12.4941 26.714 13.0015 28.6059 13.4482 30.3047C13.8233 31.6836 14.1543 32.9467 14.1543 34.4414C14.3143 36.4326 17.9823 35.2685 19.1406 33.7793C20.9718 35.1031 22.0251 35.4346 24.292 35.4346C30.5586 35.4011 35.6151 30.2999 35.5938 24.0332C35.5937 17.6682 30.602 12.5 24.2314 12.5ZM24.3857 18.1592V18.165C27.5981 18.349 30.0709 21.0719 29.9453 24.2871C29.7296 27.4955 26.9854 29.9406 23.7734 29.7861C22.768 29.7055 21.8016 29.3614 20.9717 28.7881C20.4699 29.2899 19.6648 29.9402 19.3447 29.8633C18.6774 29.6868 17.8938 26.2951 18.335 23.5098C18.87 20.1452 21.2859 17.9993 24.3857 18.1592Z"/>
+                  </svg>
+                </a>
+                <a href="https://t.me/+79819200133" target="_blank" rel="noopener" class="ceil-orange-circle" aria-label="Telegram">
+                  <svg viewBox="0 0 100 100" width="22" height="22" aria-hidden="true">
+                    <path fill="#ffffff" fill-rule="evenodd" d="M50 100c27.614 0 50-22.386 50-50S77.614 0 50 0 0 22.386 0 50s22.386 50 50 50Zm21.977-68.056c.386-4.38-4.24-2.576-4.24-2.576-3.415 1.414-6.937 2.85-10.497 4.302-11.04 4.503-22.444 9.155-32.159 13.734-5.268 1.932-2.184 3.864-2.184 3.864l8.351 2.577c3.855 1.16 5.91-.129 5.91-.129l17.988-12.238c6.424-4.38 4.882-.773 3.34.773l-13.49 12.882c-2.056 1.804-1.028 3.35-.129 4.123 2.55 2.249 8.82 6.364 11.557 8.16.712.467 1.185.778 1.292.858.642.515 4.111 2.834 6.424 2.319 2.313-.516 2.57-3.479 2.57-3.479l3.083-20.226c.462-3.511.993-6.886 1.417-9.582.4-2.546.705-4.485.767-5.362Z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="ceil-contact-form-col">
+              <form class="ceil-exact-form" action="#" method="post">
+                <div class="ceil-field-group">
+                  <label class="ceil-field-label">Телефон</label>
+                  <input type="tel" class="ceil-line-input" placeholder="" required />
+                </div>
+                <div class="ceil-form-checkbox-row">
+                  <input type="checkbox" id="exact-agree" required checked />
+                  <label for="exact-agree">нажимая на кнопку, я подтверждаю согласие с <a href="#">политикой конфиденциальности</a> и даю согласие на <a href="#">обработку персональных данных</a></label>
+                </div>
+                <button type="submit" class="ceil-exact-submit-btn">получить консультацию</button>
+              </form>
+            </div>
+          </div>
+          <div class="ceil-contact-dark-bottom">
+            <div class="ceil-dark-col">
+              <div class="ceil-mini-socials">
+                <a href="https://ru.pinterest.com/hubox_design/" target="_blank" rel="noopener" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://vk.com/hubox_design" target="_blank" rel="noopener" aria-label="VK"><i class="fab fa-vk"></i></a>
+                <a href="https://t.me/hubox_design" target="_blank" rel="noopener" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://www.youtube.com/@HUBOXDESIGN" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              </div>
+              <div class="ceil-dark-link">+7(981) 920-01-33</div>
+              <div class="ceil-dark-link">saleshead@hubox.design</div>
+            </div>
+            <div class="ceil-dark-col">
+              <p>Санкт-Петербург,</p>
+              <p>ул. Учительская, 23 лит А,</p>
+              <p>офис 234</p>
+            </div>
+            <div class="ceil-dark-col ceil-dark-col--links">
+              <a href="walls.html">стеновые панели</a>
+              <a href="designers.html">дизайнерам и архитекторам</a>
+            </div>
+          </div>
+        </div>
+        <footer class="ceil-exact-light-footer">
+          <div class="ceil-light-footer-top">
+            <div class="ceil-light-col-left">
+              <p>ИП Некрасов А.В.</p>
+              <p>ИНН: 780431457793</p>
+              <br />
+              <p>Россия, Санкт-Петербург, 195269, ул. Учительская, 23 лит А, офис 234</p>
+            </div>
+            <div class="ceil-light-col-right">
+              <p>+79819200133</p>
+              <p>saleshead@hubox.design</p>
+              <br />
+              <p>© Hubox. Зарегистрированный товарный знак. Все права защищены.</p>
+            </div>
+          </div>
+          <div class="ceil-light-footer-legal">
+            <a href="#">политика в отношении обработки персональных данных</a>
+            <a href="#">согласие на обработку персональных данных</a>
+            <a href="#">пользовательское соглашение</a>
+            <a href="#">политика использования файлов cookie</a>
+          </div>
+        </footer>
+      </section>
+
+    <!-- VIDEO MODAL -->
+    <div class="video-modal" id="videoModal">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="close-modal" id="closeModal">&times;</button>
+        <video id="modalVideo" controls>
+          <source src="assets/videos/production.mp4" type="video/mp4" />
+          Ваш браузер не поддерживает видео.
+        </video>
+      </div>
+    </div>
+
+    <!-- CALLBACK MODAL -->
+    <div class="modal-callback" id="callbackModal">
+      <div class="modal-backdrop"></div>
+      <div class="modal-window">
+        <button class="modal-close" id="closeCallback">&times;</button>
+        <div class="modal-header">
+          <h2>обсудим проект?</h2>
+          <p>подберем оптимальные материалы и предоставим техническую информацию</p>
+        </div>
+        <form class="modal-form">
+          <div class="modal-input-group"><label>имя</label><input type="text" placeholder="ваше имя" required /></div>
+          <div class="modal-input-group"><label>телефон</label><input type="tel" placeholder="+7 (999) 999-99-99" inputmode="numeric" maxlength="18" required /></div>
+          <div class="modal-input-group"><label>ваш комментарий</label><textarea placeholder="комментарий" rows="1"></textarea></div>
+          <div class="modal-checkbox-group">
+            <input type="checkbox" id="modal-agree" required />
+            <label for="modal-agree">нажимая на кнопку, я подтверждаю согласие с <a href="#">политикой конфиденциальности</a> и даю согласие на <a href="#">обработку персональных данных</a></label>
+          </div>
+          <button type="submit" class="btn-modal-submit">отправить</button>
+        </form>
+      </div>
+    </div>
+
+    </main>
+
+    <script src="scripts/slider.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/vendor/simpleParallax.min.js"></script>
+    <script src="scripts/parallax-init.js?v=9"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggleItems = document.querySelectorAll(".ceil-toggle-bar .ceil-toggle-item");
+        toggleItems.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            const bar = btn.closest(".ceil-toggle-bar");
+            if (!bar) return;
+            bar.querySelectorAll(".ceil-toggle-item").forEach(function (b) { b.classList.remove("is-active"); });
+            btn.classList.add("is-active");
+            const hero = btn.closest(".ceil-product-hero");
+            if (!hero) return;
+            const heroLight = hero.querySelector(".ceil-hero-light");
+            const heroBase = hero.querySelector(".ceil-hero-base");
+            const newSrc = btn.getAttribute("data-img");
+            if (heroLight && heroBase && newSrc) {
+              const isLightMode = btn === bar.querySelector(".ceil-toggle-item.is-active");
+              if (newSrc.includes("light") || newSrc.includes("black") || btn === bar.querySelector(".ceil-toggle-item:first-child")) {
+                heroLight.style.opacity = "1";
+              } else {
+                heroLight.style.opacity = "0";
+              }
+            }
+          });
+        });
+      });
+    </script>
+
+    <script>
+      (function initVerticalBafflesGallery() {
+        const gallery = document.getElementById("verticalBafflesGallery");
+        if (!gallery) return;
+        const slides = gallery.querySelectorAll(".ceil-gallery-slide");
+        const prevBtn = gallery.querySelector(".ceil-gallery-prev");
+        const nextBtn = gallery.querySelector(".ceil-gallery-next");
+        const lightBtn = gallery.querySelector(".ceil-gallery-light-btn");
+        const titleEl = gallery.querySelector(".ceil-caption-title");
+        const subEl = gallery.querySelector(".ceil-caption-sub");
+        let currentIdx = 0;
+        let isLightActive = true;
+
+        function updateGallery() {
+          slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === currentIdx);
+            if (i === currentIdx) {
+              slide.classList.toggle("is-light", isLightActive);
+              const cap = slide.getAttribute("data-caption");
+              const sub = slide.getAttribute("data-subcaption");
+              if (cap && titleEl) titleEl.textContent = cap;
+              if (sub !== null && subEl) subEl.textContent = sub;
+            }
+          });
+          if (lightBtn) {
+            lightBtn.classList.toggle("is-active", isLightActive);
+            const span = lightBtn.querySelector("span");
+            if (span) span.textContent = isLightActive ? "включенное освещение" : "выключенное освещение";
+          }
+        }
+
+        if (prevBtn) prevBtn.addEventListener("click", () => { currentIdx = (currentIdx - 1 + slides.length) % slides.length; updateGallery(); });
+        if (nextBtn) nextBtn.addEventListener("click", () => { currentIdx = (currentIdx + 1) % slides.length; updateGallery(); });
+        if (lightBtn) lightBtn.addEventListener("click", () => { isLightActive = !isLightActive; updateGallery(); });
+        updateGallery();
+      })();
+    </script>
+
+    <script>
+      (function initHorDesignBafflesGallery() {
+        const gallery = document.getElementById("horDesignBafflesGallery");
+        if (!gallery) return;
+        const slides = gallery.querySelectorAll(".ceil-gallery-slide");
+        const prevBtn = gallery.querySelector(".ceil-gallery-prev");
+        const nextBtn = gallery.querySelector(".ceil-gallery-next");
+        const lightBtn = gallery.querySelector(".ceil-gallery-light-btn");
+        const titleEl = gallery.querySelector(".ceil-caption-title");
+        let currentIdx = 0;
+        let isLightActive = true;
+
+        function updateGallery() {
+          slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === currentIdx);
+            slide.classList.toggle("is-light", isLightActive);
+            if (i === currentIdx) {
+              const cap = slide.getAttribute("data-caption");
+              if (cap && titleEl) titleEl.textContent = cap;
+            }
+          });
+          if (lightBtn) {
+            lightBtn.classList.toggle("is-active", isLightActive);
+            const span = lightBtn.querySelector("span");
+            if (span) span.textContent = isLightActive ? "включенное освещение" : "выключенное освещение";
+          }
+        }
+
+        if (prevBtn) prevBtn.addEventListener("click", () => { currentIdx = (currentIdx - 1 + slides.length) % slides.length; updateGallery(); });
+        if (nextBtn) nextBtn.addEventListener("click", () => { currentIdx = (currentIdx + 1) % slides.length; updateGallery(); });
+        if (lightBtn) lightBtn.addEventListener("click", () => { isLightActive = !isLightActive; updateGallery(); });
+        updateGallery();
+      })();
+    </script>
+
+    <script>
+      (function initHoveringWallsGallery() {
+        const gallery = document.getElementById("hoveringWallsGallery");
+        if (!gallery) return;
+        const slides = gallery.querySelectorAll(".ceil-gallery-slide");
+        const prevBtn = gallery.querySelector(".ceil-gallery-prev");
+        const nextBtn = gallery.querySelector(".ceil-gallery-next");
+        const lightBtn = gallery.querySelector(".ceil-gallery-light-btn");
+        const titleEl = gallery.querySelector(".ceil-caption-title");
+        let currentIdx = 0;
+        let isLightActive = true;
+
+        function updateGallery() {
+          slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === currentIdx);
+            if (i === currentIdx) {
+              slide.classList.toggle("is-light", isLightActive);
+              const cap = slide.getAttribute("data-caption");
+              if (cap && titleEl) titleEl.textContent = cap;
+            }
+          });
+          if (lightBtn) {
+            lightBtn.classList.toggle("is-active", isLightActive);
+            const span = lightBtn.querySelector("span");
+            if (span) span.textContent = isLightActive ? "включенное освещение" : "выключенное освещение";
+          }
+        }
+
+        if (prevBtn) prevBtn.addEventListener("click", () => { currentIdx = (currentIdx - 1 + slides.length) % slides.length; updateGallery(); });
+        if (nextBtn) nextBtn.addEventListener("click", () => { currentIdx = (currentIdx + 1) % slides.length; updateGallery(); });
+        if (lightBtn) lightBtn.addEventListener("click", () => { isLightActive = !isLightActive; updateGallery(); });
+        updateGallery();
+      })();
+    </script>
+
+    <script>
+      (function initArmstrongGallery() {
+        const gallery = document.getElementById("armstrongGallery");
+        if (!gallery) return;
+        const slides = gallery.querySelectorAll(".ceil-gallery-slide");
+        const prevBtn = gallery.querySelector(".ceil-gallery-prev");
+        const nextBtn = gallery.querySelector(".ceil-gallery-next");
+        const titleEl = gallery.querySelector(".ceil-caption-title");
+        const subEl = gallery.querySelector(".ceil-caption-sub");
+        let currentIdx = 0;
+
+        function updateGallery() {
+          slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === currentIdx);
+            if (i === currentIdx) {
+              const cap = slide.getAttribute("data-caption");
+              const sub = slide.getAttribute("data-subcaption");
+              if (cap && titleEl) titleEl.textContent = cap;
+              if (subEl) subEl.textContent = sub || "";
+            }
+          });
+        }
+
+        if (prevBtn) prevBtn.addEventListener("click", () => { currentIdx = (currentIdx - 1 + slides.length) % slides.length; updateGallery(); });
+        if (nextBtn) nextBtn.addEventListener("click", () => { currentIdx = (currentIdx + 1) % slides.length; updateGallery(); });
+        updateGallery();
+      })();
+    </script>
+
+    <script>
+      (function initComparePersonalization() {
+        const toggleBtns = document.querySelectorAll(".ceil-compare-toggle-btn");
+        toggleBtns.forEach((btn, idx) => {
+          btn.addEventListener("click", () => {
+            toggleBtns.forEach(b => b.classList.remove("is-active"));
+            btn.classList.add("is-active");
+            const isOffice = (idx === 0);
+            const leftOffice = document.querySelector(".ceil-comp-left-office");
+            const leftHoreca = document.querySelector(".ceil-comp-left-horeca");
+            const rightOffice = document.querySelector(".ceil-comp-right-office");
+            const rightHoreca = document.querySelector(".ceil-comp-right-horeca");
+            if (leftOffice && leftHoreca) { leftOffice.style.opacity = isOffice ? "1" : "0"; leftHoreca.style.opacity = isOffice ? "0" : "1"; }
+            if (rightOffice && rightHoreca) { rightOffice.style.opacity = isOffice ? "1" : "0"; rightHoreca.style.opacity = isOffice ? "0" : "1"; }
+          });
+        });
+      })();
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('.ceil-spot-badge').forEach(function(badge) {
+          badge.addEventListener('click', function(e) {
+            e.preventDefault();
+            const formSection = document.getElementById('contact-form');
+            if (formSection) {
+              formSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+        });
+      });
+    </script>
+
+  </body>
+</html>
