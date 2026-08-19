@@ -1572,7 +1572,7 @@
 }
 .properties-main-title {
   font-family: var(--t-headline-font);
-  font-size: clamp(36px, 5.5vw, 130px);
+  font-size: clamp(36px, 7.5vw, 130px);
   color: var(--orange);
   text-transform: lowercase;
   margin: 0;
