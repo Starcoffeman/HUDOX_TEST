@@ -65,7 +65,63 @@ document.addEventListener("DOMContentLoaded", function () {
           // .fetr-type-visual: параллакс оборачивает картинку и
           // масштабирует (scale: 1.3), из-за чего фото вылезает за
           // пределы своей колонки и обрезается overflow:hidden.
-          !img.closest(".ceil-hardware-photo")
+          !img.closest(".ceil-hardware-photo") &&
+          // Фото радиусных поверхностей (.radius-image-block) — та же
+          // история: обёртка simpleParallax ломает position:absolute;inset:0
+          // у картинки (она должна всегда заполнять блок целиком по высоте).
+          !img.closest(".radius-image-block") &&
+          // Иконки в блоке "свойства" (.prop-icon img) — маленькие SVG без
+          // явного width/height (только max-width/max-height); обёрнутые в
+          // simpleParallax, они схлопывались в 0×0 и просто исчезали.
+          !img.closest(".prop-icon") &&
+          // Картинка палитры цветов на странице "Фетр" (.fetr-palettes-image-wrap) —
+          // должна быть всегда прижата к правому краю блока (justify-content:
+          // flex-end у обёртки), обёртка simpleParallax это ломает.
+          !img.closest(".fetr-palettes-image-wrap") &&
+          // Статистическая картинка в блоке про производство фетра
+          // (.fetr-prod-stat-img) — заказчик попросил убрать параллакс.
+          !img.closest(".fetr-prod-stat-img") &&
+          // Сертификат пожарной безопасности (.fetr-fire-safety-cert) —
+          // заказчик попросил убрать параллакс.
+          !img.closest(".fetr-fire-safety-cert") &&
+          // Сетка блока переработки (.fetr-recyc-grid) — заказчик попросил
+          // убрать параллакс.
+          !img.closest(".fetr-recyc-grid") &&
+          // SVG-иконки в .fetr-usecases-list (.fetr-usecases-icon) — базовый
+          // фильтр выше пытался исключить их через
+          // "img:not(.fetr-usecases-icon)", но этот класс висит на
+          // родительском div, а не на самом <img>, поэтому :not() не
+          // срабатывал. Исключаем явно через closest().
+          !img.closest(".fetr-usecases-icon") &&
+          // Фото в блоках .fetr-small-panels-right — должно всегда
+          // заполнять весь блок, обёртка simpleParallax (scale: 1.3) это
+          // ломает.
+          !img.closest(".fetr-small-panels-right") &&
+          // Фото в .fetr-veneer-left — та же история, должно всегда
+          // заполнять весь блок по высоте.
+          !img.closest(".fetr-veneer-left") &&
+          // Hero-фото товарных карточек на странице "Потолочные решения"
+          // (.ceil-product-hero: вертикальные баффлы, горизонтальные
+          // дизайн-баффлы, парящие стены) — заказчик попросил убрать
+          // параллакс в этих 3 блоках.
+          !img.closest(".ceil-product-hero") &&
+          // Фото в блоке "собственное производство баффлов" на странице
+          // "Потолочные решения" (.ceil-production-photo) — тот же случай,
+          // что и .ceil-hardware-photo/.radius-image-block: картинка должна
+          // заполнять блок через height:100%+object-fit:cover, а обёртка
+          // simpleParallax даёт родителю height:auto — height:100% у
+          // картинки перестаёт резолвиться, и фото не дотягивается до низа
+          // блока (сообщил заказчик, видно на iPhone).
+          !img.closest(".ceil-production-photo") &&
+          // Блок "варианты укладки" на странице "Стеновые панели"
+          // (.pattern-item) — та же самая история: замер показал разрыв
+          // 67px между высотой блока и высотой картинки (обёртка
+          // simpleParallax ломает height:100%).
+          !img.closest(".pattern-item") &&
+          // Фото на странице "Фетр" (.fetr-shape-right/.fetr-thick-left) —
+          // те же 80px разрыва по той же причине.
+          !img.closest(".fetr-shape-right") &&
+          !img.closest(".fetr-thick-left")
         );
       });
 
@@ -105,6 +161,49 @@ document.addEventListener("DOMContentLoaded", function () {
       window.dispatchEvent(new Event("resize"));
     }, 300);
   });
+
+  // 1b. Параллакс на мобильном для отдельных блоков страницы walls.html —
+  // основной initSimpleParallax() выше сознательно выключен на мобильном
+  // (window.innerWidth > 768) для всех картинок сайта, но заказчик отдельно
+  // попросил эффект именно для этих 4 фото и именно на телефонах тоже.
+  // CSS-правила под .simpleParallax для этих блоков — см.
+  // .trends-image/.problems-image/.offer-image/.system-image-block
+  // в css/sections.css.
+  function initWallsMobileParallax() {
+    if (
+      !/walls\.html$/.test(location.pathname) ||
+      typeof simpleParallax === "undefined"
+    ) {
+      return;
+    }
+    const imgs = document.querySelectorAll(
+      ".trends-image img, .problems-image img, .offer-image img, .system-image-block img",
+    );
+    imgs.forEach((img) => {
+      if (img.closest(".simpleParallax")) return; // уже обёрнут
+      try {
+        new simpleParallax(img, {
+          scale: 1.3,
+          delay: 1.2,
+          orientation: "up",
+          transition: "cubic-bezier(0, 0, 0, 1)",
+          overflow: false,
+        });
+      } catch (err) {
+        console.warn("mobile parallax (walls) initialization notice:", err);
+      }
+    });
+  }
+
+  if (window.innerWidth <= 768) {
+    initWallsMobileParallax();
+    window.addEventListener("load", function () {
+      initWallsMobileParallax();
+      setTimeout(() => {
+        window.dispatchEvent(new Event("resize"));
+      }, 300);
+    });
+  }
 
   // 2. Smooth Background Parallax for Background Image Banners
   const bgSections = document.querySelectorAll(

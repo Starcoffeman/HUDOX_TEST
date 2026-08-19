@@ -318,6 +318,15 @@ document.addEventListener("DOMContentLoaded", function () {
         if (href && (href.endsWith(".html") || href.includes("http") || !href.includes("Modal"))) {
           return; // Переадресация на другую страницу
         }
+        // На fetr.html класс .modal-trigger-btn используют И кнопки
+        // "обратный звонок" (#callbackModal), И кнопки "подробнее" у
+        // фото (#imageModal), И кнопка "получить образцы" (#samplesModal) —
+        // класс общий, а href.includes("Modal") пропускал их всех, из-за
+        // чего клик по кнопке фото одновременно открывал ещё и эту
+        // модалку. Открываем только если это реально #callbackModal.
+        if (href && href !== "#callbackModal") {
+          return;
+        }
         e.preventDefault();
         callbackModal.classList.add("active");
         document.body.style.overflow = "hidden";

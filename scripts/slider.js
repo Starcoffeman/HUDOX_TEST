@@ -42,6 +42,17 @@ document.addEventListener("DOMContentLoaded", function () {
   function initCustomSlider(containerSelector) {
     const containers = document.querySelectorAll(containerSelector);
     containers.forEach((container) => {
+      // Некоторые блоки (например .hero-slider + .living-slider-wrapper на
+      // ceiling.html) попадают под НЕСКОЛЬКО селекторов ниже одновременно —
+      // без этой защиты initCustomSlider запускался на одном и том же
+      // контейнере дважды: два независимых таймера постоянно сбрасывали
+      // друг другу transition/width у .progress-fill, из-за чего анимация
+      // полосок прогресса не успевала визуально проиграться (хотя сама
+      // смена слайдов работала, потому что переключение класса .active
+      // идемпотентно).
+      if (container.hasAttribute("data-custom-slider-ready")) return;
+      container.setAttribute("data-custom-slider-ready", "");
+
       const slides = container.querySelectorAll(".slide");
       const fills = container.querySelectorAll(".progress-fill");
       const progressBars = container.querySelectorAll(".progress-bar, .progress-segment");
