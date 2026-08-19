@@ -40,8 +40,8 @@
     />
 
     <link rel="stylesheet" href="css/home/base.css" />
-    <link rel="stylesheet" href="css/home/01-header.css" />
-    <link rel="stylesheet" href="css/home/02-mobile-menu.css" />
+    <link rel="stylesheet" href="css/home/01-header.css?v=1" />
+    <link rel="stylesheet" href="css/home/02-mobile-menu.css?v=4" />
     <link rel="stylesheet" href="css/home/24-sticky-header-hide.css" />
     <link rel="stylesheet" href="css/home/03-hero.css" />
     <link rel="stylesheet" href="css/home/04-production.css" />
@@ -65,90 +65,15 @@
     <link rel="stylesheet" href="css/home/21-partners.css" />
     <link rel="stylesheet" href="css/home/22-contact-widget.css" />
     <link rel="stylesheet" href="css/home/22-footer.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/modals.css?v=3" />
     <link rel="stylesheet" href="css/home/99-assembly.css" />
 
-    <!-- без defer: масштаб макета должен примениться до первой отрисовки -->
     <script src="js/home/main.js"></script>
-    <style>
-      /* ===== EXACT MOBILE HEADER MATCH TO INDEX.HTML (HIDE ALL EXTRA TEXT ON <= 1199PX) ===== */
-      @media (max-width: 1199px) {
-        .header-bar {
-          height: 60px !important;
-          position: relative !important;
-          margin: 0 !important;
-          display: flex !important;
-          align-items: center !important;
-          justify-content: space-between !important;
-          padding: 0 20px !important;
-          background: #ffffff !important;
-        }
-
-        .header-logo {
-          position: relative !important;
-          top: auto !important;
-          left: auto !important;
-          width: 80px !important;
-          height: 46px !important;
-          display: block !important;
-          margin: 0 !important;
-        }
-
-        .header-burger {
-          position: relative !important;
-          top: auto !important;
-          left: auto !important;
-          right: auto !important;
-          display: block !important;
-          width: 42px !important;
-          height: 42px !important;
-          margin: 0 !important;
-        }
-
-        .header-line,
-        .header-top,
-        .header-menu,
-        .header-callback,
-        .header-phone,
-        .tn-elem__ceiling_nav,
-        [data-elem-id="175981923536160010"],
-        [data-elem-id="175981925860255080"],
-        [data-elem-id="175981926787540010"],
-        [data-elem-id="1779707904086000001"],
-        [data-elem-id="1779707904086000099"],
-        [data-elem-id="1778668836349000001"],
-        [data-elem-id="1779707751780000001"],
-        [data-elem-id="1779707751780000099"] {
-          display: none !important;
-          visibility: hidden !important;
-          opacity: 0 !important;
-          height: 0 !important;
-          width: 0 !important;
-          pointer-events: none !important;
-        }
-      }
-
-      @media (max-width: 639px) {
-        .header-bar {
-          height: 52px !important;
-          padding: 0 16px !important;
-        }
-
-        .header-logo {
-          width: 66px !important;
-          height: 38px !important;
-        }
-
-        .header-burger {
-          width: 38px !important;
-          height: 38px !important;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="css/home/index-page.css" />
   </head>
 
   <body>
-        <!-- ===== ШАПКА ===== -->
-        <!-- ===== ШАПКА ===== -->
     <header class="header header--autohide">
       <div class="header-bar">
         <a class="header-logo" href="index.html" aria-label="Hubox — на главную">
@@ -180,7 +105,7 @@
           <a class="header-menu-link" href="#contacts">контакты</a>
         </nav>
 
-        <a class="header-callback btn btn--outline" href="#form">обратный звонок</a>
+        <a class="header-callback btn btn--outline" href="#callbackModal">обратный звонок</a>
         <a class="header-phone" href="tel:+79819200133">+7(981) 920-01-33</a>
 
         <button class="header-burger" type="button" aria-label="Открыть меню" aria-expanded="false">
@@ -198,7 +123,6 @@
       </div>
     </header>
 
-    <!-- ===== МОБИЛЬНОЕ МЕНЮ ===== -->
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
       <div class="mobile-menu-inner">
         <span class="mobile-menu-bg" aria-hidden="true"></span>
@@ -265,7 +189,7 @@
           <a class="mobile-menu-link" href="ceiling.html">потолочные решения</a>
         </nav>
 
-        <a class="mobile-menu-banner" href="#form">
+        <a class="mobile-menu-banner" href="#callbackModal">
           <img
             src="assets/misc-home/Group_3585.png.webp"
             alt="Получите персональную консультацию быстро"
@@ -338,7 +262,7 @@
             />
           </a>
 
-          <a class="mobile-menu-callback btn btn--outline" href="#form"
+          <a class="mobile-menu-callback btn btn--outline" href="#callbackModal"
             >обратный звонок</a
           >
         </div>
@@ -346,46 +270,19 @@
     </div>
 
     <main>
-      <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
       <section class="hero" id="panels">
-        <!-- на десктопе и на мобильных крутятся разные наборы кадров (разные кропы),
-             поэтому слайдеров два: лишний скрыт медиазапросом -->
         <div
           class="hero-slider hero-slider--desktop"
           data-nav=".hero-lines"
           data-interval="5000"
         >
           <div class="hero-track">
+            <div class="hero-slide hero-slide-1"></div>
+            <div class="hero-slide hero-slide-2"></div>
+            <div class="hero-slide hero-slide-3"></div>
+            <div class="hero-slide hero-slide-4"></div>
             <div
-              class="hero-slide"
-              style="
-                background-image: url(&quot;assets/misc-home/3128ad0bd3a9db7088ce.jpg&quot;);
-              "
-            ></div>
-            <div
-              class="hero-slide"
-              style="
-                background-image: url(&quot;assets/misc-home/11__1_1_2.png&quot;);
-              "
-            ></div>
-            <div
-              class="hero-slide"
-              style="
-                background-image: url(&quot;assets/misc-home/Img-frame.png&quot;);
-              "
-            ></div>
-            <div
-              class="hero-slide"
-              style="
-                background-image: url(&quot;assets/misc-home/19__1_1.png.webp&quot;);
-              "
-            ></div>
-            <!-- клон первого кадра для бесшовной петли -->
-            <div
-              class="hero-slide"
-              style="
-                background-image: url(&quot;assets/misc-home/3128ad0bd3a9db7088ce.jpg&quot;);
-              "
+              class="hero-slide hero-slide-1"
               aria-hidden="true"
             ></div>
           </div>
@@ -397,35 +294,12 @@
           data-interval="3000"
         >
           <div class="hero-track">
+            <div class="hero-slide hero-slide-m1"></div>
+            <div class="hero-slide hero-slide-m2"></div>
+            <div class="hero-slide hero-slide-m3"></div>
+            <div class="hero-slide hero-slide-m4"></div>
             <div
-              class="hero-slide"
-              style="
-                background-image: url(&quot;assets/misc-home/3128ad0bd3a9db7088ce.jpg&quot;);
-              "
-            ></div>
-            <div
-              class="hero-slide"
-              style="
-                background-image: url(&quot;https://static.tildacdn.com/tild3866-3264-4532-b435-613538653066/Img-frame_9.png&quot;);
-              "
-            ></div>
-            <div
-              class="hero-slide"
-              style="
-                background-image: url(&quot;https://static.tildacdn.com/tild3761-6164-4536-a565-393433366262/Img-frame_8.png&quot;);
-              "
-            ></div>
-            <div
-              class="hero-slide"
-              style="
-                background-image: url(&quot;https://static.tildacdn.com/tild6539-6262-4637-a631-306562636439/Img-frame_11.png&quot;);
-              "
-            ></div>
-            <div
-              class="hero-slide"
-              style="
-                background-image: url(&quot;assets/misc-home/3128ad0bd3a9db7088ce.jpg&quot;);
-              "
+              class="hero-slide hero-slide-m1"
               aria-hidden="true"
             ></div>
           </div>
@@ -498,7 +372,7 @@
           </p>
         </div>
 
-        <a class="hero-btn btn" href="#form">обсудить</a>
+        <a class="hero-btn btn" href="#callbackModal">обсудить</a>
 
         <p class="hero-caption">
           производим акустические панели и потолочные баффлы
@@ -512,7 +386,6 @@
           height="27"
         />
       </section>
-      <!-- ===== ПРОИЗВОДСТВО ===== -->
       <section class="production" id="proizvod">
         <div class="production-card">
           <p class="production-logo reveal">hubox</p>
@@ -555,7 +428,6 @@
           </div>
         </div>
       </section>
-      <!-- ===== О КОМПАНИИ ===== -->
       <section class="about">
         <div class="about-video">
           <video
@@ -592,7 +464,6 @@
           </article>
         </div>
       </section>
-      <!-- ===== ПЕРСОНАЛЬНОЕ ПРЕДЛОЖЕНИЕ ===== -->
       <section class="offer" id="form">
         <div class="offer-card">
           <h2 class="offer-title">получите персональное предложение</h2>
@@ -631,9 +502,9 @@
               <span class="offer-check-box" aria-hidden="true"></span>
               <span class="offer-check-text">
                 нажимая на кнопку, я подтверждаю согласие с
-                <a href="/privacy">политикой конфиденциальности</a>
+                <a href="privacy.html">политикой конфиденциальности</a>
                 и даю согласие на
-                <a href="/agreement">обработку персональных данных</a>
+                <a href="agreement.html">обработку персональных данных</a>
               </span>
             </label>
 
@@ -646,7 +517,6 @@
         </div>
       </section>
 
-      <!-- ===== ПОПАП: ЗАПРОС ПРИНЯТ ===== -->
       <div
         class="offer-popup"
         id="offerPopup"
@@ -665,7 +535,6 @@
           <button class="offer-popup-btn" type="button">хорошо</button>
         </div>
       </div>
-      <!-- ===== ФЕТР ===== -->
       <section class="felt" id="material">
         <div class="felt-card">
           <h2 class="felt-title reveal">
@@ -683,9 +552,7 @@
           </p>
         </div>
       </section>
-      <!-- ===== СВОЙСТВА ПАНЕЛЕЙ ===== -->
       <section class="properties">
-        <!-- фото интерьера с накладкой-образцом фетра -->
         <div class="properties-photo">
           <div class="properties-photo-card">
             <img
@@ -707,7 +574,6 @@
           </div>
         </div>
 
-        <!-- преимущества и список свойств -->
         <div class="properties-main">
           <div class="properties-card">
             <h2 class="properties-title reveal">
@@ -756,10 +622,8 @@
           </div>
         </div>
       </section>
-      <!-- ===== СРАВНЕНИЕ ПАНЕЛЕЙ ===== -->
       <section class="compare">
         <div class="compare-stage">
-          <!-- тёмная карточка: обычные панели против панелей hubox -->
           <div class="compare-dark">
             <span class="compare-dark-title compare-dark-title--usual"
               >обычные панели</span
@@ -783,7 +647,6 @@
             loading="lazy"
           />
 
-          <!-- звуковые волны, поглощаемые панелью: пульсируют бесконечно -->
           <span class="compare-wave" aria-hidden="true"></span>
 
           <img
@@ -795,7 +658,6 @@
             loading="lazy"
           />
 
-          <!-- светлая карточка: что дают панели hubox -->
           <div class="compare-info">
             <h2 class="compare-info-title reveal">
               не просто декор стен —
@@ -852,7 +714,6 @@
           </div>
         </div>
       </section>
-      <!-- ===== ВЛИЯНИЕ НА ПРОСТРАНСТВА ===== -->
       <section class="spaces">
         <div class="spaces-stage">
           <div class="spaces-head">
@@ -1100,7 +961,6 @@
           </article>
         </div>
       </section>
-      <!-- ===== РЕШЕНИЕ ДЛЯ СТЕН ===== -->
       <section class="solution solution--walls" id="walls">
         <div class="solution-head">
           <div class="solution-panel"></div>
@@ -1306,7 +1166,6 @@
           </a>
         </div>
       </section>
-      <!-- ===== РЕШЕНИЕ ДЛЯ ПОТОЛКОВ ===== -->
       <section class="solution solution--ceiling" id="ceiling">
         <div class="solution-head">
           <div class="solution-panel"></div>
@@ -1317,11 +1176,9 @@
           </h2>
           <a
             class="solution-btn solution-btn--head btn btn--solid"
-            href="https://drive.google.com/file/d/1C1jS6xdlDnnwhjXtB8e3b3Hkhr0L6oBJ/view"
-            target="_blank"
-            rel="noopener"
+            href="ceiling.html"
           >
-            посмотреть каталог
+            подробнее
           </a>
         </div>
 
@@ -1422,7 +1279,6 @@
           </a>
         </div>
       </section>
-      <!-- ===== РЕШЕНИЕ ДЛЯ ДВЕРЕЙ ===== -->
       <section class="solution solution--doors" id="doors">
         <div class="solution-head">
           <div class="solution-panel"></div>
@@ -1434,10 +1290,8 @@
         </div>
 
         <div class="solution-stage">
-          <!-- В оригинале это галерея с единственным слайдом — оставляем ту же разметку -->
           <div class="uc-slider solution-slider" data-uc-slider>
             <div class="uc-slider-slide">
-              <!-- .jpg локально сохранён заглушкой 20x9, полноразмерный вариант только в .webp -->
               <img
                 src="assets/misc-home/Frame_2085666581_1.jpg.webp"
                 alt="Дверь с панелями из эко-фетра в интерьере"
@@ -1461,7 +1315,6 @@
           </article>
         </div>
       </section>
-      <!-- ===== РЕШЕНИЕ ДЛЯ ОФИСА И ЗОНИРОВАНИЯ ===== -->
       <section class="solution solution--office" id="zone">
         <div class="solution-head">
           <div class="solution-panel"></div>
@@ -1473,7 +1326,6 @@
         </div>
 
         <div class="solution-stage">
-          <!-- В оригинале это галерея с единственным слайдом — оставляем ту же разметку -->
           <div class="uc-slider solution-slider" data-uc-slider>
             <div class="uc-slider-slide">
               <img
@@ -1519,7 +1371,6 @@
           </article>
         </div>
       </section>
-      <!-- ===== ПРИМЕНЕНИЕ В ПРОСТРАНСТВАХ ===== -->
       <section class="app" id="application">
         <div class="app-head">
           <div class="app-head-inner">
@@ -1604,7 +1455,6 @@
           </div>
         </div>
       </section>
-      <!-- ===== КОММЕРЧЕСКИЕ ПРОСТРАНСТВА ===== -->
       <section class="comm">
         <div class="comm-inner">
           <div class="comm-card">
@@ -1696,10 +1546,8 @@
           </div>
         </div>
       </section>
-      <!-- ===== БЕСКОНЕЧНЫЕ ВОЗМОЖНОСТИ ДИЗАЙНА ===== -->
       <section class="design" id="designers">
         <div class="design-stage">
-          <!-- голубая подложка под текстовой частью -->
           <div class="design-card" aria-hidden="true"></div>
 
           <h2 class="design-title reveal">
@@ -1745,7 +1593,6 @@
             посмотреть готовые коллекции
           </a>
 
-          <!-- превью коллекций: четвёртая плитка появляется только на узких макетах -->
           <ul class="design-tiles">
             <li class="design-tile">
               <img
@@ -1785,7 +1632,6 @@
           />
         </div>
       </section>
-      <!-- ===== ГАЛЕРЕЯ ===== -->
       <section class="gallery">
         <div class="gallery-head">
           <div class="gallery-stage">
@@ -1798,7 +1644,6 @@
           </div>
         </div>
 
-        <!-- коллаж: плитки разбросаны по холсту, у каждой свой параллакс при скролле -->
         <div class="gallery-grid">
           <div class="gallery-stage">
             <figure class="gallery-item gallery-item--big-top">
@@ -1851,7 +1696,6 @@
               </span>
             </figure>
 
-            <!-- на мобильном макете широкий кадр заменяется квадратным -->
             <figure class="gallery-item gallery-item--wide-mob">
               <span class="gallery-frame">
                 <img
@@ -1884,7 +1728,6 @@
           </div>
         </div>
       </section>
-      <!-- ===== КЛУБ ДЛЯ ДИЗАЙНЕРОВ ===== -->
       <section class="club">
         <div class="club-stage">
           <div class="club-card">
@@ -1934,7 +1777,6 @@
           </div>
         </div>
       </section>
-      <!-- ===== ПЕРСОНАЛЬНЫЙ МЕНЕДЖЕР ===== -->
       <section class="manager">
         <div class="manager-stage">
           <div class="manager-photo">
@@ -1974,7 +1816,6 @@
           </div>
         </div>
       </section>
-      <!-- ===== ПАРТНЁРЫ ===== -->
       <section class="partners">
         <div class="partners-stage">
           <div class="partners-intro">
@@ -2036,10 +1877,8 @@
       </section>
     </main>
 
-    <!-- ===== ФУТЕР ===== -->
     <footer class="footer" id="contacts">
       <div class="footer-stage">
-        <!-- тёмная карточка с призывом оставить заявку -->
         <div class="footer-cta">
           <h2 class="footer-cta-title">оставьте заявку</h2>
 
@@ -2230,19 +2069,17 @@
         </p>
 
         <nav class="footer-legal" aria-label="Правовые документы">
-          <a href="/privacy"
+          <a href="privacy.html"
             >политика в отношении обработки персональных данных</a
           >
-          <a href="/agreement">cогласие на обработку персональных данных</a>
-          <a href="/terms">пользовательское соглашение</a>
-          <a href="/cookie">политика использования файлов cookie</a>
+          <a href="agreement.html">cогласие на обработку персональных данных</a>
+          <a href="terms.html">пользовательское соглашение</a>
+          <a href="cookie.html">политика использования файлов cookie</a>
         </nav>
       </div>
     </footer>
 
-    <!-- ===== ПЛАВАЮЩИЕ КНОПКИ СВЯЗИ ===== -->
     <div class="contact-widget">
-      <!-- левая кнопка: собственная замена внешнего чат-виджета Jivo -->
       <a
         class="contact-mail"
         href="mailto:saleshead@hubox.design"
@@ -2256,7 +2093,6 @@
         </svg>
       </a>
 
-      <!-- правая кнопка: раскрывает список мессенджеров -->
       <div class="contact-fab">
         <a
           class="contact-fab-item"
@@ -2350,6 +2186,48 @@
       </div>
     </div>
 
+    <div class="modal-callback" id="callbackModal">
+      <div class="modal-backdrop"></div>
+      <div class="modal-window">
+        <button class="modal-close" id="closeCallback">&times;</button>
+        <div class="modal-header">
+          <h2>обсудим проект?</h2>
+          <p>
+            подберем оптимальные материалы и предоставим техническую информацию
+          </p>
+        </div>
+        <form class="modal-form">
+          <div class="modal-input-group">
+            <label>имя</label>
+            <input type="text" placeholder="ваше имя" required />
+          </div>
+          <div class="modal-input-group">
+            <label>телефон</label>
+            <input
+              type="tel"
+              placeholder="+7 (999) 999-99-99"
+              inputmode="numeric"
+              maxlength="18"
+              required
+            />
+          </div>
+          <div class="modal-input-group">
+            <label>ваш комментарий</label>
+            <textarea placeholder="комментарий" rows="1"></textarea>
+          </div>
+          <div class="modal-checkbox-group">
+            <input type="checkbox" id="modal-agree" required />
+            <label for="modal-agree"
+              >нажимая на кнопку, я подтверждаю согласие с
+              <a href="privacy.html">политикой конфиденциальности</a> и даю согласие на
+              <a href="agreement.html">обработку персональных данных</a></label
+            >
+          </div>
+          <button type="submit" class="btn-modal-submit">отправить</button>
+        </form>
+      </div>
+    </div>
+
     <script src="js/home/01-header.js"></script>
     <script src="js/home/02-mobile-menu.js"></script>
     <script src="js/home/24-sticky-header-hide.js"></script>
@@ -2360,5 +2238,6 @@
     <script src="js/home/18-gallery.js"></script>
     <script src="js/home/20-manager.js"></script>
     <script src="js/home/22-footer.js"></script>
+    <script src="js/home/25-callback-modal.js"></script>
   </body>
 </html>

@@ -17,114 +17,24 @@
       sizes="32x32"
       href="assets/image/wall/Logo.png"
     />
-    <!-- CSS главной страницы: база, шапка, мобильное меню (общий компонент сайта) -->
     <link rel="stylesheet" href="css/home/base.css" />
-    <link rel="stylesheet" href="css/home/01-header.css" />
-    <link rel="stylesheet" href="css/home/02-mobile-menu.css" />
+    <link rel="stylesheet" href="css/home/01-header.css?v=1" />
+    <link rel="stylesheet" href="css/home/02-mobile-menu.css?v=4" />
     <link rel="stylesheet" href="css/home/24-sticky-header-hide.css" />
-    <!-- Стили страницы -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <link rel="stylesheet" href="css/styles.css?v=2" />
-    <link rel="stylesheet" href="css/fetr-page.css" />
+    <link rel="stylesheet" href="css/styles.css?v=31" />
+    <link rel="stylesheet" href="css/fetr-page.css?v=7" />
 
-    <!-- Хедер и мобильное меню: ПЕРЕД main.js, чтобы HB.init* были зарегистрированы до boot() -->
     <script src="js/home/01-header.js"></script>
     <script src="js/home/02-mobile-menu.js"></script>
     <script src="js/home/24-sticky-header-hide.js"></script>
-    <!-- без defer: масштаб макета должен примениться до первой отрисовки -->
     <script src="js/home/main.js"></script>
 
-    <style>
-      /* ===== EXACT MOBILE HEADER MATCH TO INDEX.HTML ===== */
-      @media (max-width: 1199px) {
-        .header-bar {
-          height: 60px !important;
-          position: relative !important;
-          margin: 0 !important;
-          display: flex !important;
-          align-items: center !important;
-          justify-content: space-between !important;
-          padding: 0 20px !important;
-          background: #ffffff !important;
-        }
-        .header-logo {
-          position: relative !important;
-          top: auto !important;
-          left: auto !important;
-          width: 80px !important;
-          height: 46px !important;
-          display: block !important;
-          margin: 0 !important;
-        }
-        .header-burger {
-          position: relative !important;
-          top: auto !important;
-          left: auto !important;
-          right: auto !important;
-          display: block !important;
-          width: 42px !important;
-          height: 42px !important;
-          margin: 0 !important;
-        }
-        .header-line,
-        .header-top,
-        .header-menu,
-        .header-callback,
-        .header-phone {
-          display: none !important;
-          visibility: hidden !important;
-          opacity: 0 !important;
-          height: 0 !important;
-          width: 0 !important;
-          pointer-events: none !important;
-        }
-      }
-      @media (max-width: 639px) {
-        .header-bar {
-          height: 52px !important;
-          padding: 0 16px !important;
-        }
-        .header-logo {
-          width: 66px !important;
-          height: 38px !important;
-        }
-        .header-burger {
-          width: 38px !important;
-          height: 38px !important;
-        }
-      }
-
-      /* Стили для анимации появления */
-      .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition:
-          opacity 0.8s ease-out,
-          transform 0.8s ease-out;
-      }
-      .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .delay-1 {
-        transition-delay: 0.1s;
-      }
-      .delay-2 {
-        transition-delay: 0.2s;
-      }
-      .delay-3 {
-        transition-delay: 0.3s;
-      }
-      .delay-4 {
-        transition-delay: 0.4s;
-      }
-    </style>
   </head>
   <body>
-    <!-- ===== ШАПКА (общий компонент сайта, как на index.html) ===== -->
     <header class="header header--autohide">
       <div class="header-bar">
         <a
@@ -217,7 +127,6 @@
       </div>
     </header>
 
-    <!-- ===== МОБИЛЬНОЕ МЕНЮ (общий компонент сайта) ===== -->
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
       <div class="mobile-menu-inner">
         <span class="mobile-menu-bg" aria-hidden="true"></span>
@@ -360,9 +269,7 @@
       </div>
     </div>
 
-    <!-- ===== MAIN ===== -->
     <main class="main-content">
-      <!-- ===== TRENDS ===== -->
       <section class="trends-section-reverce" id="trends">
         <div class="trends-text-content">
           <h2 class="trends-title-fetr reveal">
@@ -385,7 +292,6 @@
         </div>
       </section>
 
-      <!-- ===== COLOR PALETTES SECTION ===== -->
       <section class="fetr-palettes-block reveal" id="palettes">
         <div class="fetr-palettes-content">
           <h2 class="fetr-palettes-title reveal delay-1">
@@ -404,7 +310,6 @@
         </div>
       </section>
 
-      <!-- ===== PRODUCTION INTRO SECTION ===== -->
       <section class="fetr-prod-intro-block reveal" id="production">
         <div class="fetr-prod-left">
           <h2 class="fetr-prod-title reveal delay-1">
@@ -430,10 +335,7 @@
       </section>
 
       <section
-        class="product-type-section-fetr"
-        style="
-          background-image: url(&quot;assets/image/fetr/hf_20260402_134849_8.png&quot;);
-        "
+        class="product-type-section-fetr fetr-banner-1"
       >
         <div class="product-type-content-fetr">
           <h2 class="product-type-title-fetr reveal">
@@ -443,7 +345,6 @@
         </div>
       </section>
 
-      <!-- ===== RECYCLING STEP BLOCK ===== -->
       <section class="fetr-recyc-block reveal">
         <div class="fetr-recyc-header">
           <h2 class="fetr-recyc-title reveal delay-1">
@@ -479,7 +380,6 @@
         </div>
       </section>
 
-      <!-- ===== WORK WITH FORM STEP BLOCK ===== -->
       <section class="fetr-shape-wrapper">
         <div class="fetr-shape-left reveal">
           <h2 class="fetr-shape-title reveal delay-1">
@@ -500,7 +400,6 @@
         </div>
       </section>
 
-      <!-- ===== APPLICATION INTRO SECTION ===== -->
       <section class="fetr-app-intro-block reveal" id="usage">
         <div class="fetr-app-left">
           <h2 class="fetr-app-title reveal delay-1">
@@ -517,7 +416,6 @@
         </div>
       </section>
 
-      <!-- ===== THICKNESSES STEP BLOCK ===== -->
       <section class="fetr-thick-wrapper">
         <div class="fetr-thick-left reveal">
           <img
@@ -554,30 +452,10 @@
           </div>
 
           <div class="slider-container">
-            <div
-              class="slide active"
-              style="
-                background-image: url(&quot;assets/image/fetr/Frame_2085666710.png&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/fetr/Frame_2085666711.png&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/fetr/Img-frame.png&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/fetr/hf_20260402_134849_8.png&quot;);
-              "
-            ></div>
+            <div class="slide fetr-slide-1 active"></div>
+            <div class="slide fetr-slide-2"></div>
+            <div class="slide fetr-slide-3"></div>
+            <div class="slide fetr-slide-4"></div>
           </div>
 
           <div class="slider-static-content">
@@ -586,7 +464,7 @@
                 декорирование<br />
                 и отделка пространств
               </h1>
-              <p class="sub-text-fetr reveal delay-1" style="color: #fff">
+              <p class="sub-text-fetr reveal delay-1">
                 требовательных к акустическому комфорту и в случаях,<br />когда
                 необходимо устранить эхо и излишний шум
               </p>
@@ -595,7 +473,6 @@
         </section>
       </section>
 
-      <!-- ===== INTERIOR USE CASES BLOCK ===== -->
       <section class="fetr-usecases-block reveal">
         <div class="fetr-usecases-left">
           <h2 class="fetr-usecases-title reveal delay-1">
@@ -657,7 +534,6 @@
         </div>
       </section>
 
-      <!-- ===== PROPERTIES INTRO SECTION ===== -->
       <section class="fetr-app-intro-block reveal" id="props">
         <div class="fetr-app-left">
           <h2 class="fetr-app-title1 reveal delay-1">
@@ -678,7 +554,6 @@
           </p>
         </div>
       </section>
-      <!-- ===== TYPES CTA SECTION ===== -->
       <section class="fetr-types-cta-block reveal" id="types">
         <div class="fetr-types-left">
           <h2 class="fetr-types-title reveal delay-1">
@@ -694,7 +569,6 @@
         </div>
       </section>
 
-      <!-- ===== SPECIFICATIONS TABLE BLOCK ===== -->
       <section class="fetr-specs-table-block reveal" id="specs">
         <div class="fetr-specs-top">
           <span class="fetr-specs-top-label">состав</span>
@@ -740,9 +614,7 @@
           </table>
         </div>
 
-        <!-- Мобильный вертикальный вид спецификаций -->
         <div class="fetr-specs-mobile-cards">
-          <!-- 9 мм -->
           <div class="fetr-specs-m-card">
             <h3 class="fetr-specs-m-thick">9 мм</h3>
             <div class="fetr-specs-m-divider"></div>
@@ -765,7 +637,6 @@
             </div>
           </div>
 
-          <!-- 12 мм -->
           <div class="fetr-specs-m-card">
             <h3 class="fetr-specs-m-thick">12 мм</h3>
             <div class="fetr-specs-m-divider"></div>
@@ -788,7 +659,6 @@
             </div>
           </div>
 
-          <!-- 24 мм -->
           <div class="fetr-specs-m-card">
             <h3 class="fetr-specs-m-thick">24 мм</h3>
             <div class="fetr-specs-m-divider"></div>
@@ -813,17 +683,12 @@
         </div>
       </section>
 
-      <!-- ===== SOUNDPROOFING BANNER SECTION ===== -->
       <section
-        class="product-type-section-fetr"
-        style="
-          background-image: url(&quot;assets/image/fetr/Frame_2085666700.png&quot;);
-        "
+        class="product-type-section-fetr fetr-banner-2"
       >
         <div class="product-type-content">
           <h2
             class="product-type-title-fetr1 reveal"
-            style="margin-bottom: 40px"
           >
             больше<br />звукоизоляции
           </h2>
@@ -836,7 +701,6 @@
         </div>
       </section>
 
-      <!-- ===== VENEER FELT SPECS BLOCK ===== -->
       <section class="fetr-veneer-wrapper">
         <div class="fetr-veneer-left reveal">
           <img
@@ -878,15 +742,11 @@
       </section>
 
       <section
-        class="product-type-section-fetr"
-        style="
-          background-image: url(&quot;assets/image/fetr/Frame_2085666701.png&quot;);
-        "
+        class="product-type-section-fetr fetr-banner-3"
       >
         <div class="product-type-content">
           <h2
             class="product-type-title-fetr1 reveal"
-            style="margin-bottom: 40px"
           >
             больше<br />шумопоглощения
           </h2>
@@ -1057,13 +917,9 @@
       </section>
 
       <section
-        class="product-type-section-fetr fetr-cleaning-banner"
-        style="
-          background-image: url(&quot;assets/image/fetr/Frame_2085666717_1.png&quot;);
-        "
+        class="product-type-section-fetr fetr-cleaning-banner fetr-banner-4"
       ></section>
 
-      <!-- ===== TECHNICAL NOISE SPECS BLOCK ===== -->
       <section class="fetr-noise-specs-block reveal" id="noise-specs">
         <div class="fetr-noise-specs-top">
           <h2 class="fetr-noise-specs-title reveal delay-1">
@@ -1129,10 +985,8 @@
           </table>
         </div>
 
-        <!-- Мобильный вид таблицы шумоизоляции -->
         <div class="fetr-noise-specs-mobile-wrap">
           <div class="fetr-noise-m-table">
-            <!-- Заголовок колонок -->
             <div class="fetr-noise-m-header">
               <div class="fetr-noise-m-col-label"></div>
               <div class="fetr-noise-m-col-thick">9мм</div>
@@ -1141,7 +995,6 @@
             </div>
             <div class="fetr-noise-m-divider"></div>
 
-            <!-- Строка 1: NRC -->
             <div class="fetr-noise-m-row">
               <div class="fetr-noise-m-col-label">
                 коэффициент<br />
@@ -1155,7 +1008,6 @@
             </div>
             <div class="fetr-noise-m-divider"></div>
 
-            <!-- Строка 2: Класс звукопоглощения -->
             <div class="fetr-noise-m-row">
               <div class="fetr-noise-m-col-label">
                 класс<br />
@@ -1166,7 +1018,6 @@
               <div class="fetr-noise-m-col-val">A</div>
             </div>
 
-            <!-- Строка 3: Кнопки плюсики -->
             <div class="fetr-noise-m-row fetr-noise-m-btn-row">
               <div class="fetr-noise-m-col-label"></div>
               <div class="fetr-noise-m-col-val"></div>
@@ -1189,7 +1040,6 @@
         </div>
       </section>
 
-      <!-- ===== FIRE SAFETY BLOCK ===== -->
       <section class="fetr-fire-safety-block reveal" id="fire-safety">
         <div class="fetr-fire-safety-header">
           <h2 class="fetr-fire-safety-title reveal delay-1">
@@ -1202,7 +1052,6 @@
         </div>
 
         <div class="fetr-fire-safety-body">
-          <!-- Left: Certificate Image -->
           <div class="fetr-fire-safety-cert reveal delay-1">
             <img
               src="assets/image/fetr/____page-0001_1.png.webp"
@@ -1210,7 +1059,6 @@
             />
           </div>
 
-          <!-- Right: Specs Table/List -->
           <div class="fetr-fire-safety-specs reveal delay-2">
             <div class="fetr-fire-row">
               <span class="fetr-fire-label">пожарная безопасность</span>
@@ -1289,22 +1137,17 @@
       </section>
 
       <section
-        class="product-type-section-fetr"
-        style="
-          background-image: url(&quot;assets/image/fetr/Frame_2085666718.png&quot;);
-        "
+        class="product-type-section-fetr fetr-banner-5"
       >
         <div class="product-type-content">
           <h2
             class="product-type-title-fetr1 reveal"
-            style="margin-bottom: 40px"
           >
             стеновые<br />решения
           </h2>
         </div>
       </section>
 
-      <!-- ===== SMALL FORMAT PANELS BLOCK ===== -->
       <section class="fetr-small-panels-wrapper" id="product-types">
         <div class="fetr-small-panels-left reveal">
           <div class="fetr-small-panels-top">
@@ -1327,7 +1170,6 @@
         </div>
       </section>
 
-      <!-- ===== SMALL FORMAT PANELS BLOCK ===== -->
       <section class="fetr-small-panels-wrapper">
         <div class="fetr-small-panels-right reveal">
           <img
@@ -1338,7 +1180,7 @@
         <div class="fetr-small-panels-left reveal delay-1">
           <div class="fetr-small-panels-top">
             <h2 class="fetr-small-panels-title reveal delay-1">
-              малоформатные<br />
+              крупноформатные<br />
               панели
             </h2>
           </div>
@@ -1351,22 +1193,17 @@
       </section>
 
       <section
-        class="product-type-section-fetr"
-        style="
-          background-image: url(&quot;assets/image/fetr/Frame_2085666721.png&quot;);
-        "
+        class="product-type-section-fetr fetr-banner-6"
       >
         <div class="product-type-content">
           <h2
             class="product-type-title-fetr1 reveal"
-            style="margin-bottom: 40px"
           >
             потолочные<br />решения
           </h2>
         </div>
       </section>
 
-      <!-- ===== SMALL FORMAT PANELS BLOCK ===== -->
       <section class="fetr-small-panels-wrapper">
         <div class="fetr-small-panels-left reveal">
           <div class="fetr-small-panels-top">
@@ -1389,7 +1226,6 @@
         </div>
       </section>
 
-      <!-- ===== APPLICATION INTRO SECTION ===== -->
       <section class="fetr-app-intro-block reveal" id="usage">
         <div class="fetr-app-left">
           <h2 class="fetr-app-title1 reveal delay-1">
@@ -1406,15 +1242,11 @@
       </section>
 
       <section
-        class="product-type-section-fetr"
-        style="
-          background-image: url(&quot;assets/image/fetr/Frame_2085666723.png&quot;);
-        "
+        class="product-type-section-fetr fetr-banner-7"
       >
         <div class="product-type-content">
           <h2
             class="product-type-title-fetr1 reveal"
-            style="margin-bottom: 40px"
           >
             бесшовная стыковка <br />через узор
           </h2>
@@ -1428,7 +1260,6 @@
         </div>
       </section>
 
-      <!-- ===== APPLICATION INTRO SECTION ===== -->
       <section class="fetr-app-intro-block reveal" id="usage">
         <div class="fetr-app-left">
           <h2 class="fetr-app-title2 reveal delay-1">
@@ -1438,7 +1269,6 @@
         </div>
       </section>
 
-            <!-- ===== FOOTER PRE ===== -->
       <section class="footer-pre-section" id="contacts">
         <div class="footer-contact-block reveal">
           <h2 class="footer-title reveal delay-1">оставьте заявку</h2>
@@ -1501,7 +1331,6 @@
       </section>
     </main>
 
-    <!-- ===== MAIN FOOTER ===== -->
     <footer class="main-footer">
       <div class="footer-container reveal">
         <div class="footer-top">
@@ -1524,15 +1353,14 @@
           </div>
         </div>
         <div class="footer-bottom-links">
-          <a href="#">политика в отношении обработки персональных данных</a>
-          <a href="#">согласие на обработку персональных данных</a>
-          <a href="#">пользовательское соглашение</a>
-          <a href="#">политика использования файлов cookie</a>
+          <a href="privacy.html">политика в отношении обработки персональных данных</a>
+          <a href="agreement.html">согласие на обработку персональных данных</a>
+          <a href="terms.html">пользовательское соглашение</a>
+          <a href="cookie.html">политика использования файлов cookie</a>
         </div>
       </div>
     </footer>
 
-    <!-- ===== VIDEO MODAL ===== -->
     <div class="video-modal" id="videoModal">
       <div class="modal-overlay"></div>
       <div class="modal-content">
@@ -1544,7 +1372,6 @@
       </div>
     </div>
 
-    <!-- ===== SAMPLES ORDER MODAL ===== -->
     <div class="samples-modal" id="samplesModal">
       <div class="samples-modal-backdrop"></div>
       <div class="samples-modal-window">
@@ -1572,8 +1399,8 @@
                 <input type="checkbox" id="samples-agree" required />
                 <label for="samples-agree">
                   нажимая на кнопку, я подтверждаю согласие с
-                  <a href="#">политикой конфиденциальности</a> и даю согласие на
-                  <a href="#">обработку персональных данных</a>
+                  <a href="privacy.html">политикой конфиденциальности</a> и даю согласие на
+                  <a href="agreement.html">обработку персональных данных</a>
                 </label>
               </div>
               <button type="submit" class="btn-samples-submit">заказать</button>
@@ -1583,7 +1410,6 @@
       </div>
     </div>
 
-    <!-- ===== CALLBACK MODAL ===== -->
     <div class="modal-callback" id="callbackModal">
       <div class="modal-backdrop"></div>
       <div class="modal-window">
@@ -1617,8 +1443,8 @@
             <input type="checkbox" id="modal-agree" required />
             <label for="modal-agree"
               >нажимая на кнопку, я подтверждаю согласие с
-              <a href="#">политикой конфиденциальности</a> и даю согласие на
-              <a href="#">обработку персональных данных</a></label
+              <a href="privacy.html">политикой конфиденциальности</a> и даю согласие на
+              <a href="agreement.html">обработку персональных данных</a></label
             >
           </div>
           <button type="submit" class="btn-modal-submit">отправить</button>
@@ -1626,7 +1452,6 @@
       </div>
     </div>
 
-    <!-- ===== IMAGE LIGHTBOX MODAL ===== -->
     <div class="image-modal" id="imageModal">
       <div class="image-modal-backdrop"></div>
       <div class="image-modal-content">
@@ -1635,7 +1460,6 @@
       </div>
     </div>
 
-    <!-- ===== КНОПКА СВЯЗИ (WIDGET) ===== -->
     <div class="fab-container" id="fabContainer">
       <div class="fab-menu">
         <a href="tel:+79819200133" class="fab-item phone" title="Позвонить">
@@ -1657,9 +1481,9 @@
       </div>
     </div>
 
-    <script src="scripts/script.js?v=2"></script>
+    <script src="scripts/script.js?v=3"></script>
     <script src="scripts/fetr.js?v=2"></script>
     <script src="scripts/vendor/simpleParallax.min.js"></script>
-    <script src="scripts/parallax-init.js?v=9"></script>
+    <script src="scripts/parallax-init.js?v=20"></script>
   </body>
 </html>

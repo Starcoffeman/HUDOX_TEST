@@ -14,93 +14,28 @@
       sizes="32x32"
       href="assets/image/wall/Logo.png"
     />
-    <!-- CSS главной страницы: база, шапка, мобильное меню (общий компонент сайта) -->
     <link rel="stylesheet" href="css/home/base.css" />
-    <link rel="stylesheet" href="css/home/01-header.css" />
-    <link rel="stylesheet" href="css/home/02-mobile-menu.css" />
+    <link rel="stylesheet" href="css/home/01-header.css?v=1" />
+    <link rel="stylesheet" href="css/home/02-mobile-menu.css?v=4" />
     <link rel="stylesheet" href="css/home/24-sticky-header-hide.css" />
-    <!-- Стили страницы -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/styles.css?v=2" />
-    <link rel="stylesheet" href="css/sections.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
-    <link rel="stylesheet" href="css/fetr.css" />
-    <link rel="stylesheet" href="css/designers.css?v=24" />
+    <link rel="stylesheet" href="css/styles.css?v=31" />
+    <link rel="stylesheet" href="css/sections.css?v=13" />
+    <link rel="stylesheet" href="css/responsive.css?v=12" />
+    <link rel="stylesheet" href="css/fetr.css?v=15" />
+    <link rel="stylesheet" href="css/designers.css?v=37" />
 
-    <!-- Хедер и мобильное меню: ПЕРЕД main.js, чтобы HB.init* были зарегистрированы до boot() -->
     <script src="js/home/01-header.js"></script>
     <script src="js/home/02-mobile-menu.js"></script>
     <script src="js/home/24-sticky-header-hide.js"></script>
-    <!-- без defer: масштаб макета должен примениться до первой отрисовки -->
     <script src="js/home/main.js"></script>
 
-    <style>
-      /* ===== EXACT MOBILE HEADER MATCH TO INDEX.HTML ===== */
-      @media (max-width: 1199px) {
-        .header-bar {
-          height: 60px !important;
-          position: relative !important;
-          margin: 0 !important;
-          display: flex !important;
-          align-items: center !important;
-          justify-content: space-between !important;
-          padding: 0 20px !important;
-          background: #ffffff !important;
-        }
-        .header-logo {
-          position: relative !important;
-          top: auto !important;
-          left: auto !important;
-          width: 80px !important;
-          height: 46px !important;
-          display: block !important;
-          margin: 0 !important;
-        }
-        .header-burger {
-          position: relative !important;
-          top: auto !important;
-          left: auto !important;
-          right: auto !important;
-          display: block !important;
-          width: 42px !important;
-          height: 42px !important;
-          margin: 0 !important;
-        }
-        .header-line,
-        .header-top,
-        .header-menu,
-        .header-callback,
-        .header-phone {
-          display: none !important;
-          visibility: hidden !important;
-          opacity: 0 !important;
-          height: 0 !important;
-          width: 0 !important;
-          pointer-events: none !important;
-        }
-      }
-      @media (max-width: 639px) {
-        .header-bar {
-          height: 52px !important;
-          padding: 0 16px !important;
-        }
-        .header-logo {
-          width: 66px !important;
-          height: 38px !important;
-        }
-        .header-burger {
-          width: 38px !important;
-          height: 38px !important;
-        }
-      }
-    </style>
   </head>
   <body>
-    <!-- ===== ШАПКА (общий компонент сайта, как на index.html) ===== -->
     <header class="header header--autohide">
       <div class="header-bar">
         <a
@@ -192,7 +127,6 @@
       </div>
     </header>
 
-    <!-- ===== МОБИЛЬНОЕ МЕНЮ (общий компонент сайта) ===== -->
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
       <div class="mobile-menu-inner">
         <span class="mobile-menu-bg" aria-hidden="true"></span>
@@ -336,7 +270,6 @@
     </div>
 
     <main class="main-content">
-      <!-- ===== SLIDER ===== -->
       <section class="block block-1">
         <section class="hero-slider">
           <div class="slider-progress-container">
@@ -355,30 +288,10 @@
           </div>
 
           <div class="slider-container">
-            <div
-              class="slide active"
-              style="
-                background-image: url(&quot;assets/image/design/_-___2.png&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/design/11__1_3.png&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/design/hf_20260310_143228_7.png&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/design/Frame_2085666568_1.png&quot;);
-              "
-            ></div>
+            <div class="slide designers-hero-slide-1 active"></div>
+            <div class="slide designers-hero-slide-2"></div>
+            <div class="slide designers-hero-slide-3"></div>
+            <div class="slide designers-hero-slide-4"></div>
           </div>
 
           <div class="slider-static-content">
@@ -387,7 +300,7 @@
                 дизайнерам <br />
                 и архитекторам
               </h1>
-              <p class="sub-text reveal delay-1" style="color: #fff">
+              <p class="sub-text reveal delay-1">
                 hubox - сообщество для обмена опытом, вдохновения <br />и
                 профессионального роста
               </p>
@@ -421,7 +334,6 @@
         </div>
       </section>
 
-      <!-- ===== ПЕРВЫЙ БЛОК: В НАШЕМ ФОКУСЕ + ФОТО ОБРАЗЦОВ ===== -->
       <section class="hero-two-blocks-wrapper">
         <div class="hero-block-card card-focus-white reveal">
           <h2 class="focus-card-title">в нашем фокусе</h2>
@@ -456,40 +368,14 @@
         </div>
       </section>
 
-      <!-- ===== ВТОРОЙ БЛОК: СЛАЙДЕР (5 ФОТО) + ЦИФРОВОЙ ШОУРУМ ===== -->
       <section class="hero-two-blocks-wrapper">
         <div class="hero-block-card living-slider-wrapper reveal active">
           <div class="living-slider-container">
-            <div
-              class="slide active"
-              style="
-                background-image: url(&quot;assets/image/design/Rectangle_3787.jpg&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/design/11__1_3.png&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/design/Rectangle_3792.jpg&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/design/Rectangle_3795.jpg&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/design/1___3.jpg&quot;);
-              "
-            ></div>
+            <div class="slide designers-second-slide-1 active"></div>
+            <div class="slide designers-second-slide-2"></div>
+            <div class="slide designers-second-slide-3"></div>
+            <div class="slide designers-second-slide-4"></div>
+            <div class="slide designers-second-slide-5"></div>
           </div>
           <div class="slider-progress-mini">
             <div class="progress-segment">
@@ -541,7 +427,6 @@
           </div>
         </div>
       </section>
-      <!-- ===== NOISE CONTROL ===== -->
       <section class="noise-control-section">
         <div class="noise-control-container">
           <div class="noise-info reveal">
@@ -566,8 +451,8 @@
                 <input type="checkbox" id="agree-noise" required />
                 <label for="agree-noise"
                   >нажимая на кнопку, я подтверждаю согласие с
-                  <a href="#">обработкой персональных данных</a> и
-                  <a href="#">политикой конфиденциальности</a></label
+                  <a href="agreement.html">обработкой персональных данных</a> и
+                  <a href="privacy.html">политикой конфиденциальности</a></label
                 >
               </div>
               <button type="submit" class="btn-submit-grey">получить</button>
@@ -576,7 +461,6 @@
         </div>
       </section>
 
-      <!-- ===== БЛОК: ПАНЕЛИ HUBOX СБЛИЖАЮТ ДИЗАЙНЕРОВ И СТРОИТЕЛЕЙ ===== -->
       <section class="designers-connect-block" id="panels">
         <div class="designers-connect-container">
           <div class="connect-left">
@@ -608,10 +492,8 @@
         </div>
       </section>
 
-      <!-- ===== БЛОК: 3 КАРТОЧКИ ТИПОВ ФЕТРА ===== -->
       <section class="fetr-types-cards-section" id="acoustic">
         <div class="fetr-types-grid">
-          <!-- КАРТОЧКА 1: ШПОНИРОВАННЫЙ ДВУХСЛОЙНЫЙ ЭКО-ФЕТР -->
           <div class="fetr-type-card reveal">
             <h3 class="fetr-type-card-title">
               шпонированный<br />двухслойный<br />эко-фетр
@@ -632,7 +514,6 @@
             </div>
           </div>
 
-          <!-- КАРТОЧКА 2: ОДНОСЛОЙНЫЙ ЭКО-ФЕТР -->
           <div class="fetr-type-card reveal delay-1">
             <h3 class="fetr-type-card-title">однослойный<br />эко-фетр</h3>
             <div class="fetr-type-visual">
@@ -649,7 +530,6 @@
             </div>
           </div>
 
-          <!-- КАРТОЧКА 3: ДВУХСЛОЙНЫЙ ПРЕМИАЛЬНЫЙ ЭКО-ФЕТР -->
           <div class="fetr-type-card reveal delay-2">
             <h3 class="fetr-type-card-title">
               двухслойный<br />премиальный<br />эко-фетр
@@ -672,7 +552,6 @@
         </div>
       </section>
 
-      <!-- ===== TYPES ===== -->
       <section class="types-section-design" id="types">
         <div class="types-container-design">
           <div class="types-title-design reveal">строителям</div>
@@ -688,20 +567,14 @@
         </div>
       </section>
 
-      <!-- ===== INTERIOR VIEW 1 (ФОТО) ===== -->
       <section
-        class="interior-view-section reveal"
-        style="
-          background-image: url(&quot;assets/image/design/hf_20260310_143228_7.png&quot;);
-        "
+        class="interior-view-section designers-interior-1 reveal"
       >
         <div class="interior-view-content"></div>
       </section>
 
-      <!-- ===== БЛОК: СВЕТЛО-ГОЛУБЫЕ КАРТОЧКИ ===== -->
       <section class="light-blue-cards-section">
         <div class="light-blue-grid">
-          <!-- КАРТОЧКА 1: ЕДИНАЯ КОНСТРУКЦИЯ БЕЗ СТЫКОВ -->
           <div class="light-blue-card reveal">
             <h3 class="light-blue-card-title">
               единая<br />конструкция<br />без стыков
@@ -712,7 +585,6 @@
             </p>
           </div>
 
-          <!-- КАРТОЧКА 2: ПРОСТАЯ УСТАНОВКА -->
           <div class="light-blue-card reveal delay-1">
             <h3 class="light-blue-card-title">простая<br />установка</h3>
             <p class="light-blue-card-desc">
@@ -726,7 +598,6 @@
 
       <section class="light-blue-cards-section">
         <div class="light-blue-grid">
-          <!-- КАРТОЧКА 1: ЕДИНАЯ КОНСТРУКЦИЯ БЕЗ СТЫКОВ -->
           <div class="light-blue-card reveal">
             <h3 class="light-blue-card-title">финансовые<br />выгоды<br /></h3>
             <p class="light-blue-card-desc">
@@ -735,7 +606,6 @@
             </p>
           </div>
 
-          <!-- КАРТОЧКА 2: ПРОСТАЯ УСТАНОВКА -->
           <div class="light-blue-card reveal delay-1">
             <h3 class="light-blue-card-title">поставка точно<br />в срок</h3>
             <p class="light-blue-card-desc">
@@ -746,7 +616,6 @@
         </div>
       </section>
 
-      <!-- ===== БЛОК: НЕОБХОДИМЫЕ ИНСТРУМЕНТЫ ===== -->
       <section class="required-tools-section" id="tools">
         <div class="required-tools-container">
           <div class="tools-left-col">
@@ -771,20 +640,14 @@
         </div>
       </section>
 
-      <!-- ===== INTERIOR VIEW 2 (ФОТО) ===== -->
       <section
-        class="interior-view-section reveal"
-        style="
-          background-image: url(&quot;assets/image/wall/material.jpg&quot;);
-        "
+        class="interior-view-section designers-interior-2 reveal"
       >
         <div class="interior-view-content"></div>
       </section>
 
-      <!-- ===== БЛОК: БЕЛЫЕ КАРТОЧКИ ПРОИЗВОДСТВА И КОНТРОЛЯ (ПОСЛЕ ФОТО) ===== -->
       <section class="white-production-cards-section" id="production">
         <div class="white-production-grid">
-          <!-- КАРТОЧКА 1: РОССИЙСКАЯ КОМПАНИЯ -->
           <div class="white-production-card reveal">
             <h3 class="white-production-title">
               мы российская компания<br />
@@ -797,7 +660,6 @@
             </p>
           </div>
 
-          <!-- КАРТОЧКА 2: КОНТРОЛЬ НА ВСЕХ ЭТАПАХ -->
           <div class="white-production-card reveal delay-1">
             <h3 class="white-production-title">
               мы обеспечиваем контроль на всех<br />
@@ -841,8 +703,8 @@
                 <input type="checkbox" id="agree" required />
                 <label for="agree"
                   >нажимая на кнопку, я подтверждаю согласие с
-                  <a href="#">политикой конфиденциальности</a> и даю согласие на
-                  <a href="#">обработку персональных данных</a></label
+                  <a href="privacy.html">политикой конфиденциальности</a> и даю согласие на
+                  <a href="agreement.html">обработку персональных данных</a></label
                 >
               </div>
               <button type="submit" class="btn-submit">
@@ -853,19 +715,15 @@
         </div>
       </section>
 
-      <!-- ===== БЛОК: КОМПАНИИ, С КОТОРЫМИ РАБОТАЕМ (ПОСЛЕ PROMO-SECTION) ===== -->
       <section class="client-partners-section">
         <div class="client-partners-grid">
-          <!-- ЛЕВАЯ КАРТОЧКА: ЗАГОЛОВОК -->
           <div class="client-partners-title-card reveal">
             <h2 class="client-partners-main-title">
               компании,<br />с которыми<br />работаем
             </h2>
           </div>
 
-          <!-- ПРАВАЯ КОЛОНКА: 3 ЛОГОТИПА -->
           <div class="client-partners-logos-col">
-            <!-- ЛОГО 1: РОСАТОМ -->
             <div class="client-logo-card reveal delay-1">
               <img
                 src="assets/svg/rosatom.svg"
@@ -875,7 +733,6 @@
               <p class="client-logo-name">Росатом</p>
             </div>
 
-            <!-- ЛОГО 2: АЗБУКА ВКУСА -->
             <div class="client-logo-card reveal delay-2">
               <img
                 src="assets/svg/azbuka.svg"
@@ -885,7 +742,6 @@
               <p class="client-logo-name">Азбука вкуса</p>
             </div>
 
-            <!-- ЛОГО 3: ЦИФРА БРОКЕР -->
             <div class="client-logo-card reveal delay-3">
               <img
                 src="assets/image/design/Logo_Cifra_Broker-02.jpg"
@@ -898,15 +754,10 @@
         </div>
       </section>
 
-      <!-- ===== INTERIOR VIEW 1 (ФОТО) ===== -->
       <section
-        class="interior-view-section reveal"
-        style="
-          background-image: url(&quot;assets/image/design/Img-frame_2.png&quot;);
-        "
+        class="interior-view-section designers-interior-3 reveal"
       ></section>
 
-      <!-- ===== БЛОК: СВЯЖИТЕСЬ С НАШИМ МЕНЕДЖЕРОМ ===== -->
       <section class="manager-contact-cta-section" id="contacts">
         <div class="manager-contact-container">
           <div class="manager-contact-top">
@@ -1052,7 +903,6 @@
       </section>
     </main>
 
-    <!-- ===== MAIN FOOTER ===== -->
     <footer class="main-footer">
       <div class="footer-container reveal">
         <div class="footer-top">
@@ -1075,15 +925,14 @@
           </div>
         </div>
         <div class="footer-bottom-links">
-          <a href="#">политика в отношении обработки персональных данных</a>
-          <a href="#">согласие на обработку персональных данных</a>
-          <a href="#">пользовательское соглашение</a>
-          <a href="#">политика использования файлов cookie</a>
+          <a href="privacy.html">политика в отношении обработки персональных данных</a>
+          <a href="agreement.html">согласие на обработку персональных данных</a>
+          <a href="terms.html">пользовательское соглашение</a>
+          <a href="cookie.html">политика использования файлов cookie</a>
         </div>
       </div>
     </footer>
 
-    <!-- ===== CALLBACK MODAL ===== -->
     <div class="modal-callback" id="callbackModal">
       <div class="modal-backdrop"></div>
       <div class="modal-window">
@@ -1117,8 +966,8 @@
             <input type="checkbox" id="modal-agree" required />
             <label for="modal-agree"
               >нажимая на кнопку, я подтверждаю согласие с
-              <a href="#">политикой конфиденциальности</a> и даю согласие на
-              <a href="#">обработку персональных данных</a></label
+              <a href="privacy.html">политикой конфиденциальности</a> и даю согласие на
+              <a href="agreement.html">обработку персональных данных</a></label
             >
           </div>
           <button type="submit" class="btn-modal-submit">отправить</button>
@@ -1126,7 +975,6 @@
       </div>
     </div>
 
-    <!-- ===== КНОПКА СВЯЗИ (WIDGET) ===== -->
     <div class="fab-container" id="fabContainer">
       <div class="fab-menu">
         <a href="tel:+79819200133" class="fab-item phone" title="Позвонить">
@@ -1158,9 +1006,9 @@
       </div>
     </div>
 
-    <script src="scripts/script.js?v=2"></script>
+    <script src="scripts/script.js?v=3"></script>
     <script src="scripts/fetr.js?v=2"></script>
     <script src="scripts/vendor/simpleParallax.min.js"></script>
-    <script src="scripts/parallax-init.js?v=9"></script>
+    <script src="scripts/parallax-init.js?v=20"></script>
   </body>
 </html>

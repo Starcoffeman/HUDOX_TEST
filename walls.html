@@ -17,114 +17,24 @@
       sizes="32x32"
       href="assets/image/wall/Logo.png"
     />
-    <!-- CSS главной страницы: база, шапка, мобильное меню (общий компонент сайта) -->
     <link rel="stylesheet" href="css/home/base.css" />
-    <link rel="stylesheet" href="css/home/01-header.css" />
-    <link rel="stylesheet" href="css/home/02-mobile-menu.css" />
+    <link rel="stylesheet" href="css/home/01-header.css?v=1" />
+    <link rel="stylesheet" href="css/home/02-mobile-menu.css?v=4" />
     <link rel="stylesheet" href="css/home/24-sticky-header-hide.css" />
-    <!-- Стили страницы -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <link rel="stylesheet" href="css/styles.css?v=2" />
-    <link rel="stylesheet" href="css/walls-page.css?v=39" />
+    <link rel="stylesheet" href="css/styles.css?v=31" />
+    <link rel="stylesheet" href="css/walls-page.css?v=47" />
 
-    <!-- Хедер и мобильное меню: ПЕРЕД main.js, чтобы HB.init* были зарегистрированы до boot() -->
     <script src="js/home/01-header.js"></script>
     <script src="js/home/02-mobile-menu.js"></script>
     <script src="js/home/24-sticky-header-hide.js"></script>
-    <!-- без defer: масштаб макета должен примениться до первой отрисовки -->
     <script src="js/home/main.js"></script>
 
-    <style>
-      /* ===== EXACT MOBILE HEADER MATCH TO INDEX.HTML ===== */
-      @media (max-width: 1199px) {
-        .header-bar {
-          height: 60px !important;
-          position: relative !important;
-          margin: 0 !important;
-          display: flex !important;
-          align-items: center !important;
-          justify-content: space-between !important;
-          padding: 0 20px !important;
-          background: #ffffff !important;
-        }
-        .header-logo {
-          position: relative !important;
-          top: auto !important;
-          left: auto !important;
-          width: 80px !important;
-          height: 46px !important;
-          display: block !important;
-          margin: 0 !important;
-        }
-        .header-burger {
-          position: relative !important;
-          top: auto !important;
-          left: auto !important;
-          right: auto !important;
-          display: block !important;
-          width: 42px !important;
-          height: 42px !important;
-          margin: 0 !important;
-        }
-        .header-line,
-        .header-top,
-        .header-menu,
-        .header-callback,
-        .header-phone {
-          display: none !important;
-          visibility: hidden !important;
-          opacity: 0 !important;
-          height: 0 !important;
-          width: 0 !important;
-          pointer-events: none !important;
-        }
-      }
-      @media (max-width: 639px) {
-        .header-bar {
-          height: 52px !important;
-          padding: 0 16px !important;
-        }
-        .header-logo {
-          width: 66px !important;
-          height: 38px !important;
-        }
-        .header-burger {
-          width: 38px !important;
-          height: 38px !important;
-        }
-      }
-
-      /* Стили для анимации появления */
-      .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition:
-          opacity 0.8s ease-out,
-          transform 0.8s ease-out;
-      }
-      .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .delay-1 {
-        transition-delay: 0.1s;
-      }
-      .delay-2 {
-        transition-delay: 0.2s;
-      }
-      .delay-3 {
-        transition-delay: 0.3s;
-      }
-      .delay-4 {
-        transition-delay: 0.4s;
-      }
-    </style>
   </head>
   <body>
-    <!-- ===== ШАПКА (общий компонент сайта, как на index.html) ===== -->
     <header class="header header--autohide">
       <div class="header-bar">
         <a
@@ -218,7 +128,6 @@
       </div>
     </header>
 
-    <!-- ===== МОБИЛЬНОЕ МЕНЮ (общий компонент сайта) ===== -->
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
       <div class="mobile-menu-inner">
         <span class="mobile-menu-bg" aria-hidden="true"></span>
@@ -363,9 +272,7 @@
       </div>
     </div>
 
-    <!-- ===== MAIN ===== -->
     <main class="main-content">
-      <!-- ===== SLIDER ===== -->
       <section class="block block-1">
         <section class="hero-slider">
           <div class="slider-progress-container">
@@ -384,36 +291,16 @@
           </div>
 
           <div class="slider-container">
-            <div
-              class="slide active"
-              style="
-                background-image: url(&quot;assets/image/wall/slider1.jpg&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/wall/slider2.png&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/wall/slider3.png&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/wall/slider4.png.webp&quot;);
-              "
-            ></div>
+            <div class="slide wall-hero-slide-1 active"></div>
+            <div class="slide wall-hero-slide-2"></div>
+            <div class="slide wall-hero-slide-3"></div>
+            <div class="slide wall-hero-slide-4"></div>
           </div>
 
           <div class="slider-static-content">
             <div class="main-text-block">
               <h1 class="reveal">стеновые<br />панели<br />хьюбокс</h1>
-              <p class="sub-text reveal delay-1" style="color: #fff">
+              <p class="sub-text reveal delay-1">
                 шпонированные, реечные, акустические
               </p>
             </div>
@@ -431,7 +318,6 @@
         </section>
       </section>
 
-      <!-- ===== INTRO ===== -->
       <section class="intro-section">
         <div class="intro-container">
           <div class="intro-logo reveal">hubox</div>
@@ -445,7 +331,6 @@
         </div>
       </section>
 
-      <!-- ===== TRENDS ===== -->
       <section class="trends-section" id="trends">
         <div class="trends-text-content">
           <h2 class="trends-title reveal">
@@ -472,10 +357,9 @@
         </div>
       </section>
 
-      <!-- ===== USEFUL ===== -->
       <section class="useful-section">
         <div class="useful-container">
-          <div class="useful-title reveal">когда мы полезны</div>
+          <div class="useful-title reveal">когда<br />мы полезны</div>
           <div class="useful-content">
             <p class="reveal delay-1">
               чаще всего наши клиенты обращаются к нам, чтобы не только улучшить
@@ -488,7 +372,6 @@
         </div>
       </section>
 
-      <!-- ===== PROBLEMS ===== -->
       <section class="problems-section">
         <div class="problems-image reveal">
           <img
@@ -521,7 +404,6 @@
         </div>
       </section>
 
-      <!-- ===== OFFER ===== -->
       <section class="offer-section">
         <div class="offer-image reveal">
           <img
@@ -551,7 +433,6 @@
         </div>
       </section>
 
-      <!-- ===== STEPS ===== -->
       <section class="steps-section">
         <h2 class="steps-title reveal">этапы взаимодействия</h2>
         <div class="steps-grid">
@@ -579,7 +460,6 @@
         </div>
       </section>
 
-      <!-- ===== SYSTEM ===== -->
       <section class="system-section">
         <div class="system-text-content">
           <h2 class="system-title reveal">
@@ -612,7 +492,6 @@
         </div>
       </section>
 
-      <!-- ===== TYPES ===== -->
       <section class="types-section" id="types">
         <div class="types-container">
           <div class="types-title reveal">типы<br />панелей</div>
@@ -624,19 +503,14 @@
         </div>
       </section>
 
-      <!-- ===== PRODUCT TYPE 1 ===== -->
       <section
-        class="product-type-section"
-        style="
-          background-image: url(&quot;assets/image/wall/product-type-section.png&quot;);
-        "
+        class="product-type-section wall-banner-1"
       >
         <div class="product-type-content">
           <h2 class="product-type-title reveal">однослойный<br />эко-фетр</h2>
         </div>
       </section>
 
-      <!-- ===== SPECS 1 ===== -->
       <section class="product-specs-section">
         <div class="specs-visual-block reveal">
           <div class="specs-image-wrapper">
@@ -687,12 +561,8 @@
         </div>
       </section>
 
-      <!-- ===== PRODUCT TYPE 2 ===== -->
       <section
-        class="product-type-section"
-        style="
-          background-image: url(&quot;assets/image/wall/product-type.jpg&quot;);
-        "
+        class="product-type-section wall-banner-2"
       >
         <div class="product-type-content">
           <h2 class="product-type-title reveal">
@@ -701,7 +571,6 @@
         </div>
       </section>
 
-      <!-- ===== SPECS 2 ===== -->
       <section class="product-specs-section">
         <div class="specs-visual-block reveal">
           <div class="specs-image-wrapper1">
@@ -757,15 +626,11 @@
         </div>
       </section>
 
-      <!-- ===== PRODUCT TYPE 3 ===== -->
       <section
-        class="product-type-section"
-        style="
-          background-image: url(&quot;assets/image/wall/veneered-felt.webp&quot;);
-        "
+        class="product-type-section wall-banner-3"
       >
         <div class="product-type-content">
-          <h2 class="product-type-title reveal" style="margin-bottom: 40px">
+          <h2 class="product-type-title wall-banner-3-title reveal">
             шпонированный<br />двухслойный<br />эко-фетр
           </h2>
           <div class="product-type-description reveal delay-1">
@@ -779,7 +644,6 @@
         </div>
       </section>
 
-      <!-- ===== SPECS 3 ===== -->
       <section class="product-specs-section">
         <div class="specs-visual-block1 reveal">
           <div class="specs-image-wrapper2">
@@ -835,29 +699,13 @@
             </div>
           </div>
           <div class="specs-colors-container reveal delay-4">
-            <div
-              class="color-item"
-              style="
-                background-image: url(&quot;assets/image/wall/wood-rose.webp&quot;);
-              "
-            ></div>
-            <div
-              class="color-item"
-              style="
-                background-image: url(&quot;assets/image/wall/wood-venge.webp&quot;);
-              "
-            ></div>
-            <div
-              class="color-item"
-              style="
-                background-image: url(&quot;assets/image/wall/wood-walnut.webp&quot;);
-              "
-            ></div>
+            <div class="color-item wall-color-1"></div>
+            <div class="color-item wall-color-2"></div>
+            <div class="color-item wall-color-3"></div>
           </div>
         </div>
       </section>
 
-      <!-- ===== PROMO ===== -->
       <section class="promo-section">
         <div class="promo-container">
           <div class="promo-info reveal">
@@ -892,8 +740,8 @@
                 <input type="checkbox" id="agree" required />
                 <label for="agree"
                   >нажимая на кнопку, я подтверждаю согласие с
-                  <a href="#">обработкой персональных данных</a> и
-                  <a href="#">политикой конфиденциальности</a></label
+                  <a href="agreement.html">обработкой персональных данных</a> и
+                  <a href="privacy.html">политикой конфиденциальности</a></label
                 >
               </div>
               <button type="submit" class="btn-submit">
@@ -904,7 +752,6 @@
         </div>
       </section>
 
-      <!-- ===== DESIGN OPTIONS ===== -->
       <section class="design-options-section" id="design">
         <div class="design-info-block reveal">
           <div class="ai-badge reveal delay-2">
@@ -966,7 +813,6 @@
         </div>
       </section>
 
-      <!-- ===== COLLECTIONS INTRO ===== -->
       <section class="collections-intro-section" id="collections">
         <div class="collections-intro-container">
           <h2 class="collections-intro-title reveal">коллекции</h2>
@@ -976,7 +822,6 @@
         </div>
       </section>
 
-      <!-- ===== FLAT ===== -->
       <section class="flat-collection-section">
         <div class="flat-info reveal">
           <h2 class="flat-main-title">флэт</h2>
@@ -1012,15 +857,12 @@
         </div>
       </section>
 
-      <!-- ===== INTERIOR VIEW 1 ===== -->
       <section
-        class="interior-view-section reveal"
-        style="background-image: url(&quot;assets/image/wall/slider3.png&quot;)"
+        class="interior-view-section wall-interior-1 reveal"
       >
         <div class="interior-view-content"></div>
       </section>
 
-      <!-- ===== RAIL ===== -->
       <section class="rail-collection-section">
         <div class="rail-info-block reveal">
           <h2 class="rail-title reveal delay-1">рэил</h2>
@@ -1042,7 +884,6 @@
         </div>
       </section>
 
-      <!-- ===== ZEN ===== -->
       <section class="zen-collection-section">
         <div class="zen-interior-image reveal">
           <img src="assets/image/wall/zen-interior.png" alt="интерьер дзен" />
@@ -1058,7 +899,6 @@
         </div>
       </section>
 
-      <!-- ===== AVANGARD ===== -->
       <section class="rail-collection-section">
         <div class="rail-info-block reveal">
           <h2 class="rail-title reveal delay-1">авангард</h2>
@@ -1080,7 +920,6 @@
         </div>
       </section>
 
-      <!-- ===== NEURO ===== -->
       <section class="zen-collection-section">
         <div class="zen-interior-image reveal">
           <img src="assets/image/wall/nero_block.webp" alt="интерьер нейро" />
@@ -1096,17 +935,12 @@
         </div>
       </section>
 
-      <!-- ===== INTERIOR VIEW 2 ===== -->
       <section
-        class="interior-view-section reveal"
-        style="
-          background-image: url(&quot;assets/image/wall/material.jpg&quot;);
-        "
+        class="interior-view-section wall-interior-2 reveal"
       >
         <div class="interior-view-content"></div>
       </section>
 
-      <!-- ===== COMPATIBILITY ===== -->
       <section class="compatibility-section">
         <div class="compatibility-item reveal">
           <h2 class="compatibility-title reveal delay-1">
@@ -1133,7 +967,6 @@
         </div>
       </section>
 
-      <!-- ===== MATERIALS ===== -->
       <section class="materials-grid-section">
         <div class="material-card reveal">
           <img src="assets/image/wall/material-wood.webp" alt="дерево" />
@@ -1149,7 +982,6 @@
         </div>
       </section>
 
-      <!-- ===== MOUNTING ===== -->
       <section class="mounting-section">
         <div class="mounting-container">
           <div class="mounting-visual-block reveal">
@@ -1204,7 +1036,6 @@
         </div>
       </section>
 
-      <!-- ===== RADIUS ===== -->
       <section class="radius-section">
         <div class="radius-image-block reveal">
           <img
@@ -1225,7 +1056,6 @@
         </div>
       </section>
 
-      <!-- ===== PROPERTIES ===== -->
       <section class="properties-section" id="properties">
         <div class="properties-list">
           <h2 class="properties-main-title reveal">свойства</h2>
@@ -1334,7 +1164,6 @@
         </div>
       </section>
 
-      <!-- ===== PRODUCTION ===== -->
       <section class="production-section" id="production">
         <video class="production-video-bg" autoplay muted loop playsinline>
           <source src="assets/videos/production.mp4" type="video/mp4" />
@@ -1350,7 +1179,6 @@
         </div>
       </section>
 
-      <!-- ===== COMPANY ABOUT ===== -->
       <section class="company-about-section">
         <div class="company-about-text">
           <p class="reveal">
@@ -1364,7 +1192,6 @@
         </div>
       </section>
 
-      <!-- ===== NOISE CONTROL ===== -->
       <section class="noise-control-section">
         <div class="noise-control-container">
           <div class="noise-info reveal">
@@ -1395,8 +1222,8 @@
                 <input type="checkbox" id="agree-noise" required />
                 <label for="agree-noise"
                   >нажимая на кнопку, я подтверждаю согласие с
-                  <a href="#">обработкой персональных данных</a> и
-                  <a href="#">политикой конфиденциальности</a></label
+                  <a href="agreement.html">обработкой персональных данных</a> и
+                  <a href="privacy.html">политикой конфиденциальности</a></label
                 >
               </div>
               <button type="submit" class="btn-submit-grey">
@@ -1407,7 +1234,6 @@
         </div>
       </section>
 
-      <!-- ===== USAGE ===== -->
       <section class="usage-section" id="usage">
         <div class="usage-row">
           <div class="usage-heading reveal">
@@ -1450,28 +1276,12 @@
         </div>
       </section>
 
-      <!-- ===== LIVING SPACES ===== -->
       <section class="living-spaces-section">
         <div class="living-slider-wrapper reveal">
           <div class="living-slider-container">
-            <div
-              class="slide active"
-              style="
-                background-image: url(&quot;assets/image/wall/living3.png&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/wall/living2.webp&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/wall/slider2.png&quot;);
-              "
-            ></div>
+            <div class="slide wall-living-slide-1 active"></div>
+            <div class="slide wall-living-slide-2"></div>
+            <div class="slide wall-living-slide-3"></div>
           </div>
           <div class="slider-progress-mini">
             <div class="progress-segment">
@@ -1500,7 +1310,6 @@
         </div>
       </section>
 
-      <!-- ===== COMMERCIAL SPACES ===== -->
       <section class="commercial-spaces-section">
         <div class="commercial-info-block reveal">
           <h2 class="commercial-title reveal delay-1">коммерческие</h2>
@@ -1524,24 +1333,9 @@
         </div>
         <div class="living-slider-wrapper reveal delay-1">
           <div class="living-slider-container">
-            <div
-              class="slide active"
-              style="
-                background-image: url(&quot;assets/image/wall/deal.jpg&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/wall/radius-interior.png&quot;);
-              "
-            ></div>
-            <div
-              class="slide"
-              style="
-                background-image: url(&quot;assets/image/wall/Img-frame_3.png&quot;);
-              "
-            ></div>
+            <div class="slide wall-commercial-slide-1 active"></div>
+            <div class="slide wall-commercial-slide-2"></div>
+            <div class="slide wall-commercial-slide-3"></div>
           </div>
           <div class="slider-progress-mini">
             <div class="progress-segment">
@@ -1557,7 +1351,6 @@
         </div>
       </section>
 
-      <!-- ===== FOOTER PRE ===== -->
       <section class="footer-pre-section" id="contacts">
         <div class="footer-contact-block reveal">
           <h2 class="footer-title reveal delay-1">оставьте заявку</h2>
@@ -1620,7 +1413,6 @@
       </section>
     </main>
 
-    <!-- ===== MAIN FOOTER ===== -->
     <footer class="main-footer">
       <div class="footer-container reveal">
         <div class="footer-top">
@@ -1643,15 +1435,14 @@
           </div>
         </div>
         <div class="footer-bottom-links">
-          <a href="#">политика в отношении обработки персональных данных</a>
-          <a href="#">согласие на обработку персональных данных</a>
-          <a href="#">пользовательское соглашение</a>
-          <a href="#">политика использования файлов cookie</a>
+          <a href="privacy.html">политика в отношении обработки персональных данных</a>
+          <a href="agreement.html">согласие на обработку персональных данных</a>
+          <a href="terms.html">пользовательское соглашение</a>
+          <a href="cookie.html">политика использования файлов cookie</a>
         </div>
       </div>
     </footer>
 
-    <!-- ===== VIDEO MODAL ===== -->
     <div class="video-modal" id="videoModal">
       <div class="modal-overlay"></div>
       <div class="modal-content">
@@ -1663,7 +1454,6 @@
       </div>
     </div>
 
-    <!-- ===== CALLBACK MODAL ===== -->
     <div class="modal-callback" id="callbackModal">
       <div class="modal-backdrop"></div>
       <div class="modal-window">
@@ -1697,8 +1487,8 @@
             <input type="checkbox" id="modal-agree" required />
             <label for="modal-agree"
               >нажимая на кнопку, я подтверждаю согласие с
-              <a href="#">политикой конфиденциальности</a> и даю согласие на
-              <a href="#">обработку персональных данных</a></label
+              <a href="privacy.html">политикой конфиденциальности</a> и даю согласие на
+              <a href="agreement.html">обработку персональных данных</a></label
             >
           </div>
           <button type="submit" class="btn-modal-submit">отправить</button>
@@ -1706,7 +1496,6 @@
       </div>
     </div>
 
-    <!-- ===== КНОПКА СВЯЗИ (WIDGET) ===== -->
     <div class="fab-container" id="fabContainer">
       <div class="fab-menu">
         <a href="tel:+79819200133" class="fab-item phone" title="Позвонить">
@@ -1729,8 +1518,8 @@
     </div>
 
 
-    <script src="scripts/script.js?v=2"></script>
+    <script src="scripts/script.js?v=3"></script>
     <script src="scripts/vendor/simpleParallax.min.js"></script>
-    <script src="scripts/parallax-init.js?v=9"></script>
+    <script src="scripts/parallax-init.js?v=20"></script>
   </body>
 </html>
