@@ -147,7 +147,7 @@
   font-weight: 500;
   line-height: 0.9;
   text-transform: lowercase;
-  margin: 0;
+  margin: 0 0 40px 0;
 }
 
 .product-type-description-fetr {
@@ -299,6 +299,7 @@
 }
 
 .fetr-shape-right {
+  position: relative;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
   background: var(--white, #ffffff);
@@ -307,6 +308,8 @@
 }
 
 .fetr-shape-right img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   scale: 1.3;
@@ -416,6 +419,7 @@
 }
 
 .fetr-thick-left {
+  position: relative;
   background: #484f5c;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
@@ -424,6 +428,8 @@
 }
 
 .fetr-thick-left img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   scale: 1.2;
@@ -1009,7 +1015,6 @@
   font-weight: 500;
   letter-spacing: -0.2px;
   color: var(--orange, #fa4616);
-  text-transform: lowercase;
   width: 25%;
   vertical-align: middle;
   text-align: center;
@@ -1021,11 +1026,24 @@
   text-align: center;
 }
 
-.fetr-noise-specs-table .col-btn1 .btn-orange-pill1 {
-  padding: clamp(10px, 1vw, 16px) clamp(24px, 2vw, 40px);
-  font-size: clamp(13px, 1vw, 16px);
+/* Кнопка "подробнее" в этой ячейке использует общий класс .btn-orange-pill
+   (не .btn-orange-pill1 — тот класс нигде не встречается в разметке,
+   мёртвое правило выше). Заказчик прислал стили этой кнопки с оригинала:
+   border-radius 52px (не 40px), шрифт --t-text-font (не --t-headline-font),
+   и цвет hover #4c5262 (не тёмно-оранжевый) — точечно поправляем именно
+   здесь, не трогая .btn-orange-pill в остальных местах страницы. */
+.fetr-noise-specs-table .col-btn1 .btn-orange-pill {
+  padding: clamp(19px, 1.9vw, 28px) clamp(40px, 3.8vw, 64px);
+  font-size: clamp(18px, 1.5vw, 23px);
+  font-family: var(--t-text-font, "TTNorms", Arial, sans-serif);
+  line-height: 1;
+  border-radius: 52px;
   display: inline-block;
   width: auto;
+}
+
+.fetr-noise-specs-table .col-btn1 .btn-orange-pill:hover {
+  background: #4c5262;
 }
 
 .fetr-noise-specs-mobile-wrap {
@@ -1105,7 +1123,7 @@
 
 .fetr-fire-label {
   font-family: var(--t-text-font, "TTNorms", sans-serif);
-  font-size: clamp(12px, 2vw, 36px);
+  font-size: clamp(11px, 1.8vw, 32px);
   color: #4c5262;
   font-weight: 500;
   text-transform: lowercase;
@@ -1226,9 +1244,17 @@
   overflow: hidden;
   background: var(--white, #ffffff);
   display: flex;
+  position: relative;
 }
 
 .fetr-small-panels-right img {
+  /* .fetr-small-panels-wrapper задаёт min-height (не явную height) —
+     в этой ситуации height:100% у картинки ненадёжно резолвится
+     (та же проблема, что уже чинили у .radius-image-block). Абсолютное
+     позиционирование на всю площадь родителя решает это независимо от
+     resolve процентной высоты. */
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1269,8 +1295,14 @@
 }
 
 .fetr-veneer-wrapper-reverse {
-  display: flex;
-  flex-direction: row-srevere;
+  /* Было display:flex + flex-direction:"row-srevere" — опечатка
+     (невалидное значение), из-за которой блок не переворачивался вообще
+     (реально работал как обычный row), а сам flex:1 1 0 давал неровный
+     раздел (632px/748px вместо 50/50 — та же история, что и с
+     .trends-section-reverce). Grid с 1fr 1fr даёт точный раздел пополам,
+     а order ниже переворачивает визуальный порядок колонок. */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: clamp(15px, 1.2vw, 25px);
   min-height: clamp(800px, 32vw, 950px);
   align-items: stretch;
@@ -1278,21 +1310,29 @@
   box-sizing: border-box;
 }
 
-.fetr-veneer-wrapper-reverse > div,
-.fetr-veneer-wrapper-reverse > .fetr-veneer-left,
-.fetr-veneer-wrapper-reverse > .fetr-veneer-right {
-  flex: 1 1 0;
-  width: 100%;
+.fetr-veneer-wrapper-reverse .fetr-veneer-left {
+  order: 2;
+}
+
+.fetr-veneer-wrapper-reverse .fetr-veneer-right {
+  order: 1;
 }
 
 .fetr-veneer-left {
   overflow: hidden;
   background: var(--white, #ffffff);
   display: flex;
+  position: relative;
   min-height: clamp(380px, 32vw, 540px);
 }
 
 .fetr-veneer-left img {
+  /* .fetr-veneer-wrapper задаёт min-height (не явную height) — height:100%
+     у картинки ненадёжно резолвится в этой ситуации (та же проблема, что
+     уже чинили у .radius-image-block/.fetr-small-panels-right). Абсолютное
+     позиционирование на всю площадь родителя решает это. */
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1941,9 +1981,9 @@
 }
 
 /* ============================================================
-   АДАПТИВ ДЛЯ МОБИЛЬНЫХ СМАРТФОНОВ (390px - 430px)
+   АДАПТИВ ДЛЯ МОБИЛЬНЫХ СМАРТФОНОВ (390px - 500px)
    ============================================================ */
-@media (max-width: 430px) {
+@media (max-width: 500px) {
   .fetr-main {
     padding: 0 10px !important;
     gap: 10px !important;
@@ -2007,7 +2047,11 @@
     position: absolute !important;
     top: 30px !important;
     left: 20px !important;
-    right: auto !important;
+    /* right:auto (без width) не ограничивал ширину блока — заголовок
+       (.product-type-title-fetr1) разрастался по контенту и вылезал
+       за край экрана на мобилке. right:20px даёт блоку симметричную
+       ширину, и текст переносится по строкам вместо overflow. */
+    right: 20px !important;
     margin-left: 0 !important;
     margin-right: auto !important;
     text-align: left !important;
@@ -2042,6 +2086,15 @@
 
   .trends-section-reverce {
     flex-direction: column-reverse;
+  }
+
+  /* На мобилке блок стекается в колонку — фиксированный 50% flex-basis
+     (для десктопного 50/50 по ширине) в column-direction превратился бы
+     в 50% ВЫСОТЫ, что не нужно. Возвращаем обычную высоту по контенту. */
+  .trends-text-content,
+  .trends-image {
+    flex: none;
+    width: 100%;
   }
 
   .trends-title-fetr {
@@ -2282,7 +2335,9 @@
   }
 
   .product-type-title-fetr1 {
-    font-size: 50px;
+    /* было 50px, потом уменьшили до 34px — оказалось слишком мелко,
+       остановились на промежуточном значении */
+    font-size: 42px;
     margin-bottom: 10px !important;
   }
 
@@ -2391,7 +2446,10 @@
   .product-type-content,
   .product-type-content-fetr {
     position: absolute !important;
-    right: auto !important;
+    /* right:auto (без width) не ограничивал ширину — при font-size:50px
+       у .product-type-title-fetr1 ниже текст вылезал за край экрана
+       (left у блока — 20px, унаследован из @media 768px выше). */
+    right: 20px !important;
     margin-left: 0 !important;
     margin-right: auto !important;
     text-align: left !important;

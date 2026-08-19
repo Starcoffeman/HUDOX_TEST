@@ -1,39 +1,13 @@
-/* ==========================================================================
-   walls-page.css — walls.html: точечные правки под общий хедер сайта
-   (css/home/*). Та же логика, что и в css/designers.css — см. комментарии
-   там для подробностей.
-   ========================================================================== */
-
-/* ===== ОТСТУП ПОД ЕДИНЫЙ ХЕДЕР САЙТА =====
-   .main-content { margin-top: clamp(80px, 3vw, 200px) } из css/base.css был
-   рассчитан на старый хедер в потоке документа. Теперь walls.html
-   использует общий хедер (css/home/01-header.css): он position:fixed, а
-   место под него уже резервирует body { padding-top: 90px } из
-   css/home/base.css. Старый margin-top поверх этого давал двойной отступ —
-   обнуляем его здесь, а не в общем css/base.css (его используют другие
-   страницы со старым хедером). */
 .main-content {
   margin-top: 0;
 }
-/* Заказчик попросил вернуть небольшой зазор между хедером и слайдером —
-   но только на десктопе/широких экранах (≥1200px, там же, где хедер уже
-   в полной "настольной" раскладке — .header-bar 90px, а не мобильные
-   60/52px из инлайн-стиля в <head>). На мобильном/планшете зазор не
-   просили — там всё осталось как есть (0). */
+
 @media (min-width: 1200px) {
   .main-content {
     margin-top: clamp(14px, 1vw, 32px);
   }
 }
 
-/* ===== ОТМЕНА ЗУМА ДЛЯ СТАРОГО КОНТЕНТА СТРАНИЦЫ =====
-   css/home/base.css задаёт body { zoom: var(--hb-zoom) } — это масштабирует
-   ВЕСЬ body целиком, и это верно для хедера (фиксированные px-значения,
-   рассчитанные на макет 1200 и должные тянуться зумом). Но остальной
-   контент walls.html — старая вёрстка на vw/clamp(), которая уже сама по
-   себе адаптивна. Наложение зума поверх неё даёт двойное масштабирование.
-   Отменяем унаследованный зум для старого контента, оставляя его только
-   у хедера/мобильного меню. */
 .main-content,
 .main-footer,
 .modal-callback,
@@ -41,16 +15,6 @@
   zoom: calc(1 / var(--hb-zoom));
 }
 
-/* ===== РАВНЫЕ КОЛОНКИ В «ЖИЛЫЕ ПРОСТРАНСТВА» =====
-   css/sections.css задаёт общее правило .living-slider-wrapper { flex: 1.4 },
-   рассчитанное на слайдер (шире) + .living-info-block { flex: 1 } (уже) —
-   там неравный сплит ~58/42. Здесь нужны равные половины, поэтому
-   переопределяем flex только внутри .living-spaces-section, не трогая
-   .commercial-slider-wrapper (тот же общий селектор в sections.css).
-   min-width: 0 обязателен — иначе флекс-айтем с flex-basis:0% всё равно
-   не сжимается уже своего min-content (у .living-info-block это широкий
-   заголовок «жилые пространства» на clamp(...,75px)), и колонки снова
-   получаются неравными. */
 .living-spaces-section .living-slider-wrapper,
 .living-spaces-section .living-slider-wrapper.reveal,
 .living-spaces-section .living-slider-wrapper.reveal.active,
@@ -61,9 +25,6 @@
   min-width: 0;
 }
 
-/* ===== РАВНЫЕ КОЛОНКИ В «КОММЕРЧЕСКИЕ ПРОСТРАНСТВА» =====
-   Слайдер в этой секции использует класс .living-slider-wrapper (не commercial),
-   поэтому таргетируем его именно внутри .commercial-spaces-section. */
 .commercial-spaces-section .commercial-info-block,
 .commercial-spaces-section .commercial-info-block.reveal,
 .commercial-spaces-section .commercial-info-block.reveal.active,
@@ -75,63 +36,22 @@
   overflow: hidden;
 }
 
-/* ===== ГЛАВНЫЙ ЗАГОЛОВОК СЛАЙДЕРА: line-height ломает перенос строк =====
-   Разметка сама переносит "стеновые / панели / хьюбокс" через <br>, то есть
-   заголовок ВСЕГДА в 3 строки. Унаследованный line-height:0.8 (общий для
-   многих тайтлов на сайте) при принудительном переносе даёт строки короче
-   собственной высоты шрифта — соседние строки заезжают друг на друга.
-   Единый безразмерный line-height держит пропорцию на любом брейкпоинте,
-   не завися от того, какой из конкурирующих vw-шрифтов сейчас победил. */
 .slider-static-content .main-text-block h1 {
   line-height: 0.95 !important;
 }
 
-/* ===== ЧЁРНЫЙ ЭКРАН У СЛАЙДЕРОВ "ЖИЛЫЕ/КОММЕРЧЕСКИЕ ПРОСТРАНСТВА" НА МОБИЛЕ =====
-   На ≤430px css/responsive.css переключает .living-slider-container/
-   .commercial-slider-container с position:absolute на position:relative
-   (см. блок "СЛАЙДЕРЫ В СЕКЦИЯХ ЖИЛЫЕ И КОММЕРЧЕСКИЕ ПРОСТРАНСТВА"). Родитель
-   (.living-slider-wrapper) там получает высоту через min-height, а не через
-   height — а height:100% у НЕ-абсолютного блока с таким родителем не
-   резолвится браузером (классическая особенность CSS: проценты по высоте
-   у элемента в потоке требуют "определённой" высоты родителя, а не пришедшей
-   из min-height). Контейнер и слайды внутри схлопываются в 0px — снаружи это
-   выглядит как чёрный прямоугольник вместо фото. Возвращаем абсолютное
-   позиционирование безусловно (не только на ≥1440px, поэтому вне media). */
 .living-slider-container,
 .commercial-slider-container {
   position: absolute !important;
   inset: 0 !important;
 }
 
-/* ===== КАРТОЧКИ "ХАРАКТЕРИСТИКИ ПАНЕЛИ" (.specs-visual-block / .specs-visual-block1) =====
-   Три одинаковые по смыслу карточки (specs 1/2/3) в разметке продублированы
-   вручную с разными классами (panel-main-img/1/2, soundwave-img/1/2) — и
-   при копировании закрались настоящие баги, не зависящие от ширины экрана:
-
-   1) .soundwave-img (карточка 1) центрируется через left:50% — верно.
-      .soundwave-img1 (карточка 2) и .soundwave-img2 (карточка 3)
-      скопированы с опечаткой left:45% — волна уезжает влево от центра
-      панели на любом разрешении.
-
-   2) .panel-main-img (карточка 1) — max-width:25% от контейнера,
-      .panel-main-img1 (карточка 2) — 40%. А .panel-main-img2 (карточка 3,
-      она же .specs-visual-block1) — max-width:100%: фото панели растягивается
-      на всю ширину контейнера-обёртки (минус padding), то есть выглядит
-      непропорционально огромным по сравнению с двумя другими карточками —
-      и на десктопе, и тем более на широких экранах. Сводим к масштабу
-      соседних карточек. */
 .soundwave-img1,
 .soundwave-img2 {
-  left: 50% !important;
+  
+  left: 44% !important;
 }
-/* 3) .specs-image-wrapper (карточка 1) и .specs-image-wrapper1 (карточка 2)
-      центрируют содержимое через display:flex + align/justify-content:center.
-      .specs-image-wrapper2 (карточка 3) — при копировании этого правила не
-      завели вовсе, в css/sections.css для него есть только вложенное
-      правило для самой картинки, а базового flex-центрирования обёртки нет.
-      Пока картинка была на 100% ширины (см. пункт 2), это было незаметно —
-      она и так занимала всё место. После уменьшения картинка съезжала бы
-      к левому краю. Добавляем то же центрирование, что и у соседних карточек. */
+
 .specs-image-wrapper2 {
   position: relative;
   display: flex;
@@ -140,15 +60,7 @@
   width: 100%;
   height: 100%;
 }
-/* .panel-main-img2 (wood.png, 1553×1553 — квадратное) на десктопе и шире:
-   контейнер .specs-visual-block1 высокий (900px+ по макету, растёт
-   flex-stretch'ем от текстового блока рядом), а ограничение по ширине
-   (max-width:45%) даёт квадрат в его натуральную ширину — на фоне соседних
-   узких-высоких панелей (панели 1 и 2 растягиваются на всю высоту, ~470–
-   500px на 1440px экране) он выглядел вчетверо мельче их (221px). Тот же
-   приём, что и на мобильном — размер по высоте, а не по ширине; проценты
-   тут не используем (в @media ниже они не резолвились), берём vw — он не
-   зависит от "явности" высоты родителя. */
+
 @media (min-width: 769px) {
   .specs-image-wrapper2 .panel-main-img2 {
     max-width: none !important;
@@ -157,80 +69,31 @@
   }
 }
 
-/* 4) На мобильном (≤768px) .product-specs-section складывается в колонку,
-      и .specs-visual-block/-block1 занимают полную ширину экрана, но
-      остаются высокими (300–400px) — фото-стрип в карточках 1 и 2
-      (wall_wave.png 603×2543, product-specs.png 1658×3980 — узкие и
-      высокие) при ограничении по ширине сами растягиваются на всю высоту
-      контейнера. А wood.png (карточка 3) — КВАДРАТНОЕ (1553×1553): при
-      том же самом ограничении по ширине оно остаётся маленьким квадратом
-      посреди высокой карточки, вокруг него пустое место — заказчик и
-      увидел именно "плита маленькая". Задаём ей размер по высоте, а не по
-      ширине (раз картинка квадратная — высота и станет шириной), чтобы
-      она заполняла карточку так же, как соседние. */
 @media (max-width: 768px) {
   .specs-image-wrapper2 .panel-main-img2 {
-    /* Процент здесь не резолвится: .specs-image-wrapper2 сам получает
-       высоту через height:100% от .specs-visual-block1, а у того на
-       мобильном только min-height/max-height (не обычный height) — то
-       есть "явной" высоты по спецификации CSS формально нет, и вложенный
-       процент откатывается к "не задано" (картинка рисуется в свой
-       родной intrinsic-размер, 1553×1553 — только хуже). Поэтому здесь
-       нужен именно фиксированный px, а не %. */
+    
     max-width: none !important;
     width: auto !important;
     max-height: 300px !important;
   }
 }
 
-/* ===== ПОТОЛОК ДЛЯ ШРИФТОВ НА ЭКРАНАХ ШИРЕ FULL HD (≥1440px) =====
-   css/responsive.css держит крупные заголовки/текст на чистом vw без
-   верхней границы (например .slider-static-content h1 { font-size: 6vw }).
-   На экранах шире обычного full-hd (1920px и выше — например iPad Pro
-   12.9" в раскладке "как на десктопе", или широкий монитор) это даёт
-   нелинейно огромный текст: на 1920px заголовок уже ~115px, на iPad Pro
-   в терминах его собственного разрешения было бы ещё крупнее. Здесь не
-   меняем сам коэффициент роста (0–1440px ведёт себя как раньше), а
-   только подрезаем его сверху через clamp(), чтобы после ~1440–1600px
-   рост останавливался и вёрстка не разъезжалась в "билборд". */
 @media (min-width: 1920px) {
-  /* Заказчик уточнил: "увеличить" относилось только к экранам ШИРЕ обычного
-     Full HD — на самом 1920px всё должно выглядеть как в исходном дизайне,
-     не крупнее. Раньше это правило начиналось с 1440px, и вдобавок для части
-     свойств коэффициент роста (vw) был круче родного — то есть на 1920px
-     значение уже оказывалось раздутым ЕЩЁ ДО потолка. Теперь: 1) порог
-     сдвинут на 1920px — до этой ширины сайт использует обычный дизайн без
-     наших надбавок; 2) для каждого свойства взят РОДНОЙ наклон/минимум из
-     css/sections.css или css/slider.css (значит на 1920px значение близко к
-     исходному), а увеличен только потолок — то есть рост происходит именно
-     в диапазоне 1920–2732px и дальше, как и просили. */
+  
   .slider-static-content .main-text-block h1 {
-    /* родной клэмп — clamp(48px, 6vw, 160px) в css/slider.css; на 1920px
-       это и так 115px, выше потолок поднимать не нужно */
+    
     font-size: clamp(48px, 6vw, 160px) !important;
   }
   .sub-text {
-    /* родной клэмп — clamp(20px, 1.8vw, 26px); потолок подняли, наклон и
-       минимум оставили родными */
+    
     font-size: clamp(20px, 1.8vw, 40px) !important;
   }
   .btn-calculate {
-    /* родной клэмп текста — clamp(16px, 1.5vw, 28px); паддингов —
-       clamp(14px,1.2vw,30px) clamp(20px,2.2vw,55px) */
+    
     font-size: clamp(16px, 1.5vw, 34px) !important;
     padding: clamp(14px, 1.2vw, 32px) clamp(20px, 2.2vw, 58px) !important;
   }
-  /* ВАЖНО: у большинства заголовков секций в css/sections.css УЖЕ есть
-     свой clamp() с адекватным потолком (58–120px) — они и не растут
-     бесконечно, их "разгоняет" только !important-перебивка в
-     css/responsive.css (font-size: 3.5vw/4.6vw !important на ≥1440px),
-     которая ИГНОРИРУЕТ этот родной clamp. Первая версия этого блока по
-     ошибке подменяла все их родные потолки одним общим 52px — то есть не
-     ограничивала рост, а заметно УМЕНЬШАЛА то, что было в дизайне.
-     Возвращаем каждому классу именно его родной потолок из sections.css
-     (а не единое число), просто заново оформленный как явный clamp, чтобы
-     3.5vw/4.6vw !important его больше не перебивали. .design-title вообще
-     не трогаем — там в базе фиксированные 80px без vw, перебивать нечего. */
+  
   .problems-title,
   .offer-title {
     font-size: clamp(28px, 2.9vw, 58px) !important;
@@ -256,30 +119,22 @@
   .usage-main-title {
     font-size: clamp(34px, 5vw, 120px) !important;
   }
-  /* .mounting-main-title в базе — фиксированные 110px без vw. Даём лёгкий
-     наклон, чтобы на 1920px было ~115px (чуть выше родных 110), а дальше
-     росла к увеличенному потолку 130px — не мгновенно на 1920. */
+  
   .mounting-main-title {
     font-size: clamp(110px, 6vw, 130px) !important;
   }
-  /* родной наклон/минимум — clamp(32px, 3.2vw, 85px) и clamp(28px, 2.9vw,
-     58px) соответственно; заказчик просил эти два тайтла заметно крупнее
-     родного потолка — подняли только потолок, наклон родной */
+  
   .trends-title {
     font-size: clamp(32px, 3.2vw, 100px) !important;
   }
   .system-title {
     font-size: clamp(28px, 2.9vw, 70px) !important;
   }
-  /* родной потолок — 90px, промо-версия должна быть заметно крупнее
-     обычных секционных тайтлов */
+  
   .promo-title {
     font-size: clamp(40px, 6vw, 90px) !important;
   }
-  /* у большинства этих абзацев родной клэмп около clamp(14px, 1vw, 20px)
-     (rail-desc/zen-desc/compatibility-desc и т.п.) — держим тот же мягкий
-     наклон ~1vw, чтобы на 1920px было ~19px (как в оригинале), и подняли
-     только потолок, чтобы после 1920px текст продолжал расти. */
+  
   .trends-description p,
   .problems-description p,
   .offer-description p,
@@ -301,31 +156,27 @@
     font-size: clamp(16px, 1.1vw, 30px) !important;
     line-height: 1.5 !important;
   }
-  /* родной клэмп — clamp(36px, 4.2vw, 110px); заказчик просил крупнее
-     родного потолка — подняли только его */
+  
   .useful-title {
     font-size: clamp(36px, 4.2vw, 130px) !important;
   }
-  /* родной клэмп — clamp(14px, 1vw, 20px); заказчик просил заметно крупнее
-     именно этот блок — подняли потолок сильнее остальных */
+  
   .compatibility-desc p {
     font-size: clamp(14px, 1vw, 36px) !important;
   }
-  /* родной клэмп — clamp(18px, 1.3vw, 26px); увеличиваем потолок немного,
-     не сильно, как просили */
+  
   .mounting-text-item p {
     font-size: clamp(18px, 1.3vw, 30px) !important;
   }
-  /* родной клэмп — clamp(22px, 2.4vw, 58px); тут наклон и так родной,
-     потолок ниже родного (48) — возвращаем родной 58 */
+  
   .image-overlay-text {
     font-size: clamp(22px, 2.4vw, 58px) !important;
   }
-  /* родное значение — фиксированные 40px без vw */
+  
   .promo-benefits li {
     font-size: clamp(28px, 1vw, 44px) !important;
   }
-  /* родной клэмп у label/input/checkbox — clamp(20px, 1.8vw, 40px) */
+  
   .input-group label,
   .input-group-dark label {
     font-size: clamp(20px, 1.2vw, 26px) !important;
@@ -337,49 +188,36 @@
   .checkbox-group label {
     font-size: clamp(18px, 1.4vw, 28px) !important;
   }
-  /* родные клэмпы разные (40/46) — среднее с родным наклоном */
+  
   .btn-submit,
   .btn-project,
   .btn-submit-grey {
     font-size: clamp(20px, 1.85vw, 46px) !important;
   }
-  /* родной клэмп — clamp(16px, 1.5vw, 150px), родной потолок избыточно
-     большой для повсеместного применения — держим наклон, потолок скромнее */
+  
   .row-label {
     font-size: clamp(16px, 1.5vw, 50px) !important;
   }
-  /* родной клэмп — clamp(16px, 3vw, 100px) */
+  
   .row-value {
     font-size: clamp(16px, 2.4vw, 80px) !important;
   }
-  /* родное значение — фиксированные 46px без vw */
+  
   .specs-price {
     font-size: clamp(36px, 1.6vw, 80px) !important;
   }
-  /* родное значение — фиксированные 32px без vw */
+  
   .material-label {
     font-size: clamp(24px, 1.2vw, 48px) !important;
   }
 
-  /* ===== ПОТОЛОК ДЛЯ ГАБАРИТОВ (высоты секций, слайдеров, фото, значков) =====
-     Та же история, что и со шрифтами: min-height/height на чистом vw без
-     верхней границы. Потолки подобраны так, чтобы на 1920px ничего не
-     "прыгнуло" (это ровно то, что уже показывает текущий vw-расчёт на
-     1920px) — дальше рост просто останавливается. */
-  /* Главный (первый) слайдер — отдельно от остальных: заказчик отметил,
-     что он визуально стал мельче, чем был, подняли потолок заметно выше. */
+  
+  
   .hero-slider {
     height: min(44vw, 1150px) !important;
     min-height: min(38vw, 990px) !important;
   }
-  /* .living-slider-wrapper/.commercial-slider-wrapper НЕ должны получать
-     свою собственную фиксированную height — они лежат в flex-row секции
-     (.living-spaces-section) с align-items:stretch и обязаны тянуться на
-     всю высоту рядом с .living-info-block (которая сама по себе выше,
-     когда в ней длинный список). Раньше здесь стояла своя height:min(...),
-     и на широких экранах слайдер оказывался короче инфоблока — не занимал
-     всю высоту секции. height:auto возвращает работу stretch; min-height
-     оставляем как пол на случай короткого списка. */
+  
   .living-slider-wrapper,
   .commercial-slider-wrapper {
     height: auto !important;
@@ -390,10 +228,7 @@
     height: min(44vw, 850px) !important;
     min-height: min(38vw, 730px) !important;
   }
-  /* .living-spaces-section/.commercial-spaces-section НЕ входят сюда: у их
-     слайдера min-height:min(42vw,1100px) (см. выше) — если ограничить
-     max-height секции числом меньше этого (1000px), слайдер оказывается
-     выше своей же секции и вылезает за неё. Ограничение секции ниже. */
+  
   .problems-section,
   .offer-section,
   .system-section,
@@ -432,23 +267,15 @@
   .material-card {
     height: min(34vw, 650px) !important;
   }
-  /* .interior-view-section (полноэкранные фото-баннеры между секциями) —
-     в базе (css/sections.css) фиксированная min-height:900px, вообще без
-     vw, на широких экранах смотрится приземисто. Заказчик попросил выше. */
+  
   .interior-view-section {
     min-height: min(48vw, 1300px) !important;
   }
-  /* .materials-grid-section в базе тоже фиксированные min-height:600px —
-     с более высокими .material-card (выше) секция и так вырастет по
-     контенту, но поднимаем и явный пол, чтобы не было переходного момента. */
+  
   .materials-grid-section {
     min-height: min(34vw, 650px) !important;
   }
-  /* Родное значение — фиксированные 300px без vw, волна — декоративный
-     оверлей ПОВЕРХ фото панели и не должна быть крупнее самого фото.
-     Раньше здесь стоял потолок 540px — заметно больше родного и больше
-     самой панели под ней, заказчик отметил, что выглядит слишком громоздко
-     даже на обычном десктопе. Оставляем рост скромным. */
+  
   .soundwave-img,
   .soundwave-img1,
   .soundwave-img2 {
@@ -466,43 +293,16 @@
     width: min(4.5vw, 88px) !important;
     height: min(4.5vw, 88px) !important;
   }
-  /* родное значение — фиксированные 55px без vw. Заказчик отдельно попросил
-     уменьшить именно эту SVG-иконку — на 1920px она заметно меньше и
-     родного размера, и того, что было до этой правки. */
+  
   .ai-svg-icon {
     width: clamp(32px, 1.4vw, 50px) !important;
   }
+  
+  .properties-main-title {
+    font-size: clamp(150px, 7.8vw, 190px) !important;
+  }
 }
 
-/* ===== БЛОК ВЫРЕЗОВ (30/60/90/П) НА МОБИЛЬНОМ =====
-   Референс от заказчика: две колонки рядом — фото-паттерны слева, подписи
-   вырезов справа, каждая подпись сидит прямо над настоящей прорезью на
-   фото панели. .design-cuts-block — ОДНО общее фото на все 4 строки
-   (assets/image/felt-texture-grey.webp, реальный размер 355×800px,
-   background-size: cover), а не 4 отдельных фото. Строки делят его по
-   flex-пропорциям 0.6/0.7/0.7/1.6 ("лестница") — эти цифры были подобраны
-   под десктопный крой и с реальным расположением прорезей на фото никак
-   не связаны, поэтому на мобильной ширине подписи уезжали мимо своих
-   прорезей.
-   Смерил прорези на самой картинке через canvas (piksel-анализ): они на
-   y ≈ 146, 312, 485, 651 из 800px высоты — то есть распределены почти
-   РАВНОМЕРНО, а не лестницей. При ширине колонки 218px (0.85/1.15 от
-   .design-patterns) cover масштабирует фото по ширине (355→218,
-   коэффициент 218/355 ≈ 0.614) — с background-position: top left картинка
-   идёт без обрезки по бокам, и прорезь №N оказывается на высоте
-   groove_y × 0.614.
-   Высоты строк 1–3 — точно под координаты прорезей 1–3 (0.614 × 146/312/485,
-   разбито на интервалы). У 4-й прорези (y=651 → 399.7px) блок раньше
-   обрывался ровно по ней — прорезь оказывалась впритык к нижнему краю и
-   почти не читалась на фото. Добавил высоты про запас: строка "П" теперь
-   продолжается ещё на ~36px НИЖЕ прорези (итого блок ~436px), а подпись
-   внутри неё через padding-bottom подвинута так, чтобы остаться ровно на
-   прорези — просто под ней теперь видно ещё кусок текстуры, а не голый
-   обрез. min-height: 0 отключает автоминимум по контенту у .cut-item —
-   без него текст/паддинг несостоявшихся строк раздувают их сверх заданной
-   высоты и вся раскладка съезжает (уже наступали на эти грабли выше).
-   Если ширина колонки когда-то изменится — расчёт придётся переделать под
-   новую ширину, он завязан именно на 218px. */
 @media (max-width: 768px) {
   .design-patterns {
     gap: 12px;
@@ -511,22 +311,12 @@
     flex: 0.85;
   }
   .design-cuts-block {
-    /* .design-patterns — flex-row, значит по главной (горизонтальной) оси
-       ширину задаёт flex-grow, а не flex-basis — иначе "flex: 0 0 Npx"
-       превращает высоту в ширину и блок становится квадратом. Ширина —
-       тем же flex-grow 1.15, что и раньше; высота — обычным height (это
-       уже кросс-ось, тут его никто не отменяет). */
+    
     flex: 1.15;
     height: 436px;
     background-position: top left;
   }
-  /* css/responsive.css вешает на .cut-item ещё и свой align-items (center на
-     ≤430px, general-правило), а на :nth-child(4) отдельно — align-items:center
-     + padding-bottom:60px (≤768px блок) И padding-top:50px + align-items:start
-     (отдельный, более специфичный ≤430px блок). Раз мы всё равно переопределяем
-     4-й пункт по своим меркам — прописываем ВСЕ стороны padding и align-items
-     явно и на общем правиле, и на nth-child(4), чтобы не остались дыры,
-     через которые могут просочиться эти чужие значения. */
+  
   .cut-item {
     align-items: flex-end;
     padding: 6px 18px 6px 18px;
@@ -542,9 +332,7 @@
     flex: 0 0 106.2px;
   }
   .cut-item:nth-child(4) {
-    /* строка длиннее остальных (138.2px) специально — прорезь у неё на
-       102px от верха строки, а не у самого низа: снизу оставлен запас,
-       чтобы прорезь была видна на фото целиком, а не обрезана впритык. */
+    
     flex: 0 0 138.2px;
     align-items: flex-end;
     padding: 6px 18px 36px 18px;
@@ -558,7 +346,7 @@
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 500px) {
   .cut-item {
     padding: 4px 14px 4px;
     gap: 10px;
@@ -571,51 +359,133 @@
   }
 }
 
-/* ===== ФОТО "ДЗЕН" НА МОБИЛЬНОМ — СЛИШКОМ НИЗКОЕ =====
-   .zen-interior-image и .rail-interior-image получают одинаковую высоту
-   300px (css/responsive.css), но исходники разного формата: у рэил/авангард/
-   нейро фото почти квадратное (~1.33:1), а у самого "дзен" — панорама (~2.13:1,
-   assets/image/wall/zen-interior.png). При одинаковой высоте у панорамного
-   кадра materialа/панели на стене выходят мельче и хуже читаются. Даём именно
-   этой плитке больше высоты, чтобы деталь текстуры была так же хорошо видна,
-   как у остальных.
-   Важно: .zen-interior-image в базовых стилях — flex: 1 (flex-basis: 0%), а
-   .zen-collection-section на мобильном становится flex-direction: column.
-   В колоночном flex-контейнере flex-basis:0% отменяет высоту, заданную
-   через height — сама .zen-info-block (flex: none) диктует итоговую высоту
-   секции, а картинке достаётся какой-то произвольный остаток. Простого
-   height здесь недостаточно — нужно переопределить именно flex-basis. */
 @media (max-width: 768px) {
   .zen-interior-image {
     flex: 0 0 420px !important;
   }
 }
 
-/* ===== ИКОНКИ "ЭТАПЫ ВЗАИМОДЕЙСТВИЯ" (steps-section / .step-item img) =====
-   Раньше по просьбе заказчика подняли потолок только на ≥1920px (90–280px
-   вместо родных 75–220px). Теперь просят уменьшить их размер целиком —
-   на мобильном, на десктопе и на широких экранах. css/responsive.css
-   держит разные фиксированные px на каждом брейкпоинте (110×90 на
-   769–1366px, 70×70 на ≤430px) плюс отдельный vw-клэмп (75px,8.5vw,220px)
-   на ≥1440px без верхней границы после 1920px — переопределяем все точки
-   разом заметно меньшими значениями, с одним общим клэмпом на ≥1440px
-   вместо двух разных потолков «до/после Full HD», раз саму иконку нужно
-   просто уменьшить, а не по-разному масштабировать. */
 .step-item img {
   width: 58px !important;
   height: 58px !important;
 }
-@media (min-width: 431px) and (max-width: 1439px) {
+@media (min-width: 501px) and (max-width: 1439px) {
   .step-item img {
     width: 96px !important;
     height: 80px !important;
   }
 }
-/* заказчик попросил заметно увеличить именно на десктопе и на разрешениях
-   больше Full HD — подняли и минимум, и потолок этого диапазона */
+
 @media (min-width: 1440px) {
   .step-item img {
     width: clamp(96px, 6.5vw, 170px) !important;
     height: clamp(80px, 5.5vw, 142px) !important;
   }
 }
+
+@media (max-width: 1199px) {
+  .header-bar {
+    height: 60px !important;
+    position: relative !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 20px !important;
+    background: #ffffff !important;
+  }
+  .header-logo {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 80px !important;
+    height: 46px !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+  .header-burger {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    display: block !important;
+    width: 42px !important;
+    height: 42px !important;
+    margin: 0 !important;
+  }
+  .header-line,
+  .header-top,
+  .header-menu,
+  .header-callback,
+  .header-phone {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    pointer-events: none !important;
+  }
+}
+@media (max-width: 639px) {
+  .header-bar {
+    height: 52px !important;
+    padding: 0 16px !important;
+  }
+  .header-logo {
+    width: 66px !important;
+    height: 38px !important;
+  }
+  .header-burger {
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.delay-1 {
+  transition-delay: 0.1s;
+}
+.delay-2 {
+  transition-delay: 0.2s;
+}
+.delay-3 {
+  transition-delay: 0.3s;
+}
+.delay-4 {
+  transition-delay: 0.4s;
+}
+
+.wall-hero-slide-1 { background-image: url("../assets/image/wall/slider1.jpg"); }
+.wall-hero-slide-2 { background-image: url("../assets/image/wall/slider2.png"); }
+.wall-hero-slide-3 { background-image: url("../assets/image/wall/slider3.png"); }
+.wall-hero-slide-4 { background-image: url("../assets/image/wall/slider4.png.webp"); }
+
+.wall-banner-1 { background-image: url("../assets/image/wall/product-type-section.png"); }
+.wall-banner-2 { background-image: url("../assets/image/wall/product-type.jpg"); }
+.wall-banner-3 { background-image: url("../assets/image/wall/veneered-felt.webp"); }
+.wall-banner-3-title { margin-bottom: 40px; }
+
+.wall-color-1 { background-image: url("../assets/image/wall/wood-rose.webp"); }
+.wall-color-2 { background-image: url("../assets/image/wall/wood-venge.webp"); }
+.wall-color-3 { background-image: url("../assets/image/wall/wood-walnut.webp"); }
+
+.wall-interior-1 { background-image: url("../assets/image/wall/slider3.png"); }
+.wall-interior-2 { background-image: url("../assets/image/wall/material.jpg"); }
+
+.wall-living-slide-1 { background-image: url("../assets/image/wall/living3.png"); }
+.wall-living-slide-2 { background-image: url("../assets/image/wall/living2.webp"); }
+.wall-living-slide-3 { background-image: url("../assets/image/wall/slider2.png"); }
+
+.wall-commercial-slide-1 { background-image: url("../assets/image/wall/deal.jpg"); }
+.wall-commercial-slide-2 { background-image: url("../assets/image/wall/radius-interior.png"); }
+.wall-commercial-slide-3 { background-image: url("../assets/image/wall/Img-frame_3.png"); }

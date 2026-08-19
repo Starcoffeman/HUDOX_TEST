@@ -117,7 +117,7 @@
 .hero-two-blocks-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(15px, 2.5vw, 30px);
+  gap: var(--gap);
   background-color: #f8f9fa;
   width: 100%;
 }
@@ -253,7 +253,7 @@
   border-radius: 50px;
   padding: clamp(12px, 1vw, 20px) clamp(14px, 1.6vw, 24px);
   font-family: var(--t-text-font, "TTNorms", sans-serif);
-  font-size: clamp(16px, 1.3vw, 30px);
+  font-size: clamp(14px, 1.1vw, 26px);
   font-weight: 400;
   text-decoration: none;
   transition: all 0.25s ease;
@@ -872,12 +872,39 @@
   aspect-ratio: 1 / 1 !important;
   object-fit: contain !important;
   top: 50%;
-  left: 46%;
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
   opacity: 0.95;
   pointer-events: none;
   mix-blend-mode: screen;
+}
+
+/* Карточки 1 и 3 (шпонированный двухслойный / двухслойный премиальный) —
+   у них есть бейджи "лицевой слой"/"базовый слой" по углам. На десктопе
+   заказчик попросил сдвинуть волну левее центра панели; на мобилке —
+   наоборот, правее центра. Карточку 2 (без бейджей) не трогаем — там волна
+   остаётся по центру на любой ширине. */
+.fetr-types-grid .fetr-type-card:nth-child(1) .fetr-type-soundwave,
+.fetr-types-grid .fetr-type-card:nth-child(3) .fetr-type-soundwave {
+  left: 42%;
+}
+
+@media (max-width: 960px) {
+  .fetr-types-grid .fetr-type-card:nth-child(1) .fetr-type-soundwave,
+  .fetr-types-grid .fetr-type-card:nth-child(3) .fetr-type-soundwave {
+    left: 46.75%;
+  }
+}
+
+/* Карточка 1 — увеличенная панель на десктопе (заказчик попросил именно
+   для карточки 1; мобильную/планшетную ширину не трогаем, тот же брейкпоинт,
+   что и у .fetr-types-grid ниже). */
+@media (min-width: 961px) {
+  .fetr-types-grid .fetr-type-card:nth-child(1) .fetr-type-img {
+    max-width: 100%;
+    max-height: 100%;
+  }
 }
 
 .types-section-design {
@@ -2173,7 +2200,7 @@
     font-size: clamp(20px, 0.84vw, 23px);
   }
   .showroom-pill-btn {
-    font-size: clamp(30px, 1.24vw, 34px);
+    font-size: clamp(26px, 1.24vw, 30px);
   }
   .focus-title {
     font-size: clamp(72px, 3vw, 82px);
@@ -2371,4 +2398,81 @@
 .modal-callback,
 .fab-container {
   zoom: calc(1 / var(--hb-zoom));
+}
+
+@media (max-width: 1199px) {
+  .header-bar {
+    height: 60px !important;
+    position: relative !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 20px !important;
+    background: #ffffff !important;
+  }
+  .header-logo {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 80px !important;
+    height: 46px !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+  .header-burger {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    display: block !important;
+    width: 42px !important;
+    height: 42px !important;
+    margin: 0 !important;
+  }
+  .header-line,
+  .header-top,
+  .header-menu,
+  .header-callback,
+  .header-phone {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    pointer-events: none !important;
+  }
+}
+@media (max-width: 639px) {
+  .header-bar {
+    height: 52px !important;
+    padding: 0 16px !important;
+  }
+  .header-logo {
+    width: 66px !important;
+    height: 38px !important;
+  }
+  .header-burger {
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
+
+.designers-hero-slide-1 { background-image: url("../assets/image/design/_-___2.png"); }
+.designers-hero-slide-2 { background-image: url("../assets/image/design/11__1_3.png"); }
+.designers-hero-slide-3 { background-image: url("../assets/image/design/hf_20260310_143228_7.png"); }
+.designers-hero-slide-4 { background-image: url("../assets/image/design/Frame_2085666568_1.png"); }
+
+.designers-second-slide-1 { background-image: url("../assets/image/design/Rectangle_3787.jpg"); }
+.designers-second-slide-2 { background-image: url("../assets/image/design/11__1_3.png"); }
+.designers-second-slide-3 { background-image: url("../assets/image/design/Rectangle_3792.jpg"); }
+.designers-second-slide-4 { background-image: url("../assets/image/design/Rectangle_3795.jpg"); }
+.designers-second-slide-5 { background-image: url("../assets/image/design/1___3.jpg"); }
+
+.designers-interior-1 { background-image: url("../assets/image/design/hf_20260310_143228_7.png"); }
+.designers-interior-2 { background-image: url("../assets/image/wall/material.jpg"); }
+.designers-interior-3 { background-image: url("../assets/image/design/Img-frame_2.png"); }
+
+.sub-text {
+  color: #fff !important;
 }

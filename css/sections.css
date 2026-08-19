@@ -68,13 +68,17 @@
   margin: 0;
 }
 .trends-text-content {
-  flex: 1;
+  /* flex:1 (flex-grow-based) не давал ровный раздел 50/50 (реально
+     получалось ~53/45) даже при идентичных значениях у обоих блоков —
+     фиксированный flex-basis (с вычетом половины gap) даёт точный
+     результат. */
+  flex: 0 0 calc(50% - 7.5px);
   background-color: var(--blue-bg);
   padding: clamp(30px, 3.5vw, 120px);
-  margin-right: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-sizing: border-box;
 }
 .trends-title {
   font-family: var(--t-headline-font);
@@ -112,9 +116,12 @@
   text-align: left;
 }
 .trends-image {
-  flex: 1;
+  /* см. комментарий у .trends-text-content — тот же фиксированный
+     flex-basis для точного 50/50. */
+  flex: 0 0 calc(50% - 7.5px);
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
 }
 .trends-image .simpleParallax,
 .img-parallax .simpleParallax {
@@ -183,6 +190,12 @@
   overflow: hidden;
   min-height: clamp(480px, 42vw, 1100px);
   max-height: clamp(550px, 52vw, 1300px);
+}
+/* simpleParallax оборачивает <img> в div без явной высоты — см. комментарий
+   у .rail-interior-image .simpleParallax выше, тот же баг */
+.problems-image .simpleParallax {
+  width: 100%;
+  height: 100%;
 }
 .problems-image img {
   width: 100%;
@@ -253,6 +266,11 @@
   overflow: hidden;
   min-height: clamp(480px, 42vw, 1100px);
   max-height: clamp(550px, 52vw, 1300px);
+}
+/* см. комментарий у .rail-interior-image .simpleParallax — тот же баг */
+.offer-image .simpleParallax {
+  width: 100%;
+  height: 100%;
 }
 .offer-image img {
   width: 100%;
@@ -431,6 +449,11 @@
   min-height: clamp(480px, 42vw, 1100px);
   max-height: clamp(550px, 52vw, 1300px);
 }
+/* см. комментарий у .rail-interior-image .simpleParallax — тот же баг */
+.system-image-block .simpleParallax {
+  width: 100%;
+  height: 100%;
+}
 .system-image-block img {
   width: 100%;
   height: 100%;
@@ -442,7 +465,7 @@
   top: clamp(20px, 3vw, 70px);
   left: clamp(20px, 3vw, 70px);
   color: var(--white);
-  font-family: var(--t-text-font);
+  font-family: var(--t-headline-font);
   font-size: clamp(22px, 2.4vw, 58px);
   line-height: 1.2;
   font-weight: 500;
@@ -1108,7 +1131,7 @@
   gap: 30px;
 }
 .flat-item {
-  width: 240px;
+  width: 180px;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -1121,7 +1144,10 @@
 }
 .flat-item-title {
   font-family: var(--t-text-font);
-  font-size: clamp(40px, 1vw, 120px);
+  /* было clamp(40px, 1vw, 120px) — 1vw не дотягивает до 40px ни на одном
+     реальном экране, поэтому clamp всегда падал в минимум и подпись
+     рендерилась гигантской (40px) на любом десктопе */
+  font-size: clamp(20px, 1.8vw, 26px);
   color: var(--text);
   font-weight: 400;
   text-transform: lowercase;
@@ -1207,6 +1233,14 @@
   flex: 1;
   overflow: hidden;
 }
+/* simpleParallax оборачивает <img> в свой div без явной высоты — на неё
+   не действует правило "img { height:100% }" ниже (100% от auto = auto),
+   поэтому фото садится по естественным пропорциям, а не во всю высоту
+   блока. Тот же приём уже применён для .trends-image/.img-parallax выше. */
+.rail-interior-image .simpleParallax {
+  width: 100%;
+  height: 100%;
+}
 .rail-interior-image img {
   width: 100%;
   height: 100%;
@@ -1226,6 +1260,11 @@
 .zen-interior-image {
   flex: 1;
   overflow: hidden;
+}
+/* см. комментарий у .rail-interior-image .simpleParallax выше — тот же баг */
+.zen-interior-image .simpleParallax {
+  width: 100%;
+  height: 100%;
 }
 .zen-interior-image img {
   width: 100%;
@@ -1452,9 +1491,19 @@
 }
 .radius-image-block {
   flex: 1;
+  position: relative;
   overflow: hidden;
 }
 .radius-image-block img {
+  /* .radius-section использует height:auto + min-height (не явную height),
+     из-за чего у растянутого flex-элемента .radius-image-block высота
+     100% для картинки не резолвится (та же проблема, что уже чинили у
+     слайдеров на этой странице) — картинка схлопывалась до своей
+     "естественной" высоты вместо заполнения всего блока. Позиционируем
+     абсолютно на всю площадь родителя — так это не зависит от resolve
+     процентной высоты. */
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1505,10 +1554,23 @@
   margin-bottom: clamp(30px, 4vw, 120px);
 }
 .prop-row {
-  display: flex;
-  justify-content: flex-end;
+  /* Три чётких столбца (иконка / надпись / описание), не зависящих от
+     длины текста в каждой строке — раньше был flex с justify-content:
+     flex-end и авто-шириной надписи, из-за чего описание в каждой строке
+     начиналось на своём уровне. Колонки заданы явно через grid-column у
+     самих .prop-icon/.prop-label/.prop-text/.prop-value-block ниже — так
+     строки без иконки (например "для сравнения...") тоже не ломают сетку. */
+  display: grid;
+  grid-template-columns:
+    clamp(65px, 7.5vw, 220px) clamp(140px, 15vw, 340px) 1fr;
   align-items: center;
   padding: clamp(20px, 2.8vw, 70px) 0;
+  /* Заказчик попросил сдвинуть вправо именно строки со свойствами (не
+     заголовок "свойства" выше) — чтобы контент начинался примерно с
+     середины блока (~40% слева). Только на десктопе, на мобилке
+     сбрасываем обратно (см. @media max-width:768px). */
+  padding-left: 40%;
+  box-sizing: border-box;
   border-bottom: 1px solid #f0f0f0;
   gap: clamp(15px, 3vw, 70px);
 }
@@ -1516,24 +1578,26 @@
   border-bottom: none;
 }
 .prop-text {
-  flex: 0 1 500px;
+  grid-column: 3;
   font-family: var(--t-text-font);
   font-size: clamp(15px, 1.45vw, 34px);
   line-height: 1.5;
   color: var(--text);
-  text-align: right;
+  text-align: left;
 }
 .prop-label {
-  flex: 0 1 auto;
+  grid-column: 2;
   font-family: var(--t-text-font);
-  font-size: clamp(16px, 1.8vw, 45px);
+  font-size: clamp(14px, 1vw, 22px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.2px;
   color: var(--text);
   text-transform: lowercase;
-  opacity: 0.6;
-  text-align: right;
+  text-align: left;
 }
 .prop-icon {
-  flex: 0 0 clamp(65px, 7.5vw, 220px);
+  grid-column: 1;
   width: clamp(65px, 7.5vw, 220px);
   height: clamp(65px, 7.5vw, 220px);
   display: flex;
@@ -1549,10 +1613,10 @@
   display: block;
 }
 .prop-value-block {
-  flex: 0 1 500px;
+  grid-column: 3;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 .big-index {
   font-family: var(--t-headline-font);
@@ -1561,14 +1625,14 @@
   line-height: 0.8;
   font-weight: 500;
   margin-bottom: clamp(6px, 0.8vw, 20px);
-  text-align: right;
+  text-align: left;
 }
 .index-desc {
   font-family: var(--t-text-font);
   font-size: clamp(13px, 1.1vw, 26px);
   color: var(--orange);
   text-transform: lowercase;
-  text-align: right;
+  text-align: left;
 }
 .properties-main-title {
   font-family: var(--t-headline-font);
@@ -1576,8 +1640,9 @@
   color: var(--orange);
   text-transform: lowercase;
   margin: 0;
-  letter-spacing: -3px;
-  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -2px;
+  line-height: 0.8;
   align-self: flex-end;
   text-align: left;
 }

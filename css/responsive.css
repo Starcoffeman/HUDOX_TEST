@@ -158,7 +158,7 @@ body {
     font-size: 18px;
   }
   .trends-image {
-    height: 300px;
+    height: 400px;
   }
 
   .useful-section {
@@ -531,16 +531,33 @@ body {
     align-items: flex-start;
   }
   .prop-row {
+    /* база теперь display:grid (3 колонки на десктопе) — на мобилке
+       возвращаем обычный flex-столбец, иначе строки останутся в сетке
+       из 3 колонок вместо вертикального стека. Заодно сбрасываем 40%
+       левый отступ десктопной сетки. */
+    display: flex;
     flex-direction: column;
     align-items: flex-end;
+    padding-left: 0;
     gap: 15px;
     padding: 30px 0;
   }
   .prop-text,
   .prop-value-block,
   .prop-label {
-    flex: none;
+    grid-column: auto;
     width: 100%;
+    text-align: right;
+  }
+  /* .prop-value-block — флекс-колонка (см. базовые стили в sections.css),
+     text-align на неё саму не двигает дочерние .big-index/.index-desc —
+     без align-items оба показателя ("Г1", "В1" и т.д.) оставались
+     прижаты к левому краю блока, хотя сам блок растянут на 100% ширины */
+  .prop-value-block {
+    align-items: flex-end;
+  }
+  .big-index,
+  .index-desc {
     text-align: right;
   }
   .big-index {
@@ -955,8 +972,8 @@ body {
     }
   }
 
-  /* ===== ТЕЛЕФОНЫ (390–430px) ===== */
-  @media (max-width: 430px) {
+  /* ===== ТЕЛЕФОНЫ (390–500px) ===== */
+  @media (max-width: 500px) {
     /* ===== ХЕДЕР ===== */
     .navbar {
       /* Фиксируем высоту хедера на мобилке, чтобы точно знать отступ */
@@ -967,7 +984,11 @@ body {
       padding: 0 25px !important;
     }
     body {
-      padding-top: 75px !important;
+      /* было 75px — наследие старого хедера (.navbar высотой 75px), которого
+         давно нет. Актуальный общий хедер (.header-bar) на этой ширине
+         (≤639px, см. css/home/01-header.css) высотой 52px — лишние ~23px
+         создавали заметный зазор между хедером и контентом на мобилке. */
+      padding-top: 52px !important;
     }
 
     .reveal {
@@ -979,7 +1000,10 @@ body {
     }
 
     .main-content {
-      margin-top: 10px !important;
+      /* подогнано под фактический зазор хедер→слайдер на главной странице
+         (index.html, .hero-slider--mobile: top:70px от .hero, реальный
+         зазор от низа хедера ~18.75px на 375px-ширине) */
+      margin-top: 18px !important;
       gap: 10px;
     }
     .logo {
@@ -1403,7 +1427,7 @@ body {
       flex-direction: column-reverse;
     }
     .flat-item-title {
-      font-size: 14px !important;
+      font-size: 15px !important;
     }
     .rail-title {
       font-size: 28px !important;
@@ -2407,7 +2431,7 @@ s
       line-height: 1.5 !important;
     }
     .prop-label {
-      font-size: clamp(16px, 1.8vw, 45px) !important;
+      font-size: clamp(14px, 1vw, 22px) !important;
     }
     .prop-icon {
       flex: 0 0 clamp(65px, 7.5vw, 220px) !important;

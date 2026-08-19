@@ -9,6 +9,14 @@
   z-index: var(--z-header);
 }
 
+/* Пока открыто мобильное меню — прячем header-bar целиком, чтобы сверху
+   экрана сразу начиналась .mobile-menu-head (оранжевая шапка меню), а не
+   было видно узкую полоску исходного хедера над ней. .mobile-menu идёт
+   в разметке сразу за .header, поэтому ловим открытое меню через :has(). */
+.header:has(+ .mobile-menu.is-open) {
+  display: none;
+}
+
 .header-bar {
   position: relative;
   height: 90px;
